@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - HitLai</title>
+    <meta name="description" content="HitLai features - AI workflows with human oversight. Coming Q1 2026.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            text-align: center;
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(236, 72, 153, 0.15);
+            border: 1px solid rgba(236, 72, 153, 0.3);
+            color: #f9a8d4;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff 0%, #f9a8d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        p {
+            font-size: 1.1rem;
+            color: #9ca3af;
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+        .features-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+            max-width: 650px;
+            width: 100%;
+        }
+        .feature-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 1.25rem;
+            text-align: left;
+        }
+        .feature-name {
+            font-weight: 600;
+            color: #f9a8d4;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        .feature-desc {
+            font-size: 0.85rem;
+            color: #9ca3af;
+            line-height: 1.4;
+        }
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.875rem 1.5rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+            color: white;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(236, 72, 153, 0.3);
+        }
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: #e0e0e0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="badge">Coming Q1 2026</div>
+    <h1>Product Features</h1>
+    <p>Full feature details launching with early access. Here's what you can expect:</p>
+
+    <div class="features-preview">
+        <div class="feature-card">
+            <div class="feature-name">Visual Workflow Builder</div>
+            <div class="feature-desc">Drag-and-drop interface. No code required.</div>
+        </div>
+        <div class="feature-card">
+            <div class="feature-name">Human Oversight</div>
+            <div class="feature-desc">Approval queues, review steps, escalation paths.</div>
+        </div>
+        <div class="feature-card">
+            <div class="feature-name">Industry Packs</div>
+            <div class="feature-desc">Pre-built templates for Healthcare, Finance, Legal, Retail.</div>
+        </div>
+        <div class="feature-card">
+            <div class="feature-name">41 AI Agents</div>
+            <div class="feature-desc">Ready-to-use agents for common business tasks.</div>
+        </div>
+        <div class="feature-card">
+            <div class="feature-name">Integrations</div>
+            <div class="feature-desc">Connect to Salesforce, Slack, databases, and more.</div>
+        </div>
+        <div class="feature-card">
+            <div class="feature-name">Enterprise Security</div>
+            <div class="feature-desc">SOC2, HIPAA, GDPR. Full audit trails.</div>
+        </div>
+    </div>
+
+    <div class="cta-group">
+        <a href="/" class="btn btn-primary">Request Early Access</a>
+        <a href="/pricing" class="btn btn-secondary">See Pricing</a>
+    </div>
+</body>
+</html>

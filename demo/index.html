@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Demo - HitLai</title>
+    <meta name="description" content="See HitLai in action. Request a personalized demo of AI workflows with human oversight.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            text-align: center;
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(236, 72, 153, 0.15);
+            border: 1px solid rgba(236, 72, 153, 0.3);
+            color: #f9a8d4;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff 0%, #f9a8d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        p {
+            font-size: 1.1rem;
+            color: #9ca3af;
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+        .demo-form {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 2rem;
+            width: 100%;
+            max-width: 420px;
+            margin-bottom: 1.5rem;
+        }
+        .form-row {
+            margin-bottom: 0.75rem;
+        }
+        .form-row input, .form-row select, .form-row textarea {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.3);
+            color: white;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        .form-row input:focus, .form-row select:focus, .form-row textarea:focus {
+            outline: none;
+            border-color: #ec4899;
+        }
+        .form-row input::placeholder, .form-row textarea::placeholder {
+            color: #6b7280;
+        }
+        .form-row select {
+            cursor: pointer;
+        }
+        .form-row select option {
+            background: #1a1a2e;
+        }
+        .form-row textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        button[type="submit"] {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+            margin-top: 0.5rem;
+        }
+        button[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(236, 72, 153, 0.3);
+        }
+        .note {
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+        }
+        .back-link {
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .back-link:hover {
+            color: #f9a8d4;
+        }
+    </style>
+</head>
+<body>
+    <div class="badge">See It In Action</div>
+    <h1>Request a Demo</h1>
+    <p>Get a personalized walkthrough of HitLai. See how AI workflows with human oversight can transform your business.</p>
+
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="demo-form">
+        <div class="form-row">
+            <input type="text" name="name" placeholder="Your name" required>
+        </div>
+        <div class="form-row">
+            <input type="email" name="email" placeholder="Work email" required>
+        </div>
+        <div class="form-row">
+            <input type="text" name="company" placeholder="Company">
+        </div>
+        <div class="form-row">
+            <select name="company_size">
+                <option value="">Company size</option>
+                <option value="1-10">1-10 employees</option>
+                <option value="11-50">11-50 employees</option>
+                <option value="51-200">51-200 employees</option>
+                <option value="200+">200+ employees</option>
+            </select>
+        </div>
+        <div class="form-row">
+            <select name="industry">
+                <option value="">Industry (optional)</option>
+                <option value="healthcare">Healthcare</option>
+                <option value="finance">Finance</option>
+                <option value="legal">Legal</option>
+                <option value="retail">Retail</option>
+                <option value="insurance">Insurance</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <div class="form-row">
+            <textarea name="use_case" placeholder="What would you like to automate? (optional)"></textarea>
+        </div>
+        <button type="submit">Schedule Demo</button>
+    </form>
+
+    <p class="note">We'll reach out within 24 hours to schedule a time that works for you.</p>
+
+    <a href="/" class="back-link">← Back to Home</a>
+</body>
+</html>

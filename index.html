@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HitLai - AI That Asks Before It Acts</title>
+    <meta name="description" content="Enterprise AI workflows with human oversight. Add AI to your team without losing control. Launching Q1 2026.">
+    <meta property="og:title" content="HitLai - AI That Asks Before It Acts">
+    <meta property="og:description" content="Enterprise AI workflows with human oversight. Add AI to your team without losing control.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hitlai.net">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #e0e0e0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(236, 72, 153, 0.15);
+            border: 1px solid rgba(236, 72, 153, 0.3);
+            color: #f9a8d4;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #f9a8d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: #9ca3af;
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+        }
+
+        .highlight {
+            color: #f9a8d4;
+            font-weight: 500;
+        }
+
+        .value-props {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .value-prop {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .value-prop-icon {
+            width: 24px;
+            height: 24px;
+            color: #f9a8d4;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .value-prop-text {
+            font-size: 1.1rem;
+            color: #d1d5db;
+        }
+
+        .signup-form {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .signup-form h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .signup-form p {
+            color: #9ca3af;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .form-row input {
+            flex: 1;
+            padding: 0.875rem 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.3);
+            color: white;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .form-row input:focus {
+            outline: none;
+            border-color: #ec4899;
+        }
+
+        .form-row input::placeholder {
+            color: #6b7280;
+        }
+
+        .form-row button {
+            padding: 0.875rem 1.5rem;
+            background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+            white-space: nowrap;
+        }
+
+        .form-row button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 20px rgba(236, 72, 153, 0.3);
+        }
+
+        .industries {
+            margin-bottom: 3rem;
+        }
+
+        .industries h3 {
+            font-size: 1rem;
+            color: #9ca3af;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .industry-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .industry-tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            color: #d1d5db;
+        }
+
+        .trust-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding: 1.5rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            margin-bottom: 2rem;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: #9ca3af;
+        }
+
+        .trust-badge svg {
+            color: #10b981;
+        }
+
+        .powered-by {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(99, 102, 241, 0.05);
+            border: 1px solid rgba(99, 102, 241, 0.1);
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+
+        .powered-by p {
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+
+        .powered-by a {
+            color: #a5b4fc;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .powered-by a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #6b7280;
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: #9ca3af;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #f9a8d4;
+        }
+
+        @media (max-width: 600px) {
+            .form-row {
+                flex-direction: column;
+            }
+
+            .trust-badges {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="badge">Early Access - Launching Q1 2026</div>
+
+        <h1>AI That Asks Before It Acts</h1>
+
+        <p class="subtitle">
+            Add <span class="highlight">AI automation</span> to your business with
+            <span class="highlight">human oversight</span> built in.
+            Not another black box—AI that keeps you in control.
+        </p>
+
+        <div class="value-props">
+            <div class="value-prop">
+                <svg class="value-prop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span class="value-prop-text">AI builds workflows, humans approve before they run</span>
+            </div>
+            <div class="value-prop">
+                <svg class="value-prop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span class="value-prop-text">Pre-built templates for your industry—deploy in minutes</span>
+            </div>
+            <div class="value-prop">
+                <svg class="value-prop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span class="value-prop-text">Enterprise-grade security and compliance from day one</span>
+            </div>
+        </div>
+
+        <div class="signup-form">
+            <h3>Request Early Access</h3>
+            <p>Join the waitlist for our private beta. Limited spots for design partners.</p>
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="form-row">
+                <input type="email" name="email" placeholder="you@company.com" required>
+                <button type="submit">Join Waitlist</button>
+            </form>
+        </div>
+
+        <div class="industries">
+            <h3>Built for regulated industries</h3>
+            <div class="industry-tags">
+                <span class="industry-tag">Healthcare</span>
+                <span class="industry-tag">Finance</span>
+                <span class="industry-tag">Legal</span>
+                <span class="industry-tag">Retail</span>
+                <span class="industry-tag">Insurance</span>
+                <span class="industry-tag">Manufacturing</span>
+            </div>
+        </div>
+
+        <div class="trust-badges">
+            <div class="trust-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                SOC2 Ready
+            </div>
+            <div class="trust-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                HIPAA Compliant
+            </div>
+            <div class="trust-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                GDPR Ready
+            </div>
+            <div class="trust-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                Full Audit Trails
+            </div>
+        </div>
+
+        <div class="powered-by">
+            <p>
+                Powered by <a href="https://aictrlnet.com">AICtrlNet</a>, the open core AI orchestration platform.<br>
+                <span style="font-size: 0.8rem; color: #6b7280;">HitLai = "HITL AI" (Human-in-the-Loop AI)</span>
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <p>
+            HitLai is a product of <a href="https://bodaty.com">Bodaty LLC</a><br>
+            <a href="https://aictrlnet.com">AICtrlNet</a> (Open Source Platform) &nbsp;|&nbsp;
+            <a href="mailto:hello@hitlai.net">Contact</a>
+        </p>
+    </footer>
+</body>
+</html>

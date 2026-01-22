@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - HitLai</title>
+    <meta name="description" content="HitLai pricing - Business and Enterprise plans. Coming Q1 2026.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            text-align: center;
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(236, 72, 153, 0.15);
+            border: 1px solid rgba(236, 72, 153, 0.3);
+            color: #f9a8d4;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff 0%, #f9a8d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        p {
+            font-size: 1.1rem;
+            color: #9ca3af;
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+        .pricing-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            max-width: 550px;
+            width: 100%;
+        }
+        .plan-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: left;
+        }
+        .plan-name {
+            font-weight: 600;
+            color: white;
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+        .plan-price {
+            color: #f9a8d4;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        .plan-features {
+            list-style: none;
+            font-size: 0.85rem;
+            color: #9ca3af;
+        }
+        .plan-features li {
+            padding: 0.25rem 0;
+        }
+        .plan-features li::before {
+            content: "✓ ";
+            color: #10b981;
+        }
+        .note {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-bottom: 2rem;
+            max-width: 400px;
+        }
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.875rem 1.5rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+            color: white;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(236, 72, 153, 0.3);
+        }
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: #e0e0e0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .free-note {
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            color: #9ca3af;
+        }
+        .free-note a {
+            color: #a5b4fc;
+            text-decoration: none;
+        }
+        .free-note a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="badge">Coming Q1 2026</div>
+    <h1>Simple Pricing</h1>
+    <p>Two plans designed to grow with your business. Final pricing announced at launch.</p>
+
+    <div class="pricing-preview">
+        <div class="plan-card">
+            <div class="plan-name">Business</div>
+            <div class="plan-price">From $500/month</div>
+            <ul class="plan-features">
+                <li>Up to 50 users</li>
+                <li>All features</li>
+                <li>20+ industry packs</li>
+                <li>Email support</li>
+            </ul>
+        </div>
+        <div class="plan-card">
+            <div class="plan-name">Enterprise</div>
+            <div class="plan-price">Custom pricing</div>
+            <ul class="plan-features">
+                <li>Unlimited users</li>
+                <li>SSO / SAML</li>
+                <li>Multi-tenancy</li>
+                <li>Dedicated support</li>
+            </ul>
+        </div>
+    </div>
+
+    <p class="note">Early access members get exclusive pricing. Join the waitlist to lock in founder rates.</p>
+
+    <div class="cta-group">
+        <a href="/" class="btn btn-primary">Request Early Access</a>
+        <a href="/enterprise" class="btn btn-secondary">Enterprise →</a>
+    </div>
+
+    <p class="free-note">Looking for free? Try <a href="https://aictrlnet.com">AICtrlNet Community Edition</a> (MIT licensed)</p>
+</body>
+</html>
