@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HitLai - AI That Asks Before It Acts</title>
-    <meta name="description" content="Enterprise AI workflows with human oversight. Add AI to your team without losing control. Launching Q1 2026.">
-    <meta property="og:title" content="HitLai - AI That Asks Before It Acts">
-    <meta property="og:description" content="Enterprise AI workflows with human oversight. Add AI to your team without losing control.">
+    <title>HitLai - Your AI Company. Ready in 24 Hours.</title>
+    <meta name="description" content="From AI assistant to full automation—at whatever speed you're comfortable with. 183 workflows. 41 agents. You choose the control level.">
+    <meta property="og:title" content="HitLai - Your AI Company. Ready in 24 Hours.">
+    <meta property="og:description" content="AI workflows with human oversight. Add AI to your team without losing control.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://hitlai.net">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,35 +24,95 @@
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
             min-height: 100vh;
             color: #e0e0e0;
-            display: flex;
-            flex-direction: column;
         }
 
-        .container {
-            max-width: 800px;
+        /* Navigation */
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
         }
 
-        .badge {
-            display: inline-block;
-            background: rgba(236, 72, 153, 0.15);
-            border: 1px solid rgba(236, 72, 153, 0.3);
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-logo span {
             color: #f9a8d4;
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 500;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #f9a8d4;
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+            color: white !important;
+            padding: 0.625rem 1.25rem;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .nav-cta:hover {
+            opacity: 0.9;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 0 5rem;
+        }
+
+        .trust-badges-top {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
             margin-bottom: 1.5rem;
-            letter-spacing: 0.5px;
+            flex-wrap: wrap;
+        }
+
+        .trust-badge-sm {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.8rem;
+            color: #9ca3af;
+        }
+
+        .trust-badge-sm svg {
+            color: #10b981;
+            width: 14px;
+            height: 14px;
         }
 
         h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-size: clamp(2.5rem, 6vw, 3.75rem);
             font-weight: 700;
             line-height: 1.1;
             margin-bottom: 1.5rem;
@@ -62,12 +122,14 @@
             background-clip: text;
         }
 
-        .subtitle {
+        .hero-subtitle {
             font-size: 1.25rem;
             color: #9ca3af;
             line-height: 1.6;
             margin-bottom: 2.5rem;
-            max-width: 600px;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .highlight {
@@ -75,150 +137,433 @@
             font-weight: 500;
         }
 
-        .value-props {
+        .hero-cta {
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             gap: 1rem;
-            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
         }
 
-        .value-prop {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
         }
 
-        .value-prop-icon {
-            width: 24px;
-            height: 24px;
-            color: #f9a8d4;
-            flex-shrink: 0;
-            margin-top: 2px;
+        .btn-primary {
+            background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+            color: white;
         }
 
-        .value-prop-text {
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(236, 72, 153, 0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: #e0e0e0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Section styling */
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #ec4899;
+            margin-bottom: 0.75rem;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .section-desc {
             font-size: 1.1rem;
-            color: #d1d5db;
+            color: #9ca3af;
+            line-height: 1.6;
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 2.5rem;
         }
 
-        .signup-form {
+        /* Control Spectrum Section */
+        .paths-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.25rem;
+            margin-top: 2rem;
+        }
+
+        .path-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 1.75rem;
+            transition: all 0.2s ease;
+        }
+
+        .path-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(236, 72, 153, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .path-letter {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .path-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 0.75rem;
+        }
+
+        .path-points {
+            list-style: none;
+        }
+
+        .path-points li {
+            font-size: 0.9rem;
+            color: #9ca3af;
+            padding: 0.35rem 0;
+            padding-left: 1.25rem;
+            position: relative;
+        }
+
+        .path-points li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #f9a8d4;
+        }
+
+        .path-card.featured {
+            border-color: rgba(236, 72, 153, 0.4);
+            background: rgba(236, 72, 153, 0.05);
+        }
+
+        .path-badge {
+            display: inline-block;
+            background: rgba(236, 72, 153, 0.2);
+            color: #f9a8d4;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Entry Points Grid (v6) */
+        .entry-points-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .entry-point-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 0.75rem 1.25rem;
+            transition: all 0.2s ease;
+        }
+
+        .entry-point-item:hover {
+            border-color: rgba(236, 72, 153, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .entry-point-icon {
+            font-size: 1.25rem;
+        }
+
+        .entry-point-name {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #e0e0e0;
+        }
+
+        .entry-points-cta {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        /* How It Works */
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .step-card {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin: 0 auto 1rem;
+        }
+
+        .step-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-desc {
+            font-size: 0.9rem;
+            color: #9ca3af;
+            line-height: 1.5;
+        }
+
+        /* Industry Solutions */
+        .industry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .industry-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.2s ease;
+        }
+
+        .industry-card:hover {
+            border-color: rgba(236, 72, 153, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .industry-icon {
+            font-size: 1.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .industry-name {
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .industry-desc {
+            font-size: 0.85rem;
+            color: #9ca3af;
+            line-height: 1.4;
+        }
+
+        .industry-cta {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        /* Why HitLai */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .benefit-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(236, 72, 153, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .benefit-icon svg {
+            color: #f9a8d4;
+        }
+
+        .benefit-content h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 0.25rem;
+        }
+
+        .benefit-content p {
+            font-size: 0.9rem;
+            color: #9ca3af;
+            line-height: 1.5;
+        }
+
+        /* Testimonials */
+        .testimonial-section {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 16px;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .testimonial-quote {
+            font-size: 1.35rem;
+            font-style: italic;
+            color: #e0e0e0;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .testimonial-author {
+            color: #9ca3af;
+            font-size: 0.95rem;
+        }
+
+        /* Pricing Preview */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 16px;
             padding: 2rem;
-            margin-bottom: 3rem;
         }
 
-        .signup-form h3 {
+        .pricing-name {
             font-size: 1.25rem;
-            margin-bottom: 0.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.25rem;
         }
 
-        .signup-form p {
-            color: #9ca3af;
+        .pricing-price {
+            font-size: 1.1rem;
+            color: #f9a8d4;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-desc {
             font-size: 0.9rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .form-row {
-            display: flex;
-            gap: 0.75rem;
-        }
-
-        .form-row input {
-            flex: 1;
-            padding: 0.875rem 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            background: rgba(0, 0, 0, 0.3);
-            color: white;
-            font-size: 1rem;
-            font-family: inherit;
-        }
-
-        .form-row input:focus {
-            outline: none;
-            border-color: #ec4899;
-        }
-
-        .form-row input::placeholder {
-            color: #6b7280;
-        }
-
-        .form-row button {
-            padding: 0.875rem 1.5rem;
-            background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            font-family: inherit;
-            white-space: nowrap;
-        }
-
-        .form-row button:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 20px rgba(236, 72, 153, 0.3);
-        }
-
-        .industries {
-            margin-bottom: 3rem;
-        }
-
-        .industries h3 {
-            font-size: 1rem;
             color: #9ca3af;
             margin-bottom: 1rem;
-            font-weight: 500;
+            line-height: 1.5;
         }
 
-        .industry-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-
-        .industry-tag {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            color: #d1d5db;
-        }
-
-        .trust-badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            padding: 1.5rem 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-            margin-bottom: 2rem;
-        }
-
-        .trust-badge {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+        .pricing-feature {
             font-size: 0.85rem;
-            color: #9ca3af;
+            color: #d1d5db;
+            padding: 0.25rem 0;
         }
 
-        .trust-badge svg {
+        .pricing-feature::before {
+            content: "✓ ";
             color: #10b981;
         }
 
+        .pricing-cta {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        /* CTA Banner */
+        .cta-banner {
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.15) 0%, rgba(99, 102, 241, 0.15) 100%);
+            border: 1px solid rgba(236, 72, 153, 0.2);
+            border-radius: 20px;
+            padding: 3.5rem 2rem;
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .cta-banner h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .cta-banner p {
+            font-size: 1.1rem;
+            color: #9ca3af;
+            margin-bottom: 2rem;
+        }
+
+        .cta-banner .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Powered By */
         .powered-by {
             text-align: center;
             padding: 1.5rem;
             background: rgba(99, 102, 241, 0.05);
             border: 1px solid rgba(99, 102, 241, 0.1);
             border-radius: 12px;
-            margin-bottom: 2rem;
+            margin: 2rem 0;
         }
 
         .powered-by p {
@@ -236,11 +581,21 @@
             text-decoration: underline;
         }
 
+        /* Footer */
         footer {
             text-align: center;
-            padding: 2rem;
+            padding: 3rem 2rem;
             color: #6b7280;
             font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
         }
 
         footer a {
@@ -252,98 +607,363 @@
             color: #f9a8d4;
         }
 
-        @media (max-width: 600px) {
-            .form-row {
-                flex-direction: column;
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
             }
 
-            .trust-badges {
-                gap: 1rem;
+            .steps-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .paths-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+                max-width: 280px;
+            }
+
+            .cta-banner .btn-group {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="/" class="nav-logo">Hit<span>Lai</span></a>
+        <div class="nav-links">
+            <a href="/features">Features</a>
+            <a href="/pricing">Pricing</a>
+            <a href="/industries">Industries</a>
+            <a href="/enterprise">Enterprise</a>
+            <a href="/demo">Demo</a>
+            <a href="/trial" class="nav-cta">Start Free Trial</a>
+        </div>
+    </nav>
+
     <div class="container">
-        <div class="badge">Early Access - Launching Q1 2026</div>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="trust-badges-top">
+                <div class="trust-badge-sm">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    SOC2
+                </div>
+                <div class="trust-badge-sm">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    HIPAA-ready
+                </div>
+                <div class="trust-badge-sm">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    GDPR compliant
+                </div>
+            </div>
 
-        <h1>AI That Asks Before It Acts</h1>
+            <h1>Your AI Company.<br>Ready in 24 Hours.</h1>
+            <p class="hero-subtitle">
+                From AI assistant to full automation—from WhatsApp, Slack, or any browser tab.
+                <span class="highlight">183 workflows. 43 agents. 6 channels.</span> You choose the control level.
+            </p>
+            <div class="hero-cta">
+                <a href="/trial" class="btn btn-primary">Start Free Trial</a>
+                <a href="/demo" class="btn btn-secondary">Watch Demo</a>
+            </div>
+        </section>
 
-        <p class="subtitle">
-            Add <span class="highlight">AI automation</span> to your business with
-            <span class="highlight">human oversight</span> built in.
-            Not another black box—AI that keeps you in control.
-        </p>
+        <!-- Control Spectrum Section -->
+        <section class="section">
+            <div class="section-label">Choose Your Pace</div>
+            <h2 class="section-title">Not Ready for Full Automation? That's a Feature.</h2>
+            <p class="section-desc">
+                Four paths to AI adoption. Start where you're comfortable, grow when you're ready.
+            </p>
 
-        <div class="value-props">
-            <div class="value-prop">
-                <svg class="value-prop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-                <span class="value-prop-text">AI builds workflows, humans approve before they run</span>
-            </div>
-            <div class="value-prop">
-                <svg class="value-prop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-                <span class="value-prop-text">Pre-built templates for your industry—deploy in minutes</span>
-            </div>
-            <div class="value-prop">
-                <svg class="value-prop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-                <span class="value-prop-text">Enterprise-grade security and compliance from day one</span>
-            </div>
-        </div>
+            <div class="paths-grid">
+                <div class="path-card">
+                    <div class="path-letter">A</div>
+                    <h3 class="path-title">"I want AI insights first"</h3>
+                    <ul class="path-points">
+                        <li>AI suggests, you decide</li>
+                        <li>See value with zero risk</li>
+                        <li>Move to automation when ready</li>
+                    </ul>
+                </div>
 
-        <div class="signup-form">
-            <h3>Request Early Access</h3>
-            <p>Join the waitlist for our private beta. Limited spots for design partners.</p>
-            <form action="https://formspree.io/f/xqepagnk" method="POST" class="form-row">
-                <input type="email" name="email" placeholder="you@company.com" required>
-                <button type="submit">Join Waitlist</button>
-            </form>
-        </div>
+                <div class="path-card">
+                    <div class="path-letter">B</div>
+                    <h3 class="path-title">"I want AI with oversight"</h3>
+                    <ul class="path-points">
+                        <li>AI handles work, you approve</li>
+                        <li>One-click approvals in Slack</li>
+                        <li>Stay in control while scaling</li>
+                    </ul>
+                </div>
 
-        <div class="industries">
-            <h3>Built for regulated industries</h3>
-            <div class="industry-tags">
-                <span class="industry-tag">Healthcare</span>
-                <span class="industry-tag">Finance</span>
-                <span class="industry-tag">Legal</span>
-                <span class="industry-tag">Retail</span>
-                <span class="industry-tag">Insurance</span>
-                <span class="industry-tag">Manufacturing</span>
-            </div>
-        </div>
+                <div class="path-card">
+                    <div class="path-letter">C</div>
+                    <h3 class="path-title">"Automate everything"</h3>
+                    <ul class="path-points">
+                        <li>Full company automation</li>
+                        <li>24 hours to running business</li>
+                        <li>Exception-based involvement</li>
+                    </ul>
+                </div>
 
-        <div class="trust-badges">
-            <div class="trust-badge">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                </svg>
-                SOC2 Ready
+                <div class="path-card featured">
+                    <div class="path-letter">D</div>
+                    <h3 class="path-title">"I need guidance" <span class="path-badge">DWY</span></h3>
+                    <ul class="path-points">
+                        <li>Expert guidance, built in</li>
+                        <li>2-8 hours/month included</li>
+                        <li>Not DIY, not consultants</li>
+                    </ul>
+                </div>
             </div>
-            <div class="trust-badge">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                </svg>
-                HIPAA Compliant
-            </div>
-            <div class="trust-badge">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                </svg>
-                GDPR Ready
-            </div>
-            <div class="trust-badge">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                </svg>
-                Full Audit Trails
-            </div>
-        </div>
+        </section>
 
+        <!-- Entry Points Section (NEW in v6) -->
+        <section class="section">
+            <div class="section-label">Entry Points</div>
+            <h2 class="section-title">Meet Users Where They Already Work</h2>
+            <p class="section-desc">
+                Six channels, file upload, browser automation — all feeding into the same workflow engine.
+            </p>
+
+            <div class="entry-points-grid">
+                <div class="entry-point-item">
+                    <span class="entry-point-icon">💬</span>
+                    <span class="entry-point-name">WhatsApp</span>
+                </div>
+                <div class="entry-point-item">
+                    <span class="entry-point-icon">✈️</span>
+                    <span class="entry-point-name">Telegram</span>
+                </div>
+                <div class="entry-point-item">
+                    <span class="entry-point-icon">📱</span>
+                    <span class="entry-point-name">SMS</span>
+                </div>
+                <div class="entry-point-item">
+                    <span class="entry-point-icon">💼</span>
+                    <span class="entry-point-name">Slack</span>
+                </div>
+                <div class="entry-point-item">
+                    <span class="entry-point-icon">🎮</span>
+                    <span class="entry-point-name">Discord</span>
+                </div>
+                <div class="entry-point-item">
+                    <span class="entry-point-icon">📧</span>
+                    <span class="entry-point-name">Email</span>
+                </div>
+                <div class="entry-point-item">
+                    <span class="entry-point-icon">📄</span>
+                    <span class="entry-point-name">Files</span>
+                </div>
+                <div class="entry-point-item">
+                    <span class="entry-point-icon">🌐</span>
+                    <span class="entry-point-name">Browser</span>
+                </div>
+            </div>
+
+            <div class="entry-points-cta">
+                <a href="/channels" class="btn btn-secondary">Explore Channels</a>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section class="section">
+            <div class="section-label">How It Works</div>
+            <h2 class="section-title">Three Steps to Your AI Workforce</h2>
+
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Tell us what you need</h3>
+                    <p class="step-desc">Describe your goal or pick from 183 pre-built workflow templates.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Choose your control level</h3>
+                    <p class="step-desc">Pick your autonomy phase: Assisted, Supervised, or Autonomous.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Start and grow</h3>
+                    <p class="step-desc">Begin where you're comfortable, increase autonomy when ready.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Industry Solutions -->
+        <section class="section">
+            <div class="section-label">Industry Solutions</div>
+            <h2 class="section-title">Built for Your Industry</h2>
+            <p class="section-desc">
+                Pre-built templates and compliance frameworks for regulated industries.
+            </p>
+
+            <div class="industry-grid">
+                <div class="industry-card">
+                    <div class="industry-icon">🏥</div>
+                    <h3 class="industry-name">Healthcare</h3>
+                    <p class="industry-desc">HIPAA-compliant patient communication and scheduling</p>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">🏦</div>
+                    <h3 class="industry-name">Finance</h3>
+                    <p class="industry-desc">Risk assessment with human review gates</p>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">🛒</div>
+                    <h3 class="industry-name">Retail</h3>
+                    <p class="industry-desc">Inventory management with exception handling</p>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">⚖️</div>
+                    <h3 class="industry-name">Legal</h3>
+                    <p class="industry-desc">Document review with attorney approval</p>
+                </div>
+            </div>
+
+            <div class="industry-cta">
+                <a href="/industries" class="btn btn-secondary">See All Industries</a>
+            </div>
+        </section>
+
+        <!-- Why HitLai -->
+        <section class="section">
+            <div class="section-label">Why HitLai</div>
+            <h2 class="section-title">AI That Works the Way You Work</h2>
+
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 6h16M4 10h16M4 14h16M4 18h16"/>
+                        </svg>
+                    </div>
+                    <div class="benefit-content">
+                        <h4>Pre-built for your industry</h4>
+                        <p>20+ industry packs with compliance built in</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/>
+                        </svg>
+                    </div>
+                    <div class="benefit-content">
+                        <h4>Human oversight built in</h4>
+                        <p>Not bolted on—it's in the architecture</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <div class="benefit-content">
+                        <h4>Enterprise-grade security</h4>
+                        <p>SOC2, HIPAA, GDPR. Full audit trails.</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <div class="benefit-content">
+                        <h4>Powered by AICtrlNet</h4>
+                        <p>Open core foundation you can trust</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="section">
+            <div class="testimonial-section">
+                <div class="section-label">What Our Users Say</div>
+                <p class="testimonial-quote">
+                    "Finally, AI automation I can trust. The human oversight isn't a limitation—it's the reason we adopted it."
+                </p>
+                <p class="testimonial-author">— Beta Customer, Healthcare</p>
+            </div>
+        </section>
+
+        <!-- Pricing Preview -->
+        <section class="section">
+            <div class="section-label">Pricing</div>
+            <h2 class="section-title">Simple, Transparent Pricing</h2>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3 class="pricing-name">Business</h3>
+                    <p class="pricing-price">$599 - $2,499/mo</p>
+                    <p class="pricing-desc">For growing teams. Expert guidance included.</p>
+                    <div class="pricing-feature">All features included</div>
+                    <div class="pricing-feature">20+ industry packs</div>
+                    <div class="pricing-feature">2-8 expert hours/month</div>
+                    <div class="pricing-feature">Up to 50 users</div>
+                </div>
+
+                <div class="pricing-card">
+                    <h3 class="pricing-name">Enterprise</h3>
+                    <p class="pricing-price">From $12,000/mo</p>
+                    <p class="pricing-desc">For large organizations with complex needs.</p>
+                    <div class="pricing-feature">Everything in Business</div>
+                    <div class="pricing-feature">Multi-tenancy & SSO</div>
+                    <div class="pricing-feature">On-premise deployment</div>
+                    <div class="pricing-feature">Dedicated support</div>
+                </div>
+            </div>
+
+            <div class="pricing-cta">
+                <a href="/pricing" class="btn btn-secondary">See Full Pricing</a>
+            </div>
+        </section>
+
+        <!-- CTA Banner -->
+        <section class="cta-banner">
+            <h2>Ready to add AI to your team?</h2>
+            <p>Start your 14-day free trial. No credit card required.</p>
+            <div class="btn-group">
+                <a href="/trial" class="btn btn-primary">Start Free Trial</a>
+                <a href="/demo" class="btn btn-secondary">Request Demo</a>
+            </div>
+        </section>
+
+        <!-- Powered By -->
         <div class="powered-by">
             <p>
                 Powered by <a href="https://aictrlnet.com">AICtrlNet</a>, the open core AI orchestration platform.<br>
@@ -352,13 +972,20 @@
         </div>
     </div>
 
+    <!-- Footer -->
     <footer>
-        <p>
-            HitLai is a product of <a href="https://bodaty.com">Bodaty LLC</a><br>
-            <a href="https://aictrlnet.com">AICtrlNet</a> (Open Source Platform) &nbsp;|&nbsp;
-            <a href="/enterprise">Enterprise</a> &nbsp;|&nbsp;
-            <a href="/demo">Request Demo</a>
-        </p>
+        <div class="footer-links">
+            <a href="/features">Features</a>
+            <a href="/pricing">Pricing</a>
+            <a href="/channels">Channels</a>
+            <a href="/industries">Industries</a>
+            <a href="/enterprise">Enterprise</a>
+            <a href="/demo">Demo</a>
+            <a href="/autonomy">Control Spectrum</a>
+            <a href="https://aictrlnet.com">AICtrlNet</a>
+        </div>
+        <p>HitLai is a product of <a href="https://bodaty.com">Bodaty LLC</a></p>
+        <p style="margin-top: 0.5rem;">© 2026 Bodaty LLC. All rights reserved.</p>
     </footer>
 </body>
 </html>

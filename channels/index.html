@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Channels - HitLai</title>
+    <meta name="description" content="Start workflows from WhatsApp, Telegram, SMS, Slack, Discord, or Email. Upload files. Automate browsers. All feeding into the same AI workflow engine.">
+    <meta property="og:title" content="HitLai Channels - Work from Anywhere">
+    <meta property="og:description" content="6 messaging channels, file processing, browser automation. Meet users where they already work.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #e0e0e0;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-logo span {
+            color: #f9a8d4;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #f9a8d4;
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+            color: white !important;
+            padding: 0.625rem 1.25rem;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 4rem 0 3rem;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(236, 72, 153, 0.15);
+            color: #f9a8d4;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        h1 {
+            font-size: clamp(2.25rem, 5vw, 3rem);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 1.25rem;
+            background: linear-gradient(135deg, #ffffff 0%, #f9a8d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: #9ca3af;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .highlight {
+            color: #f9a8d4;
+        }
+
+        /* Section styling */
+        .section {
+            padding: 3rem 0;
+        }
+
+        .section-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #ec4899;
+            margin-bottom: 0.75rem;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .section-desc {
+            font-size: 1.05rem;
+            color: #9ca3af;
+            line-height: 1.6;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Channel Grid */
+        .channel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .channel-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 1.75rem;
+            transition: all 0.2s ease;
+        }
+
+        .channel-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(236, 72, 153, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .channel-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .channel-name {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .channel-desc {
+            font-size: 0.9rem;
+            color: #9ca3af;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .channel-use-case {
+            font-size: 0.85rem;
+            color: #f9a8d4;
+            font-style: italic;
+        }
+
+        /* Capability Cards */
+        .capability-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .capability-card {
+            background: rgba(236, 72, 153, 0.05);
+            border: 1px solid rgba(236, 72, 153, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+        }
+
+        .capability-badge {
+            display: inline-block;
+            background: rgba(236, 72, 153, 0.2);
+            color: #f9a8d4;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .capability-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 0.75rem;
+        }
+
+        .capability-desc {
+            font-size: 0.95rem;
+            color: #9ca3af;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .capability-list {
+            list-style: none;
+        }
+
+        .capability-list li {
+            font-size: 0.9rem;
+            color: #d1d5db;
+            padding: 0.35rem 0;
+            padding-left: 1.25rem;
+            position: relative;
+        }
+
+        .capability-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #f9a8d4;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+        }
+
+        .flow-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .flow-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            text-align: center;
+        }
+
+        .flow-item-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .flow-item-label {
+            font-size: 0.85rem;
+            color: #d1d5db;
+        }
+
+        .flow-arrow {
+            color: #ec4899;
+            font-size: 1.5rem;
+        }
+
+        /* CTA Banner */
+        .cta-banner {
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.15) 0%, rgba(99, 102, 241, 0.15) 100%);
+            border: 1px solid rgba(236, 72, 153, 0.2);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .cta-banner h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .cta-banner p {
+            font-size: 1.05rem;
+            color: #9ca3af;
+            margin-bottom: 2rem;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(236, 72, 153, 0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: #e0e0e0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: #6b7280;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        footer a {
+            color: #9ca3af;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #f9a8d4;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .channel-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .capability-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .flow-visual {
+                flex-direction: column;
+            }
+
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+                max-width: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="/" class="nav-logo">Hit<span>Lai</span></a>
+        <div class="nav-links">
+            <a href="/features">Features</a>
+            <a href="/pricing">Pricing</a>
+            <a href="/channels">Channels</a>
+            <a href="/industries">Industries</a>
+            <a href="/enterprise">Enterprise</a>
+            <a href="/trial" class="nav-cta">Start Free Trial</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-badge">New in v6</div>
+            <h1>Start Workflows from<br>Where You Already Work</h1>
+            <p class="hero-subtitle">
+                <span class="highlight">Six messaging channels</span>, file upload, and browser automation — all feeding into the same AI workflow engine. No new apps to learn.
+            </p>
+        </section>
+
+        <!-- 6 Messaging Channels -->
+        <section class="section">
+            <div class="section-label">Messaging Channels</div>
+            <div class="section-title">Meet Users Where They Are</div>
+            <div class="section-desc">
+                Your team lives in messaging apps. Now your workflows do too.
+            </div>
+
+            <div class="channel-grid">
+                <div class="channel-card">
+                    <div class="channel-icon">💬</div>
+                    <div class="channel-name">WhatsApp</div>
+                    <div class="channel-desc">The app business owners live in. Link in 30 seconds, trigger workflows from chat.</div>
+                    <div class="channel-use-case">"Check inventory for SKU-123"</div>
+                </div>
+
+                <div class="channel-card">
+                    <div class="channel-icon">✈️</div>
+                    <div class="channel-name">Telegram</div>
+                    <div class="channel-desc">Fast, secure, real-time. Perfect for urgent notifications and quick commands.</div>
+                    <div class="channel-use-case">"Alert: Order #456 needs approval"</div>
+                </div>
+
+                <div class="channel-card">
+                    <div class="channel-icon">📱</div>
+                    <div class="channel-name">SMS</div>
+                    <div class="channel-desc">Universal reach. Works with every phone, no app required.</div>
+                    <div class="channel-use-case">"Reply YES to confirm appointment"</div>
+                </div>
+
+                <div class="channel-card">
+                    <div class="channel-icon">💼</div>
+                    <div class="channel-name">Slack</div>
+                    <div class="channel-desc">Where teams coordinate. One-click approvals, workflow status in threads.</div>
+                    <div class="channel-use-case">/approve invoice-789</div>
+                </div>
+
+                <div class="channel-card">
+                    <div class="channel-icon">🎮</div>
+                    <div class="channel-name">Discord</div>
+                    <div class="channel-desc">For dev teams and communities. Bot commands that trigger real workflows.</div>
+                    <div class="channel-use-case">!deploy staging-environment</div>
+                </div>
+
+                <div class="channel-card">
+                    <div class="channel-icon">📧</div>
+                    <div class="channel-name">Email</div>
+                    <div class="channel-desc">Some workflows start in an inbox. Parse inbound, trigger automatically.</div>
+                    <div class="channel-use-case">support@ → ticket workflow</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- File + Browser -->
+        <section class="section">
+            <div class="section-label">Beyond Messaging</div>
+            <div class="section-title">Files & Browser Automation</div>
+
+            <div class="capability-grid">
+                <div class="capability-card">
+                    <div class="capability-badge">Files</div>
+                    <div class="capability-title">Upload → Extract → Automate</div>
+                    <div class="capability-desc">
+                        Upload a supplier invoice PDF. In 10 seconds: extracted line items, totals, dates. One more click: routed to approval.
+                    </div>
+                    <ul class="capability-list">
+                        <li>PDF, Excel, CSV, DOCX support</li>
+                        <li>Automatic data extraction</li>
+                        <li>Document generation output</li>
+                        <li>File upload as workflow trigger</li>
+                    </ul>
+                </div>
+
+                <div class="capability-card">
+                    <div class="capability-badge">Browser</div>
+                    <div class="capability-title">No API? No Problem.</div>
+                    <div class="capability-desc">
+                        That legacy system with no API? Navigate, click, fill, extract, screenshot. Any web app becomes an integration.
+                    </div>
+                    <ul class="capability-list">
+                        <li>Drive any web application</li>
+                        <li>Extract data from any page</li>
+                        <li>Fill forms automatically</li>
+                        <li>The "infinite adapter"</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section class="section">
+            <div class="how-it-works">
+                <div class="section-label">How It Works</div>
+                <div class="section-title">All Roads Lead to the Workflow Engine</div>
+
+                <div class="flow-visual">
+                    <div class="flow-item">
+                        <div class="flow-item-icon">📱</div>
+                        <div class="flow-item-label">Any Channel</div>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-item">
+                        <div class="flow-item-icon">⚙️</div>
+                        <div class="flow-item-label">Workflow Engine</div>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-item">
+                        <div class="flow-item-icon">🤖</div>
+                        <div class="flow-item-label">43 AI Agents</div>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-item">
+                        <div class="flow-item-icon">✅</div>
+                        <div class="flow-item-label">Results</div>
+                    </div>
+                </div>
+
+                <p style="color: #9ca3af; font-size: 0.95rem; max-width: 500px; margin: 0 auto;">
+                    Start on WhatsApp. Continue in Slack. Get notified via Telegram. One conversation, all your channels, same workflow state.
+                </p>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-banner">
+            <h2>Start Where You Already Work</h2>
+            <p>Link your first channel in 30 seconds. 14-day free trial, no credit card required.</p>
+            <div class="btn-group">
+                <a href="/trial" class="btn btn-primary">Start Free Trial</a>
+                <a href="/demo" class="btn btn-secondary">Watch Demo</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="/features">Features</a>
+            <a href="/pricing">Pricing</a>
+            <a href="/channels">Channels</a>
+            <a href="/industries">Industries</a>
+            <a href="/enterprise">Enterprise</a>
+            <a href="/demo">Demo</a>
+            <a href="/autonomy">Control Spectrum</a>
+            <a href="https://aictrlnet.com">AICtrlNet</a>
+        </div>
+        <p>HitLai is a product of <a href="https://bodaty.com">Bodaty LLC</a></p>
+        <p style="margin-top: 0.5rem;">© 2026 Bodaty LLC. All rights reserved.</p>
+    </footer>
+</body>
+</html>

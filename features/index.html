@@ -4,144 +4,644 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Features - HitLai</title>
-    <meta name="description" content="HitLai features - AI workflows with human oversight. Coming Q1 2026.">
+    <meta name="description" content="HitLai features - Visual workflow builder, human-in-the-loop, 41 AI agents, 20+ industry packs, 27 integrations, enterprise security.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
             min-height: 100vh;
             color: #e0e0e0;
+        }
+
+        /* Navigation */
+        .nav {
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            padding: 2rem;
-            text-align: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        .badge {
-            display: inline-block;
-            background: rgba(236, 72, 153, 0.15);
-            border: 1px solid rgba(236, 72, 153, 0.3);
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-logo span {
             color: #f9a8d4;
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-bottom: 1.5rem;
         }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: #f9a8d4;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 3rem 0 4rem;
+        }
+
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.75rem;
             font-weight: 700;
             margin-bottom: 1rem;
             background: linear-gradient(135deg, #ffffff 0%, #f9a8d4 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        p {
-            font-size: 1.1rem;
+
+        .hero-subtitle {
+            font-size: 1.15rem;
             color: #9ca3af;
-            margin-bottom: 2rem;
-            max-width: 500px;
+            max-width: 600px;
+            margin: 0 auto;
         }
-        .features-preview {
+
+        /* Feature Sections */
+        .feature-section {
+            padding: 3rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .feature-section:last-of-type {
+            border-bottom: none;
+        }
+
+        .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-bottom: 2rem;
-            max-width: 650px;
-            width: 100%;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
         }
-        .feature-card {
+
+        .feature-grid.reverse {
+            direction: rtl;
+        }
+
+        .feature-grid.reverse > * {
+            direction: ltr;
+        }
+
+        .feature-content {
+            max-width: 450px;
+        }
+
+        .feature-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #ec4899;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .feature-desc {
+            font-size: 1.05rem;
+            color: #9ca3af;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            padding: 0.5rem 0;
+            font-size: 0.95rem;
+            color: #d1d5db;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            color: #10b981;
+            font-weight: 600;
+        }
+
+        .feature-visual {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            padding: 1.25rem;
-            text-align: left;
-        }
-        .feature-name {
-            font-weight: 600;
-            color: #f9a8d4;
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
-        }
-        .feature-desc {
-            font-size: 0.85rem;
-            color: #9ca3af;
-            line-height: 1.4;
-        }
-        .cta-group {
+            border-radius: 16px;
+            padding: 2rem;
+            min-height: 280px;
             display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
+            align-items: center;
             justify-content: center;
         }
+
+        .visual-placeholder {
+            text-align: center;
+            color: #6b7280;
+        }
+
+        .visual-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .visual-text {
+            font-size: 0.9rem;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin: 3rem 0;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #f9a8d4;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #9ca3af;
+            margin-top: 0.25rem;
+        }
+
+        /* Integrations Grid */
+        .integrations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .integration-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #d1d5db;
+        }
+
+        /* Security Badges */
+        .security-badges {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .security-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            font-size: 0.9rem;
+            color: #6ee7b7;
+        }
+
+        .security-badge svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%);
+            border: 1px solid rgba(236, 72, 153, 0.2);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin: 4rem 0 3rem;
+        }
+
+        .cta-section h2 {
+            font-size: 1.75rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: #9ca3af;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
         .btn {
             display: inline-flex;
             align-items: center;
-            padding: 0.875rem 1.5rem;
+            padding: 0.875rem 1.75rem;
             border-radius: 8px;
             font-size: 1rem;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.2s ease;
         }
+
         .btn-primary {
             background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
             color: white;
         }
+
         .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 40px rgba(236, 72, 153, 0.3);
         }
+
         .btn-secondary {
             background: rgba(255, 255, 255, 0.05);
             color: #e0e0e0;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
+
         .btn-secondary:hover {
             background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #6b7280;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        footer a {
+            color: #9ca3af;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #f9a8d4;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .feature-grid.reverse {
+                direction: ltr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .feature-content {
+                max-width: 100%;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="badge">Coming Q1 2026</div>
-    <h1>Product Features</h1>
-    <p>Full feature details launching with early access. Here's what you can expect:</p>
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="/" class="nav-logo">Hit<span>Lai</span></a>
+        <div class="nav-links">
+            <a href="/features">Features</a>
+            <a href="/channels">Channels</a>
+            <a href="/pricing">Pricing</a>
+            <a href="/industries">Industries</a>
+            <a href="/enterprise">Enterprise</a>
+            <a href="/demo">Demo</a>
+        </div>
+    </nav>
 
-    <div class="features-preview">
-        <div class="feature-card">
-            <div class="feature-name">Visual Workflow Builder</div>
-            <div class="feature-desc">Drag-and-drop interface. No code required.</div>
+    <div class="container">
+        <!-- Hero -->
+        <section class="hero">
+            <h1>Everything You Need for AI Automation</h1>
+            <p class="hero-subtitle">
+                Multi-channel entry points, visual workflow builder, 43 AI agents, and enterprise security—all in one platform.
+            </p>
+        </section>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-value">183</div>
+                <div class="stat-label">Workflow Templates</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">43</div>
+                <div class="stat-label">AI Agents</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">28</div>
+                <div class="stat-label">Integrations</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">6</div>
+                <div class="stat-label">Entry Channels</div>
+            </div>
         </div>
-        <div class="feature-card">
-            <div class="feature-name">Human Oversight</div>
-            <div class="feature-desc">Approval queues, review steps, escalation paths.</div>
-        </div>
-        <div class="feature-card">
-            <div class="feature-name">Industry Packs</div>
-            <div class="feature-desc">Pre-built templates for Healthcare, Finance, Legal, Retail.</div>
-        </div>
-        <div class="feature-card">
-            <div class="feature-name">41 AI Agents</div>
-            <div class="feature-desc">Ready-to-use agents for common business tasks.</div>
-        </div>
-        <div class="feature-card">
-            <div class="feature-name">Integrations</div>
-            <div class="feature-desc">Connect to Salesforce, Slack, databases, and more.</div>
-        </div>
-        <div class="feature-card">
-            <div class="feature-name">Enterprise Security</div>
-            <div class="feature-desc">SOC2, HIPAA, GDPR. Full audit trails.</div>
-        </div>
+
+        <!-- NEW: Multi-Channel Entry Points (v6) -->
+        <section class="feature-section">
+            <div class="feature-grid">
+                <div class="feature-content">
+                    <div class="feature-label" style="color: #22c55e;">New in v6</div>
+                    <h2 class="feature-title">Multi-Channel Entry Points</h2>
+                    <p class="feature-desc">
+                        Start workflows from anywhere your users already work. WhatsApp, Slack, email,
+                        file uploads, or browser automation — one platform handles them all.
+                    </p>
+                    <ul class="feature-list">
+                        <li>6 messaging channels (WhatsApp, Telegram, SMS, Slack, Discord, Email)</li>
+                        <li>File upload triggers (PDF, Excel, CSV, DOCX)</li>
+                        <li>Browser automation for legacy systems</li>
+                        <li>Cross-channel conversation continuity</li>
+                        <li>30 seconds to link WhatsApp</li>
+                    </ul>
+                </div>
+                <div class="feature-visual">
+                    <div class="integrations-grid" style="grid-template-columns: repeat(3, 1fr);">
+                        <div class="integration-item">WhatsApp</div>
+                        <div class="integration-item">Telegram</div>
+                        <div class="integration-item">SMS</div>
+                        <div class="integration-item">Slack</div>
+                        <div class="integration-item">Discord</div>
+                        <div class="integration-item">Email</div>
+                        <div class="integration-item">PDF</div>
+                        <div class="integration-item">Excel</div>
+                        <div class="integration-item">Browser</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature 1: Visual Workflow Builder -->
+        <section class="feature-section">
+            <div class="feature-grid reverse">
+                <div class="feature-content">
+                    <div class="feature-label">Build</div>
+                    <h2 class="feature-title">Visual Workflow Builder</h2>
+                    <p class="feature-desc">
+                        Build AI workflows without writing code. Drag and drop to create complex automation
+                        with branching logic, loops, and error handling.
+                    </p>
+                    <ul class="feature-list">
+                        <li>Drag-and-drop interface</li>
+                        <li>No code required</li>
+                        <li>183 pre-built templates</li>
+                        <li>Conditional logic and branching</li>
+                        <li>Error handling and retry</li>
+                    </ul>
+                </div>
+                <div class="feature-visual">
+                    <div class="visual-placeholder">
+                        <div class="visual-icon">🎨</div>
+                        <div class="visual-text">Workflow Builder Screenshot</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature 2: Human-in-the-Loop -->
+        <section class="feature-section">
+            <div class="feature-grid reverse">
+                <div class="feature-content">
+                    <div class="feature-label">Control</div>
+                    <h2 class="feature-title">Human-in-the-Loop</h2>
+                    <p class="feature-desc">
+                        AI that asks before it acts. Built-in approval workflows, review queues, and
+                        escalation paths keep you in control of every decision.
+                    </p>
+                    <ul class="feature-list">
+                        <li>Approval workflows</li>
+                        <li>Review queues</li>
+                        <li>Exception handling</li>
+                        <li>Escalation paths</li>
+                        <li>Slack & Teams integration</li>
+                    </ul>
+                </div>
+                <div class="feature-visual">
+                    <div class="visual-placeholder">
+                        <div class="visual-icon">👤</div>
+                        <div class="visual-text">Approval Dashboard Screenshot</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature 3: AI Agents -->
+        <section class="feature-section">
+            <div class="feature-grid">
+                <div class="feature-content">
+                    <div class="feature-label">Automate</div>
+                    <h2 class="feature-title">41 AI Agents</h2>
+                    <p class="feature-desc">
+                        Pre-built AI agents for common business tasks. From data analysis to customer
+                        communication, deploy intelligent automation in minutes.
+                    </p>
+                    <ul class="feature-list">
+                        <li>33 general-purpose AI agents</li>
+                        <li>8 specialized industry agents</li>
+                        <li>Custom agent creation</li>
+                        <li>Agent collaboration (pods)</li>
+                        <li>Multi-framework support</li>
+                    </ul>
+                </div>
+                <div class="feature-visual">
+                    <div class="visual-placeholder">
+                        <div class="visual-icon">🤖</div>
+                        <div class="visual-text">Agent Library Screenshot</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature 4: Industry Packs -->
+        <section class="feature-section">
+            <div class="feature-grid reverse">
+                <div class="feature-content">
+                    <div class="feature-label">Deploy</div>
+                    <h2 class="feature-title">20+ Industry Packs</h2>
+                    <p class="feature-desc">
+                        Pre-built templates and compliance frameworks for your industry. Deploy in
+                        minutes with built-in best practices and regulatory compliance.
+                    </p>
+                    <ul class="feature-list">
+                        <li>Healthcare (HIPAA)</li>
+                        <li>Finance (SOC2, PCI)</li>
+                        <li>Legal (Attorney approval)</li>
+                        <li>Retail & E-commerce</li>
+                        <li>Insurance & Manufacturing</li>
+                    </ul>
+                </div>
+                <div class="feature-visual">
+                    <div class="visual-placeholder">
+                        <div class="visual-icon">📦</div>
+                        <div class="visual-text">Industry Pack Selection</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature 5: Integrations -->
+        <section class="feature-section">
+            <div class="feature-grid">
+                <div class="feature-content">
+                    <div class="feature-label">Connect</div>
+                    <h2 class="feature-title">27 Integrations</h2>
+                    <p class="feature-desc">
+                        Connect to your existing tools and systems. Native integrations with CRMs,
+                        communication platforms, databases, and cloud storage.
+                    </p>
+                    <ul class="feature-list">
+                        <li>CRMs: Salesforce, HubSpot</li>
+                        <li>Communication: Slack, Teams, Email</li>
+                        <li>Databases & Storage</li>
+                        <li>AI Frameworks: LangChain, AutoGPT</li>
+                        <li>Platforms: n8n, Zapier, Make</li>
+                    </ul>
+                </div>
+                <div class="feature-visual">
+                    <div class="integrations-grid">
+                        <div class="integration-item">Salesforce</div>
+                        <div class="integration-item">HubSpot</div>
+                        <div class="integration-item">Slack</div>
+                        <div class="integration-item">Teams</div>
+                        <div class="integration-item">Gmail</div>
+                        <div class="integration-item">PostgreSQL</div>
+                        <div class="integration-item">AWS S3</div>
+                        <div class="integration-item">Zapier</div>
+                        <div class="integration-item">+19 more</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature 6: Security & Compliance -->
+        <section class="feature-section">
+            <div class="feature-grid reverse">
+                <div class="feature-content">
+                    <div class="feature-label">Secure</div>
+                    <h2 class="feature-title">Enterprise Security & Compliance</h2>
+                    <p class="feature-desc">
+                        Built for regulated industries. Complete audit trails, role-based access,
+                        and compliance certifications from day one.
+                    </p>
+                    <ul class="feature-list">
+                        <li>SOC2 Type II certified</li>
+                        <li>HIPAA compliant</li>
+                        <li>GDPR ready</li>
+                        <li>Full audit trails</li>
+                        <li>Role-based access control</li>
+                    </ul>
+                    <div class="security-badges">
+                        <div class="security-badge">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            SOC2
+                        </div>
+                        <div class="security-badge">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            HIPAA
+                        </div>
+                        <div class="security-badge">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            GDPR
+                        </div>
+                    </div>
+                </div>
+                <div class="feature-visual">
+                    <div class="visual-placeholder">
+                        <div class="visual-icon">🔒</div>
+                        <div class="visual-text">Security Dashboard</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2>Ready to see it in action?</h2>
+            <p>Start your 14-day free trial or request a personalized demo.</p>
+            <div class="cta-buttons">
+                <a href="/trial" class="btn btn-primary">Start Free Trial</a>
+                <a href="/demo" class="btn btn-secondary">Request Demo</a>
+            </div>
+        </section>
     </div>
 
-    <div class="cta-group">
-        <a href="/" class="btn btn-primary">Request Early Access</a>
-        <a href="/pricing" class="btn btn-secondary">See Pricing</a>
-    </div>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="/">Home</a>
+            <a href="/channels">Channels</a>
+            <a href="/pricing">Pricing</a>
+            <a href="/industries">Industries</a>
+            <a href="/enterprise">Enterprise</a>
+            <a href="/demo">Demo</a>
+            <a href="https://aictrlnet.com">AICtrlNet</a>
+        </div>
+        <p>HitLai is a product of <a href="https://bodaty.com">Bodaty LLC</a></p>
+    </footer>
 </body>
 </html>
