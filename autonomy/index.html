@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Spectrum - From AI Assistant to AI Autopilot - HitLai</title>
+    <meta name="description" content="6 phases of AI autonomy. Start where you're comfortable, grow when you're ready. From AI assistant to full company automation.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #e0e0e0;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-logo span {
+            color: #f9a8d4;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: #f9a8d4;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 3rem 0 4rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff 0%, #f9a8d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: #9ca3af;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+
+        .hero-cta {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.875rem 1.75rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(236, 72, 153, 0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: #e0e0e0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Phases Grid */
+        .phases-section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.75rem;
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .phases-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .phase-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 1.75rem;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+
+        .phase-card:hover {
+            border-color: rgba(236, 72, 153, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .phase-number {
+            position: absolute;
+            top: -12px;
+            left: 1.5rem;
+            background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.35rem 0.75rem;
+            border-radius: 12px;
+        }
+
+        .phase-name {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: white;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .phase-tagline {
+            color: #f9a8d4;
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .phase-points {
+            list-style: none;
+        }
+
+        .phase-points li {
+            padding: 0.35rem 0;
+            font-size: 0.9rem;
+            color: #9ca3af;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .phase-points li::before {
+            content: "•";
+            color: #6b7280;
+        }
+
+        /* Phase Levels Indicator */
+        .level-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .level-label {
+            font-size: 0.75rem;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .level-bar {
+            flex: 1;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .level-fill {
+            height: 100%;
+            border-radius: 3px;
+        }
+
+        .phase-card:nth-child(1) .level-fill { width: 16.6%; background: #6b7280; }
+        .phase-card:nth-child(2) .level-fill { width: 33.3%; background: #f59e0b; }
+        .phase-card:nth-child(3) .level-fill { width: 50%; background: #3b82f6; }
+        .phase-card:nth-child(4) .level-fill { width: 66.6%; background: #3b82f6; }
+        .phase-card:nth-child(5) .level-fill { width: 83.3%; background: #10b981; }
+        .phase-card:nth-child(6) .level-fill { width: 100%; background: #10b981; }
+
+        /* Comparison Table */
+        .comparison-section {
+            margin-bottom: 4rem;
+        }
+
+        .comparison-table-wrapper {
+            overflow-x: auto;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 700px;
+        }
+
+        .comparison-table th {
+            text-align: left;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            font-weight: 600;
+            color: #a5b4fc;
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+
+        .comparison-table th:first-child {
+            border-radius: 8px 0 0 0;
+        }
+
+        .comparison-table th:last-child {
+            border-radius: 0 8px 0 0;
+        }
+
+        .comparison-table td {
+            padding: 0.875rem 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: #d1d5db;
+            font-size: 0.9rem;
+        }
+
+        .comparison-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .comparison-table .metric-name {
+            font-weight: 500;
+            color: white;
+        }
+
+        /* Find Your Starting Point */
+        .starting-point {
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%);
+            border: 1px solid rgba(236, 72, 153, 0.2);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .starting-point h2 {
+            font-size: 1.75rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .starting-point p {
+            color: #9ca3af;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .recommendation-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .rec-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .rec-card:hover {
+            border-color: rgba(236, 72, 153, 0.3);
+        }
+
+        .rec-audience {
+            font-size: 0.85rem;
+            color: #9ca3af;
+            margin-bottom: 0.5rem;
+        }
+
+        .rec-phase {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #f9a8d4;
+            margin-bottom: 0.5rem;
+        }
+
+        .rec-desc {
+            font-size: 0.85rem;
+            color: #6b7280;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 2rem 0 3rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #6b7280;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        footer a {
+            color: #9ca3af;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #f9a8d4;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .phases-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .recommendation-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="/" class="nav-logo">Hit<span>Lai</span></a>
+        <div class="nav-links">
+            <a href="/features">Features</a>
+            <a href="/pricing">Pricing</a>
+            <a href="/industries">Industries</a>
+            <a href="/enterprise">Enterprise</a>
+            <a href="/demo">Demo</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Hero -->
+        <section class="hero">
+            <h1>From AI Assistant to AI Autopilot.<br>You Choose.</h1>
+            <p class="hero-subtitle">
+                6 phases of autonomy. Start where you're comfortable. Grow when you're ready.
+                Your pace. Your control.
+            </p>
+            <div class="hero-cta">
+                <a href="/trial" class="btn btn-primary">Start Free Trial</a>
+                <a href="#phases" class="btn btn-secondary">See All Phases</a>
+            </div>
+        </section>
+
+        <!-- 6 Phases -->
+        <section class="phases-section" id="phases">
+            <h2 class="section-title">The 6 Phases of Autonomy</h2>
+
+            <div class="phases-grid">
+                <div class="phase-card">
+                    <span class="phase-number">Phase 1</span>
+                    <h3 class="phase-name">Foundation</h3>
+                    <p class="phase-tagline">"Show me"</p>
+                    <ul class="phase-points">
+                        <li>AI visibility and insights</li>
+                        <li>Human does everything</li>
+                        <li>Zero automation risk</li>
+                        <li>Learn your workflows</li>
+                    </ul>
+                    <div class="level-indicator">
+                        <span class="level-label">Autonomy</span>
+                        <div class="level-bar"><div class="level-fill"></div></div>
+                    </div>
+                </div>
+
+                <div class="phase-card">
+                    <span class="phase-number">Phase 2</span>
+                    <h3 class="phase-name">Assistance</h3>
+                    <p class="phase-tagline">"Suggest to me"</p>
+                    <ul class="phase-points">
+                        <li>AI recommendations</li>
+                        <li>Human executes</li>
+                        <li>AI assists decisions</li>
+                        <li>Build trust over time</li>
+                    </ul>
+                    <div class="level-indicator">
+                        <span class="level-label">Autonomy</span>
+                        <div class="level-bar"><div class="level-fill"></div></div>
+                    </div>
+                </div>
+
+                <div class="phase-card">
+                    <span class="phase-number">Phase 3</span>
+                    <h3 class="phase-name">Automation</h3>
+                    <p class="phase-tagline">"Do it, I'll approve"</p>
+                    <ul class="phase-points">
+                        <li>AI execution</li>
+                        <li>Human approves before action</li>
+                        <li>Approval workflows</li>
+                        <li>Full oversight maintained</li>
+                    </ul>
+                    <div class="level-indicator">
+                        <span class="level-label">Autonomy</span>
+                        <div class="level-bar"><div class="level-fill"></div></div>
+                    </div>
+                </div>
+
+                <div class="phase-card">
+                    <span class="phase-number">Phase 4</span>
+                    <h3 class="phase-name">Optimization</h3>
+                    <p class="phase-tagline">"Do it, ask sometimes"</p>
+                    <ul class="phase-points">
+                        <li>AI learns preferences</li>
+                        <li>Reduces approval frequency</li>
+                        <li>Smart escalation</li>
+                        <li>Trust-based automation</li>
+                    </ul>
+                    <div class="level-indicator">
+                        <span class="level-label">Autonomy</span>
+                        <div class="level-bar"><div class="level-fill"></div></div>
+                    </div>
+                </div>
+
+                <div class="phase-card">
+                    <span class="phase-number">Phase 5</span>
+                    <h3 class="phase-name">Intelligence</h3>
+                    <p class="phase-tagline">"Anticipate my needs"</p>
+                    <ul class="phase-points">
+                        <li>AI anticipates needs</li>
+                        <li>Proactive suggestions</li>
+                        <li>Pattern recognition</li>
+                        <li>Strategic recommendations</li>
+                    </ul>
+                    <div class="level-indicator">
+                        <span class="level-label">Autonomy</span>
+                        <div class="level-bar"><div class="level-fill"></div></div>
+                    </div>
+                </div>
+
+                <div class="phase-card">
+                    <span class="phase-number">Phase 6</span>
+                    <h3 class="phase-name">Autonomy</h3>
+                    <p class="phase-tagline">"Run my company"</p>
+                    <ul class="phase-points">
+                        <li>Full AI operations</li>
+                        <li>Exception-based involvement</li>
+                        <li>Strategic oversight only</li>
+                        <li>24-hour company setup</li>
+                    </ul>
+                    <div class="level-indicator">
+                        <span class="level-label">Autonomy</span>
+                        <div class="level-bar"><div class="level-fill"></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Table -->
+        <section class="comparison-section">
+            <h2 class="section-title">Phase Comparison</h2>
+
+            <div class="comparison-table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Phase 1</th>
+                            <th>Phase 2</th>
+                            <th>Phase 3</th>
+                            <th>Phase 4</th>
+                            <th>Phase 5</th>
+                            <th>Phase 6</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="metric-name">Human Involvement</td>
+                            <td>100%</td>
+                            <td>90%</td>
+                            <td>50%</td>
+                            <td>25%</td>
+                            <td>10%</td>
+                            <td>5%</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">AI Execution</td>
+                            <td>0%</td>
+                            <td>10%</td>
+                            <td>50%</td>
+                            <td>75%</td>
+                            <td>90%</td>
+                            <td>95%</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">Approval Required</td>
+                            <td>N/A</td>
+                            <td>None</td>
+                            <td>All actions</td>
+                            <td>Some actions</td>
+                            <td>Few actions</td>
+                            <td>Exceptions only</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">Best For</td>
+                            <td>Learning</td>
+                            <td>Exploration</td>
+                            <td>Cautious teams</td>
+                            <td>Growing trust</td>
+                            <td>Scaling</td>
+                            <td>Full automation</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Find Your Starting Point -->
+        <section class="starting-point">
+            <h2>Find Your Starting Point</h2>
+            <p>
+                Not sure where to begin? Most teams start at Phase 2 or 3 and progress naturally.
+                Here's our recommendation based on your comfort level:
+            </p>
+
+            <div class="recommendation-cards">
+                <div class="rec-card">
+                    <p class="rec-audience">New to AI automation</p>
+                    <p class="rec-phase">Start at Phase 2</p>
+                    <p class="rec-desc">See AI suggestions, keep full control</p>
+                </div>
+                <div class="rec-card">
+                    <p class="rec-audience">Ready for oversight</p>
+                    <p class="rec-phase">Start at Phase 3</p>
+                    <p class="rec-desc">AI acts, you approve everything</p>
+                </div>
+                <div class="rec-card">
+                    <p class="rec-audience">Want full automation</p>
+                    <p class="rec-phase">Go to Phase 6</p>
+                    <p class="rec-desc">AI runs your business, you handle exceptions</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2 class="section-title">Ready to start your journey?</h2>
+            <p style="color: #9ca3af; margin-bottom: 2rem;">
+                Begin your 14-day free trial. Start at any phase and progress at your own pace.
+            </p>
+            <div class="cta-buttons">
+                <a href="/trial" class="btn btn-primary">Start Free Trial</a>
+                <a href="/demo" class="btn btn-secondary">Request Demo</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="/">Home</a>
+            <a href="/features">Features</a>
+            <a href="/pricing">Pricing</a>
+            <a href="/industries">Industries</a>
+            <a href="/enterprise">Enterprise</a>
+            <a href="https://aictrlnet.com">AICtrlNet</a>
+        </div>
+        <p>HitLai is a product of <a href="https://bodaty.com">Bodaty LLC</a></p>
+    </footer>
+</body>
+</html>
