@@ -4,175 +4,597 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pricing - HitLai</title>
-    <meta name="description" content="HitLai pricing - Business and Enterprise plans. Coming Q1 2026.">
+    <meta name="description" content="HitLai pricing - Business tiers from $599/mo with expert guidance included. Enterprise plans with SSO, multi-tenancy, and dedicated support.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
             min-height: 100vh;
             color: #e0e0e0;
+        }
+
+        /* Navigation */
+        .nav {
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            padding: 2rem;
-            text-align: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        .badge {
-            display: inline-block;
-            background: rgba(236, 72, 153, 0.15);
-            border: 1px solid rgba(236, 72, 153, 0.3);
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-logo span {
             color: #f9a8d4;
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-bottom: 1.5rem;
         }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: #f9a8d4;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 3rem 0 4rem;
+        }
+
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.75rem;
             font-weight: 700;
             margin-bottom: 1rem;
             background: linear-gradient(135deg, #ffffff 0%, #f9a8d4 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        p {
-            font-size: 1.1rem;
+
+        .hero-subtitle {
+            font-size: 1.15rem;
             color: #9ca3af;
-            margin-bottom: 2rem;
-            max-width: 500px;
-        }
-        .pricing-preview {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
             max-width: 550px;
-            width: 100%;
+            margin: 0 auto;
         }
-        .plan-card {
+
+        /* Pricing Grid */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .pricing-card {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 1.5rem;
-            text-align: left;
+            border-radius: 20px;
+            padding: 2.5rem;
         }
-        .plan-name {
-            font-weight: 600;
+
+        .pricing-card.featured {
+            border-color: rgba(236, 72, 153, 0.4);
+            position: relative;
+        }
+
+        .pricing-card.featured::before {
+            content: "Most Popular";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
             color: white;
-            font-size: 1.25rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.35rem 1rem;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .plan-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .plan-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .plan-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #f9a8d4;
             margin-bottom: 0.25rem;
         }
-        .plan-price {
-            color: #f9a8d4;
-            font-size: 1.1rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
-        .plan-features {
-            list-style: none;
-            font-size: 0.85rem;
-            color: #9ca3af;
-        }
-        .plan-features li {
-            padding: 0.25rem 0;
-        }
-        .plan-features li::before {
-            content: "✓ ";
-            color: #10b981;
-        }
-        .note {
+
+        .plan-period {
             font-size: 0.9rem;
             color: #6b7280;
+        }
+
+        .plan-desc {
+            font-size: 0.95rem;
+            color: #9ca3af;
+            margin-top: 0.75rem;
+        }
+
+        .plan-features {
+            list-style: none;
             margin-bottom: 2rem;
-            max-width: 400px;
         }
-        .cta-group {
+
+        .plan-features li {
+            padding: 0.6rem 0;
+            font-size: 0.95rem;
+            color: #d1d5db;
             display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            justify-content: center;
+            align-items: flex-start;
+            gap: 0.75rem;
         }
+
+        .plan-features li::before {
+            content: "✓";
+            color: #10b981;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .plan-cta {
+            text-align: center;
+        }
+
         .btn {
             display: inline-flex;
             align-items: center;
-            padding: 0.875rem 1.5rem;
+            justify-content: center;
+            padding: 0.875rem 2rem;
             border-radius: 8px;
             font-size: 1rem;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.2s ease;
+            width: 100%;
         }
+
         .btn-primary {
             background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
             color: white;
         }
+
         .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 40px rgba(236, 72, 153, 0.3);
         }
+
         .btn-secondary {
             background: rgba(255, 255, 255, 0.05);
             color: #e0e0e0;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
+
         .btn-secondary:hover {
             background: rgba(255, 255, 255, 0.1);
         }
-        .free-note {
-            margin-top: 1.5rem;
-            font-size: 0.85rem;
-            color: #9ca3af;
+
+        /* Business Tier Breakdown */
+        .tier-breakdown {
+            margin-bottom: 4rem;
         }
-        .free-note a {
+
+        .tier-breakdown h2 {
+            text-align: center;
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .tier-breakdown-desc {
+            text-align: center;
+            color: #9ca3af;
+            margin-bottom: 2rem;
+        }
+
+        .tier-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .tier-table th {
+            text-align: left;
+            padding: 1rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            font-weight: 600;
+            color: #a5b4fc;
+            font-size: 0.9rem;
+        }
+
+        .tier-table td {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: #d1d5db;
+            font-size: 0.95rem;
+        }
+
+        .tier-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .tier-name {
+            font-weight: 600;
+            color: white;
+        }
+
+        .tier-price {
+            color: #f9a8d4;
+            font-weight: 600;
+        }
+
+        .tier-hours {
+            color: #10b981;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin-bottom: 4rem;
+        }
+
+        .faq-section h2 {
+            text-align: center;
+            font-size: 1.75rem;
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+        }
+
+        .faq-answer {
+            color: #9ca3af;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .faq-answer a {
             color: #a5b4fc;
             text-decoration: none;
         }
-        .free-note a:hover {
+
+        .faq-answer a:hover {
             text-decoration: underline;
+        }
+
+        /* Community Note */
+        .community-note {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(99, 102, 241, 0.05);
+            border: 1px solid rgba(99, 102, 241, 0.15);
+            border-radius: 12px;
+            margin-bottom: 3rem;
+        }
+
+        .community-note p {
+            color: #9ca3af;
+            font-size: 0.95rem;
+        }
+
+        .community-note a {
+            color: #a5b4fc;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .community-note a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #6b7280;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        footer a {
+            color: #9ca3af;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #f9a8d4;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tier-table {
+                font-size: 0.85rem;
+            }
+
+            .tier-table th,
+            .tier-table td {
+                padding: 0.75rem 1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="badge">Coming Q1 2026</div>
-    <h1>Simple Pricing</h1>
-    <p>Two plans designed to grow with your business. Final pricing announced at launch.</p>
-
-    <div class="pricing-preview">
-        <div class="plan-card">
-            <div class="plan-name">Business</div>
-            <div class="plan-price">From $500/month</div>
-            <ul class="plan-features">
-                <li>Up to 50 users</li>
-                <li>All features</li>
-                <li>20+ industry packs</li>
-                <li>Email support</li>
-            </ul>
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="/" class="nav-logo">Hit<span>Lai</span></a>
+        <div class="nav-links">
+            <a href="/features">Features</a>
+            <a href="/pricing">Pricing</a>
+            <a href="/industries">Industries</a>
+            <a href="/enterprise">Enterprise</a>
+            <a href="/demo">Demo</a>
         </div>
-        <div class="plan-card">
-            <div class="plan-name">Enterprise</div>
-            <div class="plan-price">Custom pricing</div>
-            <ul class="plan-features">
-                <li>Unlimited users</li>
-                <li>SSO / SAML</li>
-                <li>Multi-tenancy</li>
-                <li>Dedicated support</li>
-            </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Hero -->
+        <section class="hero">
+            <h1>Simple, Transparent Pricing</h1>
+            <p class="hero-subtitle">
+                Two plans designed to grow with your business. Expert guidance included in every tier.
+            </p>
+        </section>
+
+        <!-- Pricing Grid -->
+        <div class="pricing-grid">
+            <!-- Business -->
+            <div class="pricing-card featured">
+                <div class="plan-header">
+                    <h2 class="plan-name">Business</h2>
+                    <div class="plan-price">$599 - $2,499</div>
+                    <div class="plan-period">per month</div>
+                    <p class="plan-desc">For growing teams with up to 50 users</p>
+                </div>
+                <ul class="plan-features">
+                    <li>All platform features</li>
+                    <li>20+ industry packs</li>
+                    <li>Advanced AI governance</li>
+                    <li>183 workflow templates</li>
+                    <li>41 AI agents</li>
+                    <li>27 integrations</li>
+                    <li>Email support</li>
+                    <li><strong>2-8 expert hours/month</strong> included</li>
+                </ul>
+                <div class="plan-cta">
+                    <a href="/trial" class="btn btn-primary">Start 14-Day Free Trial</a>
+                </div>
+            </div>
+
+            <!-- Enterprise -->
+            <div class="pricing-card">
+                <div class="plan-header">
+                    <h2 class="plan-name">Enterprise</h2>
+                    <div class="plan-price">$12,000+</div>
+                    <div class="plan-period">per month</div>
+                    <p class="plan-desc">For large organizations with unlimited users</p>
+                </div>
+                <ul class="plan-features">
+                    <li>Everything in Business</li>
+                    <li>Multi-tenancy</li>
+                    <li>SSO / SAML integration</li>
+                    <li>On-premise deployment</li>
+                    <li>Federation across regions</li>
+                    <li>Custom SLA</li>
+                    <li>Dedicated Customer Success Manager</li>
+                    <li>24/7 priority support</li>
+                </ul>
+                <div class="plan-cta">
+                    <a href="/enterprise" class="btn btn-secondary">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Business Tier Breakdown -->
+        <section class="tier-breakdown">
+            <h2>Business Tier Breakdown</h2>
+            <p class="tier-breakdown-desc">Choose the tier that matches your team's needs</p>
+
+            <table class="tier-table">
+                <thead>
+                    <tr>
+                        <th>Tier</th>
+                        <th>Price</th>
+                        <th>Users</th>
+                        <th>Expert Hours</th>
+                        <th>Best For</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="tier-name">Starter</td>
+                        <td class="tier-price">$599/mo</td>
+                        <td>Up to 10</td>
+                        <td class="tier-hours">2 hrs/month</td>
+                        <td>Small teams getting started</td>
+                    </tr>
+                    <tr>
+                        <td class="tier-name">Growth</td>
+                        <td class="tier-price">$1,499/mo</td>
+                        <td>Up to 25</td>
+                        <td class="tier-hours">5 hrs/month</td>
+                        <td>Growing teams scaling automation</td>
+                    </tr>
+                    <tr>
+                        <td class="tier-name">Scale</td>
+                        <td class="tier-price">$2,499/mo</td>
+                        <td>Up to 50</td>
+                        <td class="tier-hours">8 hrs/month</td>
+                        <td>Teams maximizing AI value</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3 class="faq-question">How does the free trial work?</h3>
+                    <p class="faq-answer">
+                        Start with a 14-day free trial of any Business tier. No credit card required.
+                        Full access to all features. Cancel anytime.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">Can I switch plans?</h3>
+                    <p class="faq-answer">
+                        Yes! Upgrade or downgrade anytime. Changes take effect on your next billing cycle.
+                        We'll prorate if you upgrade mid-cycle.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">What's included in the trial?</h3>
+                    <p class="faq-answer">
+                        Full access to all Business features including workflow templates, AI agents,
+                        integrations, and governance tools. Expert hours are included during trial.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">Do you offer annual billing?</h3>
+                    <p class="faq-answer">
+                        Yes! Save 20% with annual billing. Contact us for annual pricing and
+                        custom payment terms.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">What are expert hours?</h3>
+                    <p class="faq-answer">
+                        Expert guidance, built in. Configuration, optimization, strategy—whatever you need.
+                        Our experts help you get maximum value from HitLai.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">What's DWY (Doing With You)?</h3>
+                    <p class="faq-answer">
+                        Not DIY self-serve. Not expensive consultants. Expert guidance included in every
+                        Business tier. We work with you to ensure success.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">What about the Community Edition?</h3>
+                    <p class="faq-answer">
+                        Looking for free? The <a href="https://aictrlnet.com">AICtrlNet Community Edition</a>
+                        is MIT-licensed and completely free. Self-hosted, full core features.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">How do I contact sales?</h3>
+                    <p class="faq-answer">
+                        Visit our <a href="/enterprise">Enterprise page</a> or email
+                        <a href="mailto:enterprise@bodaty.com">enterprise@bodaty.com</a>.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Note -->
+        <div class="community-note">
+            <p>
+                <strong>Looking for free?</strong> Try <a href="https://aictrlnet.com">AICtrlNet Community Edition</a> —
+                MIT-licensed, self-hosted, with full core features including human-in-the-loop workflows.
+            </p>
         </div>
     </div>
 
-    <p class="note">Early access members get exclusive pricing. Join the waitlist to lock in founder rates.</p>
-
-    <div class="cta-group">
-        <a href="/" class="btn btn-primary">Request Early Access</a>
-        <a href="/enterprise" class="btn btn-secondary">Enterprise →</a>
-    </div>
-
-    <p class="free-note">Looking for free? Try <a href="https://aictrlnet.com">AICtrlNet Community Edition</a> (MIT licensed)</p>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="/">Home</a>
+            <a href="/features">Features</a>
+            <a href="/industries">Industries</a>
+            <a href="/enterprise">Enterprise</a>
+            <a href="/demo">Demo</a>
+            <a href="https://aictrlnet.com">AICtrlNet</a>
+        </div>
+        <p>HitLai is a product of <a href="https://bodaty.com">Bodaty LLC</a></p>
+    </footer>
 </body>
 </html>

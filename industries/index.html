@@ -4,24 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Industries - HitLai</title>
-    <meta name="description" content="HitLai industry solutions - AI workflows for Healthcare, Finance, Legal, Retail and more.">
+    <meta name="description" content="HitLai industry solutions - AI workflows for Healthcare, Finance, Legal, Retail and more. 20+ industry packs with compliance built in.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
             min-height: 100vh;
             color: #e0e0e0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-            text-align: center;
         }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-logo span {
+            color: #f9a8d4;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: #f9a8d4;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 3rem 0 4rem;
+        }
+
         .badge {
             display: inline-block;
             background: rgba(236, 72, 153, 0.15);
@@ -33,6 +78,7 @@
             font-weight: 500;
             margin-bottom: 1.5rem;
         }
+
         h1 {
             font-size: 2.5rem;
             font-weight: 700;
@@ -41,132 +87,277 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        p {
-            font-size: 1.1rem;
+
+        .hero-subtitle {
+            font-size: 1.15rem;
             color: #9ca3af;
-            margin-bottom: 2rem;
             max-width: 550px;
+            margin: 0 auto;
         }
+
+        /* Industries Grid */
         .industries-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-bottom: 2rem;
-            max-width: 700px;
-            width: 100%;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
         }
+
         .industry-card {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            padding: 1.5rem;
-            text-align: left;
+            border-radius: 16px;
+            padding: 2rem;
             transition: all 0.2s ease;
         }
+
         .industry-card:hover {
             background: rgba(255, 255, 255, 0.05);
             border-color: rgba(236, 72, 153, 0.3);
+            transform: translateY(-3px);
         }
+
         .industry-icon {
-            font-size: 1.5rem;
-            margin-bottom: 0.75rem;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
         }
+
         .industry-name {
+            font-size: 1.25rem;
             font-weight: 600;
             color: white;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
         }
+
         .industry-desc {
-            font-size: 0.85rem;
+            font-size: 0.95rem;
             color: #9ca3af;
-            line-height: 1.4;
+            line-height: 1.5;
+            margin-bottom: 1rem;
         }
+
         .industry-compliance {
-            margin-top: 0.75rem;
-            font-size: 0.75rem;
-            color: #10b981;
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            color: #6ee7b7;
+            font-size: 0.8rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
         }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 2rem 0 3rem;
+        }
+
+        .cta-title {
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .cta-desc {
+            color: #9ca3af;
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
         .cta-group {
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
             justify-content: center;
         }
+
         .btn {
             display: inline-flex;
             align-items: center;
-            padding: 0.875rem 1.5rem;
+            padding: 0.875rem 1.75rem;
             border-radius: 8px;
             font-size: 1rem;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.2s ease;
         }
+
         .btn-primary {
             background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
             color: white;
         }
+
         .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 40px rgba(236, 72, 153, 0.3);
         }
+
         .btn-secondary {
             background: rgba(255, 255, 255, 0.05);
             color: #e0e0e0;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
+
         .btn-secondary:hover {
             background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Coming Soon */
+        .coming-soon {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            margin-bottom: 3rem;
+        }
+
+        .coming-soon h3 {
+            color: #9ca3af;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .coming-soon p {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #6b7280;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        footer a {
+            color: #9ca3af;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #f9a8d4;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .industries-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="badge">20+ Industry Packs</div>
-    <h1>Built for Your Industry</h1>
-    <p>Pre-built templates and compliance frameworks for regulated industries. Deploy in minutes, not months.</p>
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="/" class="nav-logo">Hit<span>Lai</span></a>
+        <div class="nav-links">
+            <a href="/features">Features</a>
+            <a href="/pricing">Pricing</a>
+            <a href="/industries">Industries</a>
+            <a href="/enterprise">Enterprise</a>
+            <a href="/demo">Demo</a>
+        </div>
+    </nav>
 
-    <div class="industries-grid">
-        <div class="industry-card">
-            <div class="industry-icon">🏥</div>
-            <div class="industry-name">Healthcare</div>
-            <div class="industry-desc">Patient communication, scheduling, prior auth workflows</div>
-            <div class="industry-compliance">HIPAA Compliant</div>
+    <div class="container">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="badge">20+ Industry Packs</div>
+            <h1>Built for Your Industry</h1>
+            <p class="hero-subtitle">
+                Pre-built templates and compliance frameworks for regulated industries.
+                Deploy in minutes, not months.
+            </p>
+        </section>
+
+        <!-- Industries Grid -->
+        <div class="industries-grid">
+            <div class="industry-card">
+                <div class="industry-icon">🏥</div>
+                <h3 class="industry-name">Healthcare</h3>
+                <p class="industry-desc">Patient communication, scheduling, prior authorization workflows with full compliance.</p>
+                <span class="industry-compliance">HIPAA Compliant</span>
+            </div>
+
+            <div class="industry-card">
+                <div class="industry-icon">🏦</div>
+                <h3 class="industry-name">Finance</h3>
+                <p class="industry-desc">Risk assessment, fraud detection, loan processing with human review gates.</p>
+                <span class="industry-compliance">SOC2 & PCI Ready</span>
+            </div>
+
+            <div class="industry-card">
+                <div class="industry-icon">⚖️</div>
+                <h3 class="industry-name">Legal</h3>
+                <p class="industry-desc">Document review, contract analysis, case management with attorney approval.</p>
+                <span class="industry-compliance">Attorney Approval Built-in</span>
+            </div>
+
+            <div class="industry-card">
+                <div class="industry-icon">🛒</div>
+                <h3 class="industry-name">Retail</h3>
+                <p class="industry-desc">Inventory management, customer service, order processing automation.</p>
+                <span class="industry-compliance">E-commerce Integrations</span>
+            </div>
+
+            <div class="industry-card">
+                <div class="industry-icon">🛡️</div>
+                <h3 class="industry-name">Insurance</h3>
+                <p class="industry-desc">Claims processing, underwriting, customer onboarding with compliance checks.</p>
+                <span class="industry-compliance">Compliance Built-in</span>
+            </div>
+
+            <div class="industry-card">
+                <div class="industry-icon">🏭</div>
+                <h3 class="industry-name">Manufacturing</h3>
+                <p class="industry-desc">Quality control, supply chain, maintenance scheduling automation.</p>
+                <span class="industry-compliance">ERP Integrations</span>
+            </div>
         </div>
-        <div class="industry-card">
-            <div class="industry-icon">🏦</div>
-            <div class="industry-name">Finance</div>
-            <div class="industry-desc">Risk assessment, fraud detection, loan processing</div>
-            <div class="industry-compliance">SOC2, PCI Ready</div>
+
+        <!-- Coming Soon -->
+        <div class="coming-soon">
+            <h3>More Industry Packs Coming</h3>
+            <p>Real Estate, Education, Non-Profit, Hospitality, and more in development.</p>
         </div>
-        <div class="industry-card">
-            <div class="industry-icon">⚖️</div>
-            <div class="industry-name">Legal</div>
-            <div class="industry-desc">Document review, contract analysis, case management</div>
-            <div class="industry-compliance">Attorney Approval Built-in</div>
-        </div>
-        <div class="industry-card">
-            <div class="industry-icon">🛒</div>
-            <div class="industry-name">Retail</div>
-            <div class="industry-desc">Inventory, customer service, order processing</div>
-            <div class="industry-compliance">E-commerce Integrations</div>
-        </div>
-        <div class="industry-card">
-            <div class="industry-icon">🛡️</div>
-            <div class="industry-name">Insurance</div>
-            <div class="industry-desc">Claims processing, underwriting, customer onboarding</div>
-            <div class="industry-compliance">Compliance Built-in</div>
-        </div>
-        <div class="industry-card">
-            <div class="industry-icon">🏭</div>
-            <div class="industry-name">Manufacturing</div>
-            <div class="industry-desc">Quality control, supply chain, maintenance scheduling</div>
-            <div class="industry-compliance">ERP Integrations</div>
-        </div>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2 class="cta-title">Ready to automate your industry?</h2>
+            <p class="cta-desc">Start your free trial or talk to our team about your specific needs.</p>
+            <div class="cta-group">
+                <a href="/trial" class="btn btn-primary">Start Free Trial</a>
+                <a href="/demo" class="btn btn-secondary">Request Demo</a>
+            </div>
+        </section>
     </div>
 
-    <div class="cta-group">
-        <a href="/" class="btn btn-primary">Request Early Access</a>
-        <a href="/demo" class="btn btn-secondary">Request Demo</a>
-    </div>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="/">Home</a>
+            <a href="/features">Features</a>
+            <a href="/pricing">Pricing</a>
+            <a href="/enterprise">Enterprise</a>
+            <a href="/demo">Demo</a>
+            <a href="https://aictrlnet.com">AICtrlNet</a>
+        </div>
+        <p>HitLai is a product of <a href="https://bodaty.com">Bodaty LLC</a></p>
+    </footer>
 </body>
 </html>
