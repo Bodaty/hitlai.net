@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Features - HitLai</title>
-    <meta name="description" content="HitLai features - Visual workflow builder, human-in-the-loop, 41 AI agents, 20+ industry packs, 27 integrations, enterprise security.">
+    <meta name="description" content="HitLai features - Visual workflow builder, governed orchestration, 43 AI agents, 20+ industry packs, 10,000+ tools, self-extending agents, enterprise security.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -158,11 +158,18 @@
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 16px;
-            padding: 2rem;
-            min-height: 280px;
+            padding: 1rem;
             display: flex;
             align-items: center;
             justify-content: center;
+            overflow: hidden;
+        }
+
+        .feature-visual img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .visual-placeholder {
@@ -393,8 +400,8 @@
                 <div class="stat-label">AI Agents</div>
             </div>
             <div class="stat-item">
-                <div class="stat-value">28</div>
-                <div class="stat-label">Integrations</div>
+                <div class="stat-value">10,000+</div>
+                <div class="stat-label">Tools</div>
             </div>
             <div class="stat-item">
                 <div class="stat-value">6</div>
@@ -455,20 +462,17 @@
                     </ul>
                 </div>
                 <div class="feature-visual">
-                    <div class="visual-placeholder">
-                        <div class="visual-icon">🎨</div>
-                        <div class="visual-text">Workflow Builder Screenshot</div>
-                    </div>
+                    <img src="/features/screenshots/workflow-builder.png" alt="HitLai Workflow Builder">
                 </div>
             </div>
         </section>
 
-        <!-- Feature 2: Human-in-the-Loop -->
+        <!-- Feature 2: Governed Orchestration -->
         <section class="feature-section">
             <div class="feature-grid reverse">
                 <div class="feature-content">
                     <div class="feature-label">Control</div>
-                    <h2 class="feature-title">Human-in-the-Loop</h2>
+                    <h2 class="feature-title">Governed Orchestration</h2>
                     <p class="feature-desc">
                         AI that asks before it acts. Built-in approval workflows, review queues, and
                         escalation paths keep you in control of every decision.
@@ -482,10 +486,7 @@
                     </ul>
                 </div>
                 <div class="feature-visual">
-                    <div class="visual-placeholder">
-                        <div class="visual-icon">👤</div>
-                        <div class="visual-text">Approval Dashboard Screenshot</div>
-                    </div>
+                    <img src="/features/screenshots/approval-dashboard.png" alt="AI Governance Dashboard">
                 </div>
             </div>
         </section>
@@ -495,13 +496,13 @@
             <div class="feature-grid">
                 <div class="feature-content">
                     <div class="feature-label">Automate</div>
-                    <h2 class="feature-title">41 AI Agents</h2>
+                    <h2 class="feature-title">43 AI Agents</h2>
                     <p class="feature-desc">
                         Pre-built AI agents for common business tasks. From data analysis to customer
                         communication, deploy intelligent automation in minutes.
                     </p>
                     <ul class="feature-list">
-                        <li>33 general-purpose AI agents</li>
+                        <li>35 general-purpose AI agents</li>
                         <li>8 specialized industry agents</li>
                         <li>Custom agent creation</li>
                         <li>Agent collaboration (pods)</li>
@@ -509,10 +510,7 @@
                     </ul>
                 </div>
                 <div class="feature-visual">
-                    <div class="visual-placeholder">
-                        <div class="visual-icon">🤖</div>
-                        <div class="visual-text">Agent Library Screenshot</div>
-                    </div>
+                    <img src="/features/screenshots/agent-library.png" alt="Agents Hub">
                 </div>
             </div>
         </section>
@@ -536,10 +534,7 @@
                     </ul>
                 </div>
                 <div class="feature-visual">
-                    <div class="visual-placeholder">
-                        <div class="visual-icon">📦</div>
-                        <div class="visual-text">Industry Pack Selection</div>
-                    </div>
+                    <img src="/features/screenshots/industry-packs.png" alt="Industry Templates">
                 </div>
             </div>
         </section>
@@ -549,17 +544,17 @@
             <div class="feature-grid">
                 <div class="feature-content">
                     <div class="feature-label">Connect</div>
-                    <h2 class="feature-title">27 Integrations</h2>
+                    <h2 class="feature-title">10,000+ Tools</h2>
                     <p class="feature-desc">
-                        Connect to your existing tools and systems. Native integrations with CRMs,
-                        communication platforms, databases, and cloud storage.
+                        Connect to virtually any tool or system. Native integrations plus self-extending agents
+                        that build new connections at runtime.
                     </p>
                     <ul class="feature-list">
                         <li>CRMs: Salesforce, HubSpot</li>
                         <li>Communication: Slack, Teams, Email</li>
                         <li>Databases & Storage</li>
                         <li>AI Frameworks: LangChain, AutoGPT</li>
-                        <li>Platforms: n8n, Zapier, Make</li>
+                        <li>Self-extending: name a tool, the platform connects</li>
                     </ul>
                 </div>
                 <div class="feature-visual">
@@ -572,13 +567,37 @@
                         <div class="integration-item">PostgreSQL</div>
                         <div class="integration-item">AWS S3</div>
                         <div class="integration-item">Zapier</div>
-                        <div class="integration-item">+19 more</div>
+                        <div class="integration-item">+10,000 more</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Feature 6: Security & Compliance -->
+        <!-- Feature 6: Self-Extending Agents -->
+        <section class="feature-section">
+            <div class="feature-grid reverse">
+                <div class="feature-content">
+                    <div class="feature-label">Extend</div>
+                    <h2 class="feature-title">Self-Extending Agents</h2>
+                    <p class="feature-desc">
+                        AI builds new integrations at runtime. Name a tool — the platform connects to it.
+                        No waiting for vendor support or custom development.
+                    </p>
+                    <ul class="feature-list">
+                        <li>Agents discover and connect to new APIs</li>
+                        <li>Runtime integration creation</li>
+                        <li>No manual configuration required</li>
+                        <li>10,000+ tools and growing</li>
+                        <li>Works with any REST or GraphQL API</li>
+                    </ul>
+                </div>
+                <div class="feature-visual">
+                    <img src="/features/screenshots/self-extending-integration.png" alt="Self-Extending Agents">
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature 7: Security & Compliance -->
         <section class="feature-section">
             <div class="feature-grid reverse">
                 <div class="feature-content">
@@ -611,10 +630,7 @@
                     </div>
                 </div>
                 <div class="feature-visual">
-                    <div class="visual-placeholder">
-                        <div class="visual-icon">🔒</div>
-                        <div class="visual-text">Security Dashboard</div>
-                    </div>
+                    <img src="/features/screenshots/security-dashboard.png" alt="Compliance Dashboard">
                 </div>
             </div>
         </section>
