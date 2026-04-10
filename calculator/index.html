@@ -525,7 +525,7 @@
 
         <!-- Calculate Button -->
         <div style="text-align: center; margin: 1.5rem 0;">
-            <button onclick="calculate()" style="padding: 0.9rem 3rem; background: linear-gradient(135deg, #f9a8d4, #c084fc); color: #1a1a2e; font-weight: 700; font-size: 1.1rem; border: none; border-radius: 8px; cursor: pointer; transition: transform 0.2s; font-family: inherit;">Calculate Total Cost</button>
+            <button onclick="calculateAndScroll()" style="padding: 0.9rem 3rem; background: linear-gradient(135deg, #f9a8d4, #c084fc); color: #1a1a2e; font-weight: 700; font-size: 1.1rem; border: none; border-radius: 8px; cursor: pointer; transition: transform 0.2s; font-family: inherit;">Calculate Total Cost</button>
         </div>
 
         <!-- Results -->
@@ -699,11 +699,14 @@
             document.getElementById('breakdown-body').innerHTML = breakdownHTML;
             document.getElementById('results').style.display = 'block';
             document.getElementById('cta-section').style.display = 'block';
+        }
 
+        function calculateAndScroll() {
+            calculate();
             document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
-        // Auto-calculate on page load with defaults
+        // Auto-calculate on page load with defaults (no scroll)
         window.addEventListener('load', function() {
             calculate();
         });
