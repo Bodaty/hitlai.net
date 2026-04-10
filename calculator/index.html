@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frankenstein Stack Calculator - HitLai</title>
+    <meta name="description" content="Calculate the true cost of your multi-vendor AI stack. Compare 5 separate tools vs one governed AI orchestration platform.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #e0e0e0;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-logo span { color: #f9a8d4; }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: white; }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #9ca3af;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .section {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section h2 {
+            font-size: 1.3rem;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            font-size: 0.85rem;
+            color: #9ca3af;
+            margin-bottom: 1.5rem;
+        }
+
+        .input-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-group label {
+            font-size: 0.85rem;
+            color: #d1d5db;
+            margin-bottom: 0.4rem;
+        }
+
+        .input-group .source {
+            font-size: 0.7rem;
+            color: #6b7280;
+            margin-bottom: 0.3rem;
+            font-style: italic;
+        }
+
+        .input-group input, .input-group select {
+            padding: 0.6rem 0.8rem;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 8px;
+            color: white;
+            font-size: 0.95rem;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .input-group input:focus, .input-group select:focus {
+            border-color: #f9a8d4;
+        }
+
+        .input-group select option {
+            background: #1a1a2e;
+            color: white;
+        }
+
+        .default-note {
+            font-size: 0.7rem;
+            color: #6b7280;
+            margin-top: 0.2rem;
+        }
+
+        .results-section {
+            background: rgba(255,255,255,0.08);
+            border: 2px solid #f9a8d4;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .results-section h2 {
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .result-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .result-card.frankenstein {
+            border: 1px solid #ef4444;
+        }
+
+        .result-card.hitlai {
+            border: 1px solid #22c55e;
+        }
+
+        .result-card h3 {
+            font-size: 0.9rem;
+            color: #9ca3af;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .result-card .amount {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .result-card.frankenstein .amount { color: #ef4444; }
+        .result-card.hitlai .amount { color: #22c55e; }
+
+        .result-card .period { font-size: 0.8rem; color: #6b7280; }
+
+        .savings-bar {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .savings-bar .label {
+            font-size: 0.9rem;
+            color: #9ca3af;
+            margin-bottom: 0.3rem;
+        }
+
+        .savings-bar .amount {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #22c55e;
+        }
+
+        .savings-bar .sub {
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin-top: 0.25rem;
+        }
+
+        .breakdown-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+
+        .breakdown-table th {
+            text-align: left;
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+            color: #9ca3af;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .breakdown-table td {
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.9rem;
+        }
+
+        .breakdown-table td.amount {
+            text-align: right;
+            font-weight: 600;
+            color: #ef4444;
+        }
+
+        .breakdown-table td.hitlai-amount {
+            text-align: right;
+            font-weight: 600;
+            color: #22c55e;
+        }
+
+        .breakdown-table tr:last-child td {
+            border-bottom: none;
+            font-weight: 700;
+            color: white;
+        }
+
+        .breakdown-table tr:last-child td.amount { color: #ef4444; }
+
+        .cta-section {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 0.9rem 2rem;
+            background: linear-gradient(135deg, #f9a8d4, #c084fc);
+            color: #1a1a2e;
+            font-weight: 600;
+            font-size: 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin: 0 0.5rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(249, 168, 212, 0.3);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+        }
+
+        .references {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .references h3 {
+            font-size: 1rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .references ol {
+            padding-left: 1.25rem;
+        }
+
+        .references li {
+            font-size: 0.8rem;
+            color: #6b7280;
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+
+        .references .note {
+            font-size: 0.75rem;
+            color: #4b5563;
+            margin-top: 1rem;
+            font-style: italic;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 1rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: #4b5563;
+            font-size: 0.8rem;
+        }
+
+        .footer a { color: #9ca3af; }
+
+        @media (max-width: 768px) {
+            .input-grid { grid-template-columns: 1fr; }
+            .results-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 1.6rem; }
+            .container { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="/" class="nav-logo">Hit<span>Lai</span></a>
+        <div class="nav-links">
+            <a href="/features/">Features</a>
+            <a href="/pricing/">Pricing</a>
+            <a href="/enterprise/">Enterprise</a>
+            <a href="/demo/">Demo</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="hero">
+            <h1>The Frankenstein Stack Calculator</h1>
+            <p>What does your multi-vendor AI stack actually cost? Enter your numbers below. Default values are based on published industry data.</p>
+        </div>
+
+        <!-- RPA -->
+        <div class="section">
+            <h2>RPA Platform</h2>
+            <div class="section-subtitle">UiPath, Blue Prism, Automation Anywhere, or similar</div>
+            <div class="input-grid">
+                <div class="input-group">
+                    <label>Number of bots</label>
+                    <div class="source">UiPath avg enterprise: 10-50 bots (Deloitte Global RPA Survey, 2023)</div>
+                    <input type="number" id="rpa-bots" value="25" min="0">
+                </div>
+                <div class="input-group">
+                    <label>Annual license cost per bot</label>
+                    <div class="source">UiPath unattended: ~$8,000-$10,000/yr (G2 reviews, Gartner Peer Insights, 2022-2023)</div>
+                    <input type="number" id="rpa-cost-per-bot" value="9000" min="0">
+                </div>
+                <div class="input-group">
+                    <label>Platform/Orchestrator annual cost</label>
+                    <div class="source">UiPath Orchestrator: ~$16,000-$20,000/yr (industry reports, 2022)</div>
+                    <input type="number" id="rpa-platform" value="18000" min="0">
+                </div>
+                <div class="input-group">
+                    <label>FTEs for bot maintenance</label>
+                    <div class="source">Maintenance = 30-40% of total RPA cost (Deloitte Global RPA Survey, 2023)</div>
+                    <input type="number" id="rpa-ftes" value="2" min="0" step="0.5">
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Governance -->
+        <div class="section">
+            <h2>AI Governance Tool</h2>
+            <div class="section-subtitle">Credo AI, Arthur AI, Holistic AI, SurePathAI, or similar</div>
+            <div class="input-grid">
+                <div class="input-group">
+                    <label>Annual platform cost</label>
+                    <div class="source">Enterprise AI governance: $100K-$500K/yr (Forrester, 2023)</div>
+                    <input type="number" id="gov-annual" value="150000" min="0">
+                </div>
+                <div class="input-group">
+                    <label>Implementation/onboarding cost (one-time, amortized over 3 yrs)</label>
+                    <div class="source">Typical enterprise SaaS implementation: 0.5-1x annual license</div>
+                    <input type="number" id="gov-implementation" value="75000" min="0">
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Assistant -->
+        <div class="section">
+            <h2>AI Assistant (Copilot / Gemini)</h2>
+            <div class="section-subtitle">Microsoft Copilot for M365, Google Gemini for Workspace, ChatGPT Enterprise</div>
+            <div class="input-grid">
+                <div class="input-group">
+                    <label>Number of licensed seats</label>
+                    <input type="number" id="copilot-seats" value="200" min="0">
+                </div>
+                <div class="input-group">
+                    <label>Monthly cost per seat</label>
+                    <div class="source">Microsoft Copilot for M365: $30/user/month (Microsoft.com, public pricing)</div>
+                    <input type="number" id="copilot-cost" value="30" min="0">
+                </div>
+                <div class="input-group">
+                    <label>Deployment/training cost per user (one-time, amortized over 3 yrs)</label>
+                    <div class="source">Copilot deployment TCO = 2-3x license in year 1 (McKinsey, 2024)</div>
+                    <input type="number" id="copilot-training" value="100" min="0">
+                </div>
+            </div>
+        </div>
+
+        <!-- Automation Platform -->
+        <div class="section">
+            <h2>Automation Platform</h2>
+            <div class="section-subtitle">Zapier, Make, n8n, or similar</div>
+            <div class="input-grid">
+                <div class="input-group">
+                    <label>Annual platform cost</label>
+                    <div class="source">Zapier Enterprise: $50K-$250K/yr; Make/n8n: $5K-$50K/yr (public pricing pages, G2 reviews)</div>
+                    <input type="number" id="auto-annual" value="36000" min="0">
+                </div>
+                <div class="input-group">
+                    <label>Task/operation overage costs per year</label>
+                    <div class="source">Zapier overage: ~$0.01-$0.03/task (Zapier.com pricing, 2024)</div>
+                    <input type="number" id="auto-overage" value="6000" min="0">
+                </div>
+            </div>
+        </div>
+
+        <!-- Integration / Glue -->
+        <div class="section">
+            <h2>Integration &amp; Maintenance</h2>
+            <div class="section-subtitle">Engineers keeping the tools connected</div>
+            <div class="input-grid">
+                <div class="input-group">
+                    <label>FTEs dedicated to integration/maintenance</label>
+                    <div class="source">5-tool stack typically requires 2-5 FTEs (MuleSoft Connectivity Benchmark, 2023)</div>
+                    <input type="number" id="integration-ftes" value="2" min="0" step="0.5">
+                </div>
+                <div class="input-group">
+                    <label>Fully loaded cost per FTE (annual)</label>
+                    <div class="source">Integration Engineer US avg: $110K-$140K base, $145K-$210K loaded (Glassdoor, BLS, 2024)</div>
+                    <input type="number" id="integration-salary" value="165000" min="0">
+                </div>
+                <div class="input-group">
+                    <label>Annual middleware/iPaaS costs</label>
+                    <div class="source">MuleSoft, Workato, Boomi, or custom integration infrastructure</div>
+                    <input type="number" id="integration-tools" value="24000" min="0">
+                </div>
+            </div>
+        </div>
+
+        <!-- Training -->
+        <div class="section">
+            <h2>Multi-Vendor Training Overhead</h2>
+            <div class="section-subtitle">Training across 5 platforms vs. one</div>
+            <div class="input-grid">
+                <div class="input-group">
+                    <label>Employees needing training</label>
+                    <input type="number" id="training-employees" value="50" min="0">
+                </div>
+                <div class="input-group">
+                    <label>Annual training cost per employee (across all tools)</label>
+                    <div class="source">Multi-vendor training overhead: $1,200-$1,800/employee/yr (Gartner, 2023; Training Industry Inc., 2024)</div>
+                    <input type="number" id="training-cost" value="1500" min="0">
+                </div>
+            </div>
+        </div>
+
+        <!-- HitLai Config -->
+        <div class="section">
+            <h2>HitLai Alternative</h2>
+            <div class="section-subtitle">Select your HitLai tier for comparison</div>
+            <div class="input-grid">
+                <div class="input-group">
+                    <label>HitLai tier</label>
+                    <select id="hitlai-tier">
+                        <option value="0">Community (Free / Open Source)</option>
+                        <option value="599">Business Starter ($599/mo)</option>
+                        <option value="1499" selected>Business Growth ($1,499/mo)</option>
+                        <option value="2499">Business Scale ($2,499/mo)</option>
+                        <option value="10000">Enterprise ($10,000+/mo)</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Estimated integration FTEs with unified platform</label>
+                    <div class="source">Single platform eliminates most cross-tool integration work</div>
+                    <input type="number" id="hitlai-ftes" value="0.5" min="0" step="0.25">
+                </div>
+                <div class="input-group">
+                    <label>Training cost per employee (single platform)</label>
+                    <div class="source">Single-platform training: ~$500/employee vs $1,500 multi-vendor (IDC, 2023)</div>
+                    <input type="number" id="hitlai-training" value="500" min="0">
+                </div>
+            </div>
+        </div>
+
+        <!-- Calculate Button -->
+        <div style="text-align: center; margin: 1.5rem 0;">
+            <button onclick="calculate()" style="padding: 0.9rem 3rem; background: linear-gradient(135deg, #f9a8d4, #c084fc); color: #1a1a2e; font-weight: 700; font-size: 1.1rem; border: none; border-radius: 8px; cursor: pointer; transition: transform 0.2s; font-family: inherit;">Calculate Total Cost</button>
+        </div>
+
+        <!-- Results -->
+        <div class="results-section" id="results" style="display: none;">
+            <h2>Your Results</h2>
+
+            <div class="results-grid">
+                <div class="result-card frankenstein">
+                    <h3>Frankenstein Stack</h3>
+                    <div class="amount" id="total-frankenstein">$0</div>
+                    <div class="period">per year</div>
+                </div>
+                <div class="result-card hitlai">
+                    <h3>HitLai</h3>
+                    <div class="amount" id="total-hitlai">$0</div>
+                    <div class="period">per year</div>
+                </div>
+            </div>
+
+            <div class="savings-bar">
+                <div class="label">Annual Savings</div>
+                <div class="amount" id="annual-savings">$0</div>
+                <div class="sub" id="three-year-savings">3-year savings: $0</div>
+            </div>
+
+            <!-- Breakdown -->
+            <h3 style="color: white; margin-bottom: 1rem;">Cost Breakdown</h3>
+            <table class="breakdown-table">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th style="text-align: right;">Frankenstein Stack</th>
+                        <th style="text-align: right;">HitLai</th>
+                    </tr>
+                </thead>
+                <tbody id="breakdown-body">
+                </tbody>
+            </table>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-section" id="cta-section" style="display: none;">
+            <p style="color: #9ca3af; margin-bottom: 1rem;">Ready to consolidate your stack?</p>
+            <a href="https://github.com/Bodaty/aictrlnet-community" class="cta-button">Try Community Edition (Free)</a>
+            <a href="/demo/" class="cta-button secondary">Request a Demo</a>
+        </div>
+
+        <!-- References -->
+        <div class="references">
+            <h3>Sources &amp; Methodology</h3>
+            <ol>
+                <li><strong>UiPath per-bot pricing</strong> (~$8,000-$10,000/yr unattended): G2 user reviews and Gartner Peer Insights, 2022-2023. UiPath does not publish a public price list; these ranges reflect commonly reported figures across multiple review platforms.</li>
+                <li><strong>UiPath average ARR per customer</strong> (~$135,000/yr): Calculated from UiPath 10-K SEC filing, FY2024 — $1.46B ARR across ~10,800 customers. Skewed by large enterprise deals.</li>
+                <li><strong>RPA maintenance costs</strong> (30-40% of total program cost): Deloitte Global RPA Survey, 2023. Multiple consulting firms report similar ranges.</li>
+                <li><strong>RPA project failure rate</strong> (30-50% fail to meet ROI): Everest Group research and EY analysis of RPA programs. Widely cited across analyst reports.</li>
+                <li><strong>AI governance platform costs</strong> ($100K-$500K/yr enterprise): Forrester Research, 2023. Individual vendor pricing (Credo AI, Arthur AI, Holistic AI) is not publicly available — all use enterprise quote-based pricing.</li>
+                <li><strong>Gartner AI governance spend prediction</strong> (5-10% of AI budget by 2026): Gartner Top Strategic Technology Trends 2024: AI TRiSM, October 2023.</li>
+                <li><strong>Microsoft Copilot for M365</strong> ($30/user/month): Microsoft.com official pricing page. Publicly listed and verifiable. Volume discounts (10-20% for 10,000+ seats) available through Enterprise Agreements.</li>
+                <li><strong>Copilot deployment TCO</strong> (2-3x license in year 1): McKinsey analysis of Copilot deployment costs including change management, training, and security review, 2024.</li>
+                <li><strong>Zapier pricing</strong> (Professional ~$20/mo, Team ~$69/user/mo, Enterprise $50K-$250K/yr): Zapier.com pricing page, 2024-2025. Task overage: ~$0.01-$0.03/task.</li>
+                <li><strong>Make pricing</strong> (Core ~$9/mo, Pro ~$16/mo, Teams ~$29/user/mo): Make.com pricing page, 2024-2025.</li>
+                <li><strong>n8n pricing</strong> (Starter ~$20/mo, Pro ~$50/mo, self-hosted free): n8n.io pricing page, 2024-2025.</li>
+                <li><strong>Integration engineer salaries</strong> ($110K-$140K base, $145K-$210K fully loaded): Glassdoor, Levels.fyi, Bureau of Labor Statistics, 2024. Fully loaded multiplier: 1.3-1.5x base.</li>
+                <li><strong>Enterprise integration spend</strong> ($4.7M/yr average for large enterprises): MuleSoft 2023 Connectivity Benchmark Report. Note: MuleSoft has a commercial interest in this number.</li>
+                <li><strong>Integration as % of IT budget</strong> (25-35%): Gartner, 2023.</li>
+                <li><strong>Per-integration cost</strong> ($25,000-$50,000 per point-to-point): Forrester Research estimates for enterprise systems.</li>
+                <li><strong>Enterprise IT training spend</strong> ($1,200-$1,800/employee/yr): Gartner, 2023; Training Industry Inc. 2024 Training Industry Report ($1,220/learner average).</li>
+                <li><strong>Multi-vendor training premium</strong> (40-60% more than single-platform): IDC, 2023. Cited in secondary sources; incremental cost estimated at $500-$1,000/employee/year per additional vendor.</li>
+                <li><strong>Shadow AI prevalence</strong> (50%+ of enterprise AI usage unsanctioned): Salesforce and Microsoft enterprise surveys, 2023-2024.</li>
+                <li><strong>HitLai pricing</strong>: hitlai.net/pricing — Community (Free), Business Starter ($599/mo), Growth ($1,499/mo), Scale ($2,499/mo), Enterprise ($10,000+/mo).</li>
+            </ol>
+            <div class="note">
+                Default values in this calculator represent mid-range estimates for a mid-size enterprise (200-1,000 employees) based on the sources above. Your actual costs will vary based on vendor negotiations, deployment scope, and organizational complexity. All Frankenstein Stack components are optional — adjust to zero any tools you don't use. RPA and AI governance vendor pricing is enterprise-quote-based and not publicly listed; the defaults reflect analyst estimates and user-reported ranges.
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2026 <a href="https://bodaty.com">Bodaty</a> | <a href="https://hitlai.net">HitLai</a> | <a href="https://aictrlnet.com">AICtrlNet</a></p>
+        </div>
+    </div>
+
+    <script>
+        function formatCurrency(num) {
+            return '$' + Math.round(num).toLocaleString();
+        }
+
+        function calculate() {
+            // RPA costs
+            var rpaBots = parseFloat(document.getElementById('rpa-bots').value) || 0;
+            var rpaCostPerBot = parseFloat(document.getElementById('rpa-cost-per-bot').value) || 0;
+            var rpaPlatform = parseFloat(document.getElementById('rpa-platform').value) || 0;
+            var rpaFtes = parseFloat(document.getElementById('rpa-ftes').value) || 0;
+
+            // AI Governance costs
+            var govAnnual = parseFloat(document.getElementById('gov-annual').value) || 0;
+            var govImpl = parseFloat(document.getElementById('gov-implementation').value) || 0;
+
+            // Copilot costs
+            var copilotSeats = parseFloat(document.getElementById('copilot-seats').value) || 0;
+            var copilotCost = parseFloat(document.getElementById('copilot-cost').value) || 0;
+            var copilotTraining = parseFloat(document.getElementById('copilot-training').value) || 0;
+
+            // Automation platform costs
+            var autoAnnual = parseFloat(document.getElementById('auto-annual').value) || 0;
+            var autoOverage = parseFloat(document.getElementById('auto-overage').value) || 0;
+
+            // Integration costs
+            var integrationFtes = parseFloat(document.getElementById('integration-ftes').value) || 0;
+            var integrationSalary = parseFloat(document.getElementById('integration-salary').value) || 0;
+            var integrationTools = parseFloat(document.getElementById('integration-tools').value) || 0;
+
+            // Training costs
+            var trainingEmployees = parseFloat(document.getElementById('training-employees').value) || 0;
+            var trainingCost = parseFloat(document.getElementById('training-cost').value) || 0;
+
+            // HitLai config
+            var hitlaiMonthly = parseFloat(document.getElementById('hitlai-tier').value) || 0;
+            var hitlaiFtes = parseFloat(document.getElementById('hitlai-ftes').value) || 0;
+            var hitlaiTrainingCost = parseFloat(document.getElementById('hitlai-training').value) || 0;
+
+            // Calculate Frankenstein Stack
+            var rpaTotal = (rpaBots * rpaCostPerBot) + rpaPlatform + (rpaFtes * integrationSalary);
+            var govTotal = govAnnual + (govImpl / 3);
+            var copilotTotal = (copilotSeats * copilotCost * 12) + ((copilotSeats * copilotTraining) / 3);
+            var autoTotal = autoAnnual + autoOverage;
+            var integrationTotal = (integrationFtes * integrationSalary) + integrationTools;
+            var trainingTotal = trainingEmployees * trainingCost;
+
+            var frankensteinTotal = rpaTotal + govTotal + copilotTotal + autoTotal + integrationTotal + trainingTotal;
+
+            // Calculate HitLai
+            var hitlaiLicense = hitlaiMonthly * 12;
+            var hitlaiIntegration = hitlaiFtes * integrationSalary;
+            var hitlaiTraining = trainingEmployees * hitlaiTrainingCost;
+            var hitlaiTotal = hitlaiLicense + hitlaiIntegration + hitlaiTraining;
+
+            var annualSavings = frankensteinTotal - hitlaiTotal;
+            var threeYearSavings = annualSavings * 3;
+            var savingsPercent = frankensteinTotal > 0 ? Math.round((annualSavings / frankensteinTotal) * 100) : 0;
+
+            // Update results
+            document.getElementById('total-frankenstein').textContent = formatCurrency(frankensteinTotal);
+            document.getElementById('total-hitlai').textContent = formatCurrency(hitlaiTotal);
+            document.getElementById('annual-savings').textContent = formatCurrency(annualSavings);
+            document.getElementById('three-year-savings').textContent = '3-year savings: ' + formatCurrency(threeYearSavings) + ' (' + savingsPercent + '% reduction)';
+
+            // Build breakdown
+            var breakdownHTML = '';
+            var rows = [
+                ['RPA (licenses + platform + maintenance FTEs)', rpaTotal, 0],
+                ['AI Governance (platform + implementation)', govTotal, 0],
+                ['AI Assistant (Copilot/Gemini licenses + deployment)', copilotTotal, 0],
+                ['Automation Platform (license + overage)', autoTotal, 0],
+                ['Integration & Maintenance (FTEs + tools)', integrationTotal, hitlaiIntegration],
+                ['Multi-Vendor Training', trainingTotal, hitlaiTraining],
+                ['HitLai Platform License', 0, hitlaiLicense]
+            ];
+
+            for (var i = 0; i < rows.length; i++) {
+                breakdownHTML += '<tr><td>' + rows[i][0] + '</td>';
+                breakdownHTML += '<td class="amount">' + (rows[i][1] > 0 ? formatCurrency(rows[i][1]) : '—') + '</td>';
+                breakdownHTML += '<td class="hitlai-amount">' + (rows[i][2] > 0 ? formatCurrency(rows[i][2]) : (rows[i][0] === 'HitLai Platform License' ? formatCurrency(hitlaiLicense) : 'Included')) + '</td>';
+                breakdownHTML += '</tr>';
+            }
+
+            breakdownHTML += '<tr><td>TOTAL</td>';
+            breakdownHTML += '<td class="amount">' + formatCurrency(frankensteinTotal) + '</td>';
+            breakdownHTML += '<td class="hitlai-amount">' + formatCurrency(hitlaiTotal) + '</td>';
+            breakdownHTML += '</tr>';
+
+            document.getElementById('breakdown-body').innerHTML = breakdownHTML;
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('cta-section').style.display = 'block';
+
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Auto-calculate on page load with defaults
+        window.addEventListener('load', function() {
+            calculate();
+        });
+    </script>
+</body>
+</html>
