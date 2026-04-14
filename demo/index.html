@@ -124,7 +124,8 @@
     <h1>Request a Demo</h1>
     <p>Get a personalized walkthrough of HitLai. See how AI workflows with human oversight can transform your business.</p>
 
-    <form action="https://formspree.io/f/xqepagnk" method="POST" class="demo-form">
+    <form id="lead-form" class="demo-form">
+        <div style="position:absolute;left:-9999px"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
         <div class="form-row">
             <input type="text" name="name" placeholder="Your name" required>
         </div>
@@ -162,6 +163,44 @@
 
     <p class="note">We'll reach out within 24 hours to schedule a time that works for you.</p>
 
-    <a href="/" class="back-link">← Back to Home</a>
+    <a href="/" class="back-link">&larr; Back to Home</a>
+
+    <script>
+    // UPDATE: Replace with actual Cloud Function URL after deployment
+    var LEAD_API = 'https://marketing-leads-xy6vr5msca-uc.a.run.app';
+    var form = document.getElementById('lead-form');
+    var btn = form.querySelector('button[type="submit"]');
+    var btnText = btn.textContent;
+
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        if (form._gotcha && form._gotcha.value) return;
+        var data = Object.fromEntries(new FormData(form));
+        data.source_page = window.location.href;
+        data.source_site = window.location.hostname;
+        delete data._gotcha;
+        btn.disabled = true;
+        btn.textContent = 'Sending...';
+        try {
+            var res = await fetch(LEAD_API + '/demo', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            var result = await res.json();
+            if (result.success) {
+                form.innerHTML = '<div style="text-align:center;padding:2rem;color:#6ee7b7;font-size:1.1rem;">' + result.message + '</div>';
+            } else {
+                btn.disabled = false;
+                btn.textContent = btnText;
+                alert(result.error || 'Something went wrong. Please try again.');
+            }
+        } catch (err) {
+            btn.disabled = false;
+            btn.textContent = btnText;
+            alert('Network error. Please try again.');
+        }
+    });
+    </script>
 </body>
 </html>

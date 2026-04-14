@@ -329,9 +329,8 @@
             </div>
 
             <!-- Trial Form -->
-            <form action="https://formspree.io/f/xqepagnk" method="POST" class="trial-form">
-                <input type="hidden" name="form_type" value="trial_signup">
-                <input type="hidden" name="trial_plan" value="business_starter">
+            <form id="lead-form" class="trial-form">
+                <div style="position:absolute;left:-9999px"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
 
                 <h3 class="form-title">Create Your Account</h3>
 
@@ -381,5 +380,43 @@
         <p>By signing up, you agree to our Terms of Service and Privacy Policy</p>
         <p style="margin-top: 0.5rem;">HitLai is a product of <a href="https://bodaty.com">Bodaty LLC</a></p>
     </footer>
+
+    <script>
+    // UPDATE: Replace with actual Cloud Function URL after deployment
+    var LEAD_API = 'https://marketing-leads-xy6vr5msca-uc.a.run.app';
+    var form = document.getElementById('lead-form');
+    var btn = form.querySelector('button[type="submit"]');
+    var btnText = btn.textContent;
+
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        if (form._gotcha && form._gotcha.value) return;
+        var data = Object.fromEntries(new FormData(form));
+        data.source_page = window.location.href;
+        data.source_site = window.location.hostname;
+        delete data._gotcha;
+        btn.disabled = true;
+        btn.textContent = 'Sending...';
+        try {
+            var res = await fetch(LEAD_API + '/trial', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            var result = await res.json();
+            if (result.success) {
+                form.innerHTML = '<div style="text-align:center;padding:2rem;color:#6ee7b7;font-size:1.1rem;">' + result.message + '</div>';
+            } else {
+                btn.disabled = false;
+                btn.textContent = btnText;
+                alert(result.error || 'Something went wrong. Please try again.');
+            }
+        } catch (err) {
+            btn.disabled = false;
+            btn.textContent = btnText;
+            alert('Network error. Please try again.');
+        }
+    });
+    </script>
 </body>
 </html>

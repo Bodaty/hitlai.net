@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - HitLai</title>
+    <meta name="description" content="Free enterprise white papers on AI governance, orchestration, and adoption strategy.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #e0e0e0;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-logo span { color: #f9a8d4; }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover { color: #f9a8d4; }
+
+        .nav-cta {
+            background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+            color: white !important;
+            padding: 0.625rem 1.25rem;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 3rem 0 2.5rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff 0%, #f9a8d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: #9ca3af;
+            max-width: 550px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .papers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .paper-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .paper-card .label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #ec4899;
+            margin-bottom: 0.75rem;
+        }
+
+        .paper-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .paper-card .subtitle {
+            font-size: 0.85rem;
+            color: #a5b4fc;
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+
+        .paper-card p.desc {
+            font-size: 0.9rem;
+            color: #9ca3af;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            flex: 1;
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+            text-align: center;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(236, 72, 153, 0.3);
+        }
+
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal-overlay.active { display: flex; }
+
+        .modal-content {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2.5rem;
+            width: 100%;
+            max-width: 420px;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1.25rem;
+            background: none;
+            border: none;
+            color: #6b7280;
+            font-size: 1.5rem;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .modal-close:hover { color: white; }
+
+        .modal-content h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.5rem;
+            padding-right: 2rem;
+        }
+
+        .modal-content .modal-desc {
+            font-size: 0.9rem;
+            color: #9ca3af;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-row {
+            margin-bottom: 0.75rem;
+        }
+
+        .form-row input {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.3);
+            color: white;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .form-row input:focus {
+            outline: none;
+            border-color: #ec4899;
+        }
+
+        .form-row input::placeholder { color: #6b7280; }
+
+        .modal-content button[type="submit"] {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+            margin-top: 0.5rem;
+        }
+
+        .modal-content button[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(236, 72, 153, 0.3);
+        }
+
+        .modal-content button[type="submit"]:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .hp { position: absolute; left: -9999px; }
+
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: #6b7280;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        footer a {
+            color: #9ca3af;
+            text-decoration: none;
+        }
+
+        footer a:hover { color: #f9a8d4; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .papers-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="/" class="nav-logo">Hit<span>Lai</span></a>
+        <div class="nav-links">
+            <a href="/features">Features</a>
+            <a href="/pricing">Pricing</a>
+            <a href="/resources">Resources</a>
+            <a href="/enterprise">Enterprise</a>
+            <a href="/demo">Demo</a>
+            <a href="/trial" class="nav-cta">Start Free Trial</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="hero">
+            <h1>Resources</h1>
+            <p>Enterprise white papers on AI governance, orchestration, and adoption strategy. Free to download.</p>
+        </section>
+
+        <div class="papers-grid">
+            <div class="paper-card">
+                <div class="label">White Paper</div>
+                <h3>AI Without the Leap of Faith</h3>
+                <div class="subtitle">How Graduated Autonomy Lets Enterprises Adopt AI at Their Own Pace</div>
+                <p class="desc">Enterprise AI adoption is stalling due to a false binary: full autonomy or full manual. The AI Dial framework offers graduated steps with no leap of faith required.</p>
+                <button class="download-btn" data-slug="ai-without-leap-of-faith" data-title="AI Without the Leap of Faith">Download Free</button>
+            </div>
+
+            <div class="paper-card">
+                <div class="label">White Paper</div>
+                <h3>Cutting Through the AI Agent Hype</h3>
+                <div class="subtitle">What Enterprise Leaders Actually Need to Know</div>
+                <p class="desc">The agent ecosystem optimizes for capability, not governed capability. An evaluation framework for enterprise leaders navigating the agent landscape.</p>
+                <button class="download-btn" data-slug="cutting-through-ai-agent-hype" data-title="Cutting Through the AI Agent Hype">Download Free</button>
+            </div>
+
+            <div class="paper-card">
+                <div class="label">White Paper</div>
+                <h3>The $3 Trillion Mistake</h3>
+                <div class="subtitle">What Data Quality Taught Us About AI Governance</div>
+                <p class="desc">Poor data quality cost $3T/year for two decades. Enterprises are repeating this pattern with AI governance -- deploying first, governing second.</p>
+                <button class="download-btn" data-slug="3-trillion-mistake" data-title="The $3 Trillion Mistake">Download Free</button>
+            </div>
+
+            <div class="paper-card">
+                <div class="label">White Paper</div>
+                <h3>The Hidden Cost of Playing It Safe</h3>
+                <div class="subtitle">Why Your 5-Vendor AI Stack Costs More Than You Think</div>
+                <p class="desc">Most enterprises assemble a Frankenstein stack -- five vendors with five governance stories and zero unified view. The case for consolidation.</p>
+                <button class="download-btn" data-slug="hidden-cost-playing-it-safe" data-title="The Hidden Cost of Playing It Safe">Download Free</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Download Modal -->
+    <div id="download-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close">&times;</button>
+            <h3 id="modal-title">Download White Paper</h3>
+            <p class="modal-desc">Enter your email and we'll send the download link right away.</p>
+            <form id="download-form">
+                <input type="hidden" name="whitepaper_slug" id="wp-slug">
+                <div class="hp"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
+                <div class="form-row">
+                    <input type="text" name="first_name" placeholder="First name" required>
+                </div>
+                <div class="form-row">
+                    <input type="email" name="email" placeholder="Work email" required>
+                </div>
+                <button type="submit" id="dl-submit">Get Download Link</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="/features">Features</a>
+            <a href="/pricing">Pricing</a>
+            <a href="/resources">Resources</a>
+            <a href="/industries">Industries</a>
+            <a href="/enterprise">Enterprise</a>
+            <a href="/demo">Demo</a>
+            <a href="https://aictrlnet.com">AICtrlNet</a>
+        </div>
+        <p>HitLai is a product of <a href="https://bodaty.com">Bodaty LLC</a></p>
+        <p style="margin-top: 0.5rem;">&copy; 2026 Bodaty LLC. All rights reserved.</p>
+    </footer>
+
+    <script>
+    // UPDATE: Replace with actual Cloud Function URL after deployment
+    var LEAD_API = 'https://marketing-leads-xy6vr5msca-uc.a.run.app';
+
+    var modal = document.getElementById('download-modal');
+    var slugInput = document.getElementById('wp-slug');
+    var modalTitle = document.getElementById('modal-title');
+    var form = document.getElementById('download-form');
+    var submitBtn = document.getElementById('dl-submit');
+
+    document.querySelectorAll('.download-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            slugInput.value = this.dataset.slug;
+            modalTitle.textContent = 'Download: ' + this.dataset.title;
+            modal.classList.add('active');
+            form.reset();
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Get Download Link';
+        });
+    });
+
+    document.getElementById('modal-close').addEventListener('click', function() {
+        modal.classList.remove('active');
+    });
+
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) modal.classList.remove('active');
+    });
+
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        if (form._gotcha && form._gotcha.value) return;
+
+        var data = Object.fromEntries(new FormData(form));
+        data.source_page = window.location.href;
+        data.source_site = window.location.hostname;
+        delete data._gotcha;
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+
+        try {
+            var res = await fetch(LEAD_API + '/whitepaper', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            var result = await res.json();
+            if (result.success) {
+                form.innerHTML = '<div style="text-align:center;padding:1.5rem 0;color:#6ee7b7;font-size:1.05rem;line-height:1.6;">' +
+                    result.message + '</div>';
+            } else {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Get Download Link';
+                alert(result.error || 'Something went wrong. Please try again.');
+            }
+        } catch (err) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Get Download Link';
+            alert('Network error. Please try again.');
+        }
+    });
+    </script>
+</body>
+</html>

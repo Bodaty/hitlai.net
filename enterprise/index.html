@@ -507,6 +507,7 @@
         <div class="nav-links">
             <a href="/features">Features</a>
             <a href="/pricing">Pricing</a>
+            <a href="/resources">Resources</a>
             <a href="/industries">Industries</a>
             <a href="/enterprise">Enterprise</a>
             <a href="/demo">Demo</a>
@@ -680,7 +681,8 @@
                 <h2 class="contact-title">Talk to Our Enterprise Team</h2>
                 <p class="contact-subtitle">Tell us about your organization and we'll show you how HitLai can help.</p>
 
-                <form action="https://formspree.io/f/xbdglpqb" method="POST" class="contact-form">
+                <form id="lead-form" class="contact-form">
+                    <div style="position:absolute;left:-9999px"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
                     <div class="form-row form-row-grid">
                         <input type="text" name="name" placeholder="Your name" required>
                         <input type="email" name="email" placeholder="Work email" required>
@@ -722,11 +724,50 @@
             <a href="/">Home</a>
             <a href="/features">Features</a>
             <a href="/pricing">Pricing</a>
+            <a href="/resources">Resources</a>
             <a href="/industries">Industries</a>
             <a href="/demo">Demo</a>
             <a href="https://aictrlnet.com">AICtrlNet</a>
         </div>
         <p>HitLai is a product of <a href="https://bodaty.com">Bodaty LLC</a></p>
     </footer>
+
+    <script>
+    // UPDATE: Replace with actual Cloud Function URL after deployment
+    var LEAD_API = 'https://marketing-leads-xy6vr5msca-uc.a.run.app';
+    var form = document.getElementById('lead-form');
+    var btn = form.querySelector('button[type="submit"]');
+    var btnText = btn.textContent;
+
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        if (form._gotcha && form._gotcha.value) return;
+        var data = Object.fromEntries(new FormData(form));
+        data.source_page = window.location.href;
+        data.source_site = window.location.hostname;
+        delete data._gotcha;
+        btn.disabled = true;
+        btn.textContent = 'Sending...';
+        try {
+            var res = await fetch(LEAD_API + '/enterprise', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            var result = await res.json();
+            if (result.success) {
+                form.innerHTML = '<div style="text-align:center;padding:2rem;color:#6ee7b7;font-size:1.1rem;">' + result.message + '</div>';
+            } else {
+                btn.disabled = false;
+                btn.textContent = btnText;
+                alert(result.error || 'Something went wrong. Please try again.');
+            }
+        } catch (err) {
+            btn.disabled = false;
+            btn.textContent = btnText;
+            alert('Network error. Please try again.');
+        }
+    });
+    </script>
 </body>
 </html>
