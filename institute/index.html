@@ -52,6 +52,15 @@
         }
 
         /* Navigation */
+        nav.topnav{display:flex;justify-content:space-between;align-items:center;padding:22px 32px;max-width:1200px;margin:0 auto}
+        .logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+        .logo-mark-wrap{width:36px;height:36px;border-radius:50%;background:rgba(38,24,32,0.6);border:1px solid rgba(251,113,133,0.18);overflow:hidden;display:grid;place-items:center;box-shadow:0 4px 16px rgba(251,113,133,0.10);filter:hue-rotate(15deg) saturate(0.95)}
+        .logo-mark-wrap img{width:100%;height:100%;display:block;object-fit:cover}
+        .logo-text{font-family:'Fraunces',Georgia,serif;font-weight:700;font-size:22px;color:#fef6f1;letter-spacing:-0.5px}
+        .logo-text span{color:#fb7185;font-style:italic}
+        .nav-cta{background:#fb7185;color:#1a1419!important;padding:9px 18px;border-radius:6px;font-weight:600!important;transition:all 0.2s ease}
+        .nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(251,113,133,0.28)}
+
         .nav {
             display: flex;
             justify-content: space-between;
@@ -656,16 +665,19 @@
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav class="nav">
-        <a href="/" class="nav-logo">Hit<span>Lai</span></a>
+    <nav class="topnav" aria-label="Primary">
+        <a href="/" class="logo" aria-label="HitLai — home">
+            <span class="logo-mark-wrap"><img src="/logo-mark.png" alt="" width="36" height="36" loading="eager" decoding="async"></span>
+            <span class="logo-text">Hit<span>Lai</span></span>
+        </a>
         <div class="nav-links">
             <a href="/features">Features</a>
             <a href="/pricing">Pricing</a>
             <a href="/industries">Industries</a>
             <a href="/enterprise">Enterprise</a>
-            <a href="/institute" class="active">Institute</a>
-            <a href="/demo">Demo</a>
+            <a href="/resources">Resources</a>
+            <a href="/institute">Institute</a>
+            <a href="/trial" class="nav-cta">Start Free Trial</a>
         </div>
     </nav>
 
