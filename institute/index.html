@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HitLai Institute — Run Your Business: AI, Your Team, Your Systems, Together</title>
+    <meta name="description" content="Practical AI training for small businesses. Every session ends with AI, your team, and your systems coordinated on one real workflow in your business — proposals, customer response, paperwork. Taught by Bobby Koritala, founder of AICtrlNet.">
+    <link rel="canonical" href="https://hitlai.net/institute/">
+    <meta name="theme-color" content="#1a1419">
+    <meta name="color-scheme" content="dark">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="HitLai Institute">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="HitLai Institute — Run Your Business: AI, Your Team, Your Systems, Together">
+    <meta property="og:description" content="AI tools, your team, your systems — running together, safely. Modules for proposals, customer response, paperwork, trust, and scaling. Pilot cohort in Chicago — free.">
+    <meta property="og:url" content="https://hitlai.net/institute/">
+    <meta property="og:image" content="https://hitlai.net/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="HitLai Institute — Practical AI training for small businesses.">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="HitLai Institute — Run Your Business">
+    <meta name="twitter:description" content="Practical AI training — proposals, customer response, paperwork. Pilot cohort in Chicago.">
+    <meta name="twitter:image" content="https://hitlai.net/og-image.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@graph":[
+      {"@type":"Organization","@id":"https://bodaty.com/#org","name":"Bodaty LLC","url":"https://bodaty.com/","logo":"https://bodaty.com/icon-512.png"},
+      {"@type":"EducationalOrganization","name":"HitLai Institute","url":"https://hitlai.net/institute/","parentOrganization":{"@id":"https://bodaty.com/#org"}}
+    ]}
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #e0e0e0;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-logo span { color: #f9a8d4; }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: #f9a8d4; }
+
+        .nav-links a.active { color: #f9a8d4; }
+
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 3.5rem 0 3rem;
+        }
+
+        .hero-eyebrow {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #f9a8d4;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 1.25rem;
+            padding: 0.35rem 1rem;
+            background: rgba(249, 168, 212, 0.08);
+            border: 1px solid rgba(249, 168, 212, 0.2);
+            border-radius: 999px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            background: linear-gradient(135deg, #ffffff 0%, #f9a8d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: #b8bfce;
+            max-width: 720px;
+            margin: 0 auto 1.25rem;
+            line-height: 1.5;
+        }
+
+        .hero-moat {
+            font-size: 0.95rem;
+            color: #f9a8d4;
+            font-weight: 500;
+            max-width: 760px;
+            margin: 0 auto 2rem;
+            line-height: 1.55;
+            padding: 0.6rem 1.2rem;
+            border-top: 1px solid rgba(249, 168, 212, 0.2);
+            border-bottom: 1px solid rgba(249, 168, 212, 0.2);
+        }
+
+        .hero-ctas {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.875rem 1.75rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(236, 72, 153, 0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: #e0e0e0;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Sections */
+        section { margin-bottom: 4rem; }
+
+        section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        section h2 + .section-sub {
+            color: #9ca3af;
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 2.5rem;
+            font-size: 1.05rem;
+        }
+
+        /* Why grid */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .why-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 1.75rem;
+        }
+
+        .why-card h3 {
+            color: #f9a8d4;
+            font-size: 1.05rem;
+            margin-bottom: 0.6rem;
+            font-weight: 600;
+        }
+
+        .why-card p {
+            color: #b8bfce;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Module cards */
+        .modules {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .module-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .module-card.available {
+            border-color: rgba(249, 168, 212, 0.3);
+        }
+
+        .module-card.available::before {
+            content: "Available Now";
+            position: absolute;
+            top: -12px;
+            left: 1.5rem;
+            background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+            color: white;
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 0.3rem 0.8rem;
+            border-radius: 999px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .module-card.soon::before {
+            content: "Coming Soon";
+            position: absolute;
+            top: -12px;
+            left: 1.5rem;
+            background: rgba(99, 102, 241, 0.25);
+            color: #c7d2fe;
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 0.3rem 0.8rem;
+            border-radius: 999px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .module-code {
+            font-size: 0.85rem;
+            color: #a5b4fc;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .module-title {
+            font-size: 1.3rem;
+            color: white;
+            font-weight: 700;
+            margin: 0.35rem 0 0.5rem;
+        }
+
+        .module-hook {
+            color: #b8bfce;
+            font-size: 0.95rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .module-body p { color: #c5cbd6; font-size: 0.92rem; line-height: 1.55; margin-bottom: 0.65rem; }
+
+        .module-body strong { color: white; font-weight: 600; }
+
+        .module-meta {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            font-size: 0.82rem;
+            color: #9ca3af;
+        }
+
+        /* Structure banner */
+        .structure {
+            background: rgba(249, 168, 212, 0.05);
+            border: 1px solid rgba(249, 168, 212, 0.15);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .structure h3 {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .structure-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .structure-grid.cols-4 {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .structure-part {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 1.2rem;
+            text-align: center;
+        }
+
+        .structure-part .part-label {
+            font-size: 0.75rem;
+            color: #f9a8d4;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .structure-part h4 {
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 0.35rem;
+            font-weight: 600;
+        }
+
+        .structure-part p {
+            font-size: 0.85rem;
+            color: #9ca3af;
+            line-height: 1.45;
+        }
+
+        /* Pricing */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+        }
+
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 1.75rem;
+            text-align: center;
+        }
+
+        .pricing-card.featured {
+            border-color: rgba(236, 72, 153, 0.4);
+            position: relative;
+        }
+
+        .pricing-card.featured::before {
+            content: "Most Value";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+            color: white;
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 0.3rem 0.8rem;
+            border-radius: 999px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pricing-card h3 { color: white; font-size: 1.15rem; font-weight: 600; margin-bottom: 0.3rem; }
+
+        .pricing-card .price {
+            font-size: 1.9rem;
+            color: #f9a8d4;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+        }
+
+        .pricing-card .price-sub { color: #9ca3af; font-size: 0.85rem; margin-bottom: 1.2rem; }
+
+        .pricing-card ul {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-card ul li {
+            padding: 0.4rem 0;
+            font-size: 0.9rem;
+            color: #c5cbd6;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .pricing-card ul li::before {
+            content: "✓";
+            color: #10b981;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        /* Pilot banner */
+        .pilot-banner {
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.12), rgba(99, 102, 241, 0.12));
+            border: 1px solid rgba(236, 72, 153, 0.25);
+            border-radius: 16px;
+            padding: 2.25rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .pilot-banner h3 {
+            color: white;
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .pilot-banner p {
+            color: #c5cbd6;
+            max-width: 640px;
+            margin: 0 auto 1.25rem;
+            font-size: 1rem;
+            line-height: 1.55;
+        }
+
+        .pilot-badge {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.15);
+            color: #6ee7b7;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 0.3rem 0.9rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        /* Teacher */
+        .teacher {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            padding: 2.25rem;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .teacher-headshot {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.25), rgba(99, 102, 241, 0.25));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .teacher-content h3 { color: white; font-size: 1.4rem; margin-bottom: 0.75rem; }
+        .teacher-content p { color: #c5cbd6; font-size: 0.98rem; line-height: 1.6; margin-bottom: 0.75rem; }
+        .teacher-content .credentials { font-size: 0.85rem; color: #9ca3af; }
+
+        /* Resources */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .resource-link {
+            display: block;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 1.25rem;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .resource-link:hover {
+            border-color: rgba(249, 168, 212, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .resource-link .label {
+            font-size: 0.75rem;
+            color: #f9a8d4;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 0.4rem;
+        }
+
+        .resource-link .title {
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .resource-link .desc {
+            color: #9ca3af;
+            font-size: 0.86rem;
+            line-height: 1.5;
+        }
+
+        /* FAQ */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .faq-item h3 {
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .faq-item p {
+            color: #9ca3af;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .faq-item a { color: #a5b4fc; text-decoration: none; }
+        .faq-item a:hover { text-decoration: underline; }
+
+        /* Form */
+        .signup-form {
+            max-width: 520px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.25);
+            border-radius: 12px;
+            padding: 1.25rem;
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .signup-form input,
+        .signup-form select,
+        .signup-form textarea {
+            font-family: inherit;
+            font-size: 0.95rem;
+            padding: 0.75rem 0.9rem;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 8px;
+            color: white;
+        }
+
+        .signup-form input::placeholder,
+        .signup-form textarea::placeholder { color: #6b7280; }
+
+        .signup-form input:focus,
+        .signup-form select:focus,
+        .signup-form textarea:focus {
+            outline: none;
+            border-color: rgba(249, 168, 212, 0.5);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .signup-form .form-privacy {
+            font-size: 0.78rem;
+            color: #6b7280;
+            text-align: center;
+            margin-top: 0.2rem;
+        }
+
+        .signup-form .form-privacy a { color: #a5b4fc; text-decoration: none; }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2.5rem 2rem 2rem;
+            color: #6b7280;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 3rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.75rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        footer a { color: #9ca3af; text-decoration: none; }
+        footer a:hover { color: #f9a8d4; }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            h1 { font-size: 2.25rem; }
+            .nav-links { display: none; }
+            .why-grid { grid-template-columns: 1fr; }
+            .modules { grid-template-columns: 1fr; }
+            .structure-grid,
+            .structure-grid.cols-4 { grid-template-columns: 1fr; }
+            .pricing-grid { grid-template-columns: 1fr; }
+            .teacher { grid-template-columns: 1fr; }
+            .teacher-headshot { max-width: 160px; margin: 0 auto; }
+            .resources-grid { grid-template-columns: 1fr; }
+            .faq-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="/" class="nav-logo">Hit<span>Lai</span></a>
+        <div class="nav-links">
+            <a href="/features">Features</a>
+            <a href="/pricing">Pricing</a>
+            <a href="/industries">Industries</a>
+            <a href="/enterprise">Enterprise</a>
+            <a href="/institute" class="active">Institute</a>
+            <a href="/demo">Demo</a>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <!-- Hero -->
+        <section class="hero">
+            <span class="hero-eyebrow">HitLai Institute</span>
+            <h1>Run your business — AI, your team, your systems, together</h1>
+            <p class="hero-subtitle">
+                <strong>AI tools, your team, your systems — running together, safely.</strong>
+                Every session leaves you with one real flow in your business — proposals, customer response, paperwork — at the speed your team is comfortable with.
+            </p>
+            <p class="hero-moat">
+                On our cloud or yours, any AI model — your choice. Works with what you've got. Builds what we don't, automatically.
+            </p>
+            <div class="hero-ctas">
+                <a href="#next-session" class="btn btn-primary">Join the next session</a>
+                <a href="#modules" class="btn btn-secondary">See the modules</a>
+            </div>
+        </section>
+
+        <!-- Pilot banner -->
+        <div class="pilot-banner">
+            <span class="pilot-badge">Pilot Cohort — Chicago</span>
+            <h3>The first HitLai Institute cohort is free.</h3>
+            <p>
+                Pilot in Chicago, May 2026. 15-20 seats. Walk out with one flow running in your business —
+                AI drafting, your team approving, your CRM and email already in the loop. No charge for this cohort.
+                After that, the in-person program lists at $497/module.
+            </p>
+            <a href="#next-session" class="btn btn-primary">Apply for the pilot</a>
+        </div>
+
+        <!-- Why -->
+        <section style="margin-top: 4rem;">
+            <h2>Why this exists</h2>
+            <p class="section-sub">
+                Free tutorials teach one AI tool. $500K consulting hands you a deck. The middle — practical, hands-on
+                training that ends with AI, your team, and your systems running together on one real workflow — didn't
+                exist. We built it.
+            </p>
+            <div class="why-grid">
+                <div class="why-card">
+                    <h3>Walk out with one flow already running</h3>
+                    <p>
+                        Other programs hand you knowledge. Here, you bring a real proposal, a real customer email, a real
+                        invoice — and leave with AI drafting, your team approving, and your existing systems (CRM, email,
+                        WhatsApp) already in the loop. The education and the implementation are the same thing.
+                    </p>
+                </div>
+                <div class="why-card">
+                    <h3>Any AI, any system, your pace</h3>
+                    <p>
+                        Most AI education is disguised product training. We teach with Claude, ChatGPT, Gemini, or local
+                        AI — your choice. Works with the systems you already use. AI starts where you're comfortable
+                        — watching, suggesting, or executing-with-approval — and earns the right to do more.
+                    </p>
+                </div>
+                <div class="why-card">
+                    <h3>Run by the person who built it</h3>
+                    <p>
+                        Bobby Koritala — multiple AI patents, former CPO at Infogix/Precisely (data integrity for the
+                        majority of US banks and health plans), co-coiner of "Governed AI Orchestration" with Kellogg/
+                        Northwestern. You learn from the person who built the platform, not a trainer reading slides.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Session structure -->
+        <section>
+            <h2>How every session works</h2>
+            <p class="section-sub">
+                Same shape across every module. Real skill transfer first. Then the gap AI alone doesn't close. Then
+                AI, your team, and your systems running together.
+            </p>
+            <div class="structure">
+                <div class="structure-grid">
+                    <div class="structure-part">
+                        <div class="part-label">Part 1 · 20 min</div>
+                        <h4>Genuine free value</h4>
+                        <p>Real techniques you can use with Claude, ChatGPT, or Gemini today. No product pitch. Useful even if you never use HitLai.</p>
+                    </div>
+                    <div class="structure-part">
+                        <div class="part-label">Part 2 · 10 min</div>
+                        <h4>The 90% AI alone misses</h4>
+                        <p>Feel the gap between AI draft and your reality — copy-paste between tools, no shared record, three voices, dropped follow-ups. Not told. Experienced.</p>
+                    </div>
+                    <div class="structure-part">
+                        <div class="part-label">Part 3 · 50-60 min</div>
+                        <h4>Running together</h4>
+                        <p>AI, your team, and your systems coordinated on one real flow with your own data. At the trust setting you pick. Walk out with it working Monday morning.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modules -->
+        <section id="modules">
+            <h2>The SMB program — 5 modules</h2>
+            <p class="section-sub">
+                Take them in order, or pick the one closest to your biggest pain. Modules S1 and S2 are available now;
+                S3 through S5 launch in summer 2026.
+            </p>
+            <div class="modules">
+
+                <div class="module-card available">
+                    <div class="module-code">MODULE S1 · 90 MIN</div>
+                    <div class="module-title">AI That Wins You More Business</div>
+                    <div class="module-hook">Proposals, quotes, lead research, and outreach.</div>
+                    <div class="module-body">
+                        <p><strong>The hook:</strong> 3-5 hours per proposal vs. 30 minutes for the competitor sending the same day. The gap isn't a smarter AI — it's whose AI, team, and CRM are running together.</p>
+                        <p><strong>You'll walk out with:</strong> one proposal flow live in your business — AI drafting, your CRM data, your approved pricing, your team approving the send — plus prompts that work on any AI and your ROI worksheet filled in with real numbers.</p>
+                    </div>
+                    <div class="module-meta">Leave-behinds: 10 Prompts That Win Business · Proposal ROI Worksheet</div>
+                </div>
+
+                <div class="module-card available">
+                    <div class="module-code">MODULE S2 · 90 MIN</div>
+                    <div class="module-title">AI That Handles Your Customers</div>
+                    <div class="module-hook">Customer inquiries, responses, and follow-ups across channels.</div>
+                    <div class="module-body">
+                        <p><strong>The hook:</strong> Best rep responds in 5 minutes. Average is 4 hours. Every hour costs ~10% of conversion. The fix isn't a faster chatbot — it's AI, your team, and every channel feeding one record.</p>
+                        <p><strong>You'll walk out with:</strong> one channel (email or WhatsApp) connected, 5-20 approved responses live, AI drafting in your voice, your team approving every send, one shared record across the whole flow.</p>
+                    </div>
+                    <div class="module-meta">Leave-behinds: Customer Response Library Builder · Response Time ROI Calculator</div>
+                </div>
+
+                <div class="module-card available">
+                    <div class="module-code">MODULE S3 · 90 MIN</div>
+                    <div class="module-title">AI That Does Your Paperwork</div>
+                    <div class="module-hook">Invoices, documents, data entry, and reports.</div>
+                    <div class="module-body">
+                        <p><strong>The hook:</strong> 15 hours/week on admin — a full-time salary distributed across the people you hired for real work. AI extracts, your accounting and filing systems take it, your team handles the exceptions.</p>
+                        <p><strong>You'll walk out with:</strong> one paperwork flow live (invoice intake, weekly report, or contract intake), the Admin Hours Calculator filled in with real numbers, and a named first flow you can run on Monday morning.</p>
+                    </div>
+                    <div class="module-meta">Leave-behinds: Paperwork Automation Starter Kit · Admin Hours Calculator</div>
+                </div>
+
+                <div class="module-card available">
+                    <div class="module-code">MODULE S4 · 90 MIN</div>
+                    <div class="module-title">AI You Can Actually Trust</div>
+                    <div class="module-hook">The trust journey — your team, your pace, your rules.</div>
+                    <div class="module-body">
+                        <p><strong>The hook:</strong> Three real AI disasters — Air Canada chatbot, Mata v. Avianca, Zillow. Each was a delegation failure, not a technology failure. Today: how to make sure none of them are your business.</p>
+                        <p><strong>You'll walk out with:</strong> the AI Trust Checklist scored on your current AI usage, Trust Settings configured for one of your flows, and a 5-minute weekly review on your calendar.</p>
+                    </div>
+                    <div class="module-meta">Leave-behinds: AI Trust Checklist · Trust Settings by Business Function</div>
+                </div>
+
+                <div class="module-card available">
+                    <div class="module-code">MODULE S5 · 90 MIN</div>
+                    <div class="module-title">Scaling Up — From One Flow to Running the Business</div>
+                    <div class="module-hook">ROI measurement, expansion planning, team multiplication.</div>
+                    <div class="module-body">
+                        <p><strong>The hook:</strong> Team of 5 working like 50. Three departments deeply automated in 90 days. Your first flow recovered 5 hours/week — that was the practice. The real prize is what comes next.</p>
+                        <p><strong>You'll walk out with:</strong> your written 90-Day AI Expansion Plan with named flows + named owners + dates, and a public commitment to one specific flow you'll add in the next 30 days.</p>
+                    </div>
+                    <div class="module-meta">Leave-behinds: 90-Day Expansion Plan · Your Next 10 Workflows</div>
+                </div>
+
+                <div class="module-card available">
+                    <div class="module-code">LEGAL VERTICAL · 3 MODULES</div>
+                    <div class="module-title">Run your practice — privilege intact</div>
+                    <div class="module-hook">ABA 512, AI workflows for legal operations, AI-assisted billing.</div>
+                    <div class="module-body">
+                        <p><strong>For:</strong> managing partners, GCs, ethics counsel, billing partners. Solo and small-firm practitioners welcome.</p>
+                        <p><strong>L1:</strong> The ABA 512 problem · <strong>L2:</strong> AI workflows for legal operations (live build) · <strong>L3:</strong> Making AI billable.</p>
+                    </div>
+                    <div class="module-meta"><a href="/institute/legal" style="color: #f9a8d4; text-decoration: none; font-weight: 600;">→ Legal track details</a></div>
+                </div>
+
+                <div class="module-card soon">
+                    <div class="module-code">VERTICALS — NEXT</div>
+                    <div class="module-title">Banking · Healthcare</div>
+                    <div class="module-hook">Coming after the Legal track.</div>
+                    <div class="module-body">
+                        <p>OCC/FDIC mapping for banks. HIPAA-ready flows for healthcare. Vendor-independent setup with self-hosted, inside-your-network deployment for regulated industries.</p>
+                    </div>
+                    <div class="module-meta">Banking track launching after MWAIS (May 2026)</div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Trust journey -->
+        <section>
+            <h2>The trust journey, in plain English</h2>
+            <p class="section-sub">
+                AI doesn't have to be all-or-nothing. Each part of your business moves at the pace your team is
+                comfortable with. We teach exactly how to graduate one notch at a time, only when the data earns it.
+            </p>
+            <div class="structure">
+                <div class="structure-grid cols-4">
+                    <div class="structure-part">
+                        <div class="part-label">Step 1</div>
+                        <h4>AI watches</h4>
+                        <p>AI shows insights. Your team does the work.</p>
+                    </div>
+                    <div class="structure-part">
+                        <div class="part-label">Step 2</div>
+                        <h4>AI suggests</h4>
+                        <p>AI recommends; your team decides.</p>
+                    </div>
+                    <div class="structure-part">
+                        <div class="part-label">Step 3</div>
+                        <h4>AI acts, you approve</h4>
+                        <p>AI executes; your team signs off.</p>
+                    </div>
+                    <div class="structure-part">
+                        <div class="part-label">Step 4+</div>
+                        <h4>AI handles routine</h4>
+                        <p>AI runs the pattern; your team owns the exceptions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing -->
+        <section>
+            <h2>Pricing</h2>
+            <p class="section-sub">
+                Three formats. The content is the same across all three — the experience isn't. Pay for interaction, not information.
+            </p>
+            <div class="pricing-grid">
+
+                <div class="pricing-card">
+                    <h3>Recording</h3>
+                    <div class="price">$67</div>
+                    <div class="price-sub">per module · on demand</div>
+                    <ul>
+                        <li>Full module recording</li>
+                        <li>All leave-behind PDFs</li>
+                        <li>Standard 14-day HitLai trial</li>
+                        <li>Watch at your pace</li>
+                    </ul>
+                    <a href="#next-session" class="btn btn-secondary" style="width: 100%;">Notify me</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <h3>Online live</h3>
+                    <div class="price">$197</div>
+                    <div class="price-sub">per module · 60 min live</div>
+                    <ul>
+                        <li>Live 60-min session</li>
+                        <li>Q&A and breakout rooms</li>
+                        <li>All leave-behind PDFs</li>
+                        <li>30-day HitLai trial + 20% off 6 months</li>
+                        <li>Recording included</li>
+                    </ul>
+                    <a href="#next-session" class="btn btn-primary" style="width: 100%;">Join next online</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>In-person</h3>
+                    <div class="price">$497</div>
+                    <div class="price-sub">per module · 90 min live</div>
+                    <ul>
+                        <li>Live hands-on build</li>
+                        <li>Direct access to Bobby</li>
+                        <li>All leave-behind PDFs</li>
+                        <li><strong>3 months free</strong> on Business Starter ($1,797 value)</li>
+                        <li>Networking with peers</li>
+                    </ul>
+                    <a href="#next-session" class="btn btn-secondary" style="width: 100%;">Apply for next</a>
+                </div>
+
+            </div>
+            <p style="text-align: center; color: #9ca3af; font-size: 0.88rem; margin-top: 1.5rem;">
+                Full 5-module bundle: $335 (recordings) · $797 (online live, saves $188) · $1,997 (in-person, saves $488)
+            </p>
+        </section>
+
+        <!-- Teacher -->
+        <section>
+            <h2>Who teaches</h2>
+            <p class="section-sub">One instructor. The person who built the platform.</p>
+            <div class="teacher">
+                <div class="teacher-headshot">BK</div>
+                <div class="teacher-content">
+                    <h3>Bobby Koritala</h3>
+                    <p>
+                        Founder and CEO of Bodaty LLC. Built AICtrlNet and HitLai. Holds multiple AI patents. Former
+                        Chief Product Officer at Infogix (acquired by Precisely), where he built data integrity for the
+                        majority of US banks and health plans — the same regulated customers HitLai serves today.
+                    </p>
+                    <p>
+                        Legal-tech roots at Interface Software / InterAction CRM (acquired by LexisNexis). Risk and
+                        compliance background at Protiviti. Co-coined "Governed AI Orchestration" with Prof. Mohanbir
+                        Sawhney at Kellogg/Northwestern — the analyst-facing category term, not the customer headline.
+                        Taught graduate students for years before founding Bodaty.
+                    </p>
+                    <p class="credentials">
+                        AI patents · Ex-CPO, Infogix/Precisely · Interface Software / InterAction CRM · Protiviti · Kellogg/Northwestern academic partnership
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Next session -->
+        <section id="next-session">
+            <h2>Join the next session</h2>
+            <p class="section-sub">
+                Tell us which format works for you. We'll send session dates, location, and a short pre-work email.
+            </p>
+            <form id="lead-form" class="signup-form" novalidate>
+                <div style="position:absolute;left:-9999px"><label>Leave blank<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
+                <label for="inst-name" class="sr-only">Your name</label>
+                <input id="inst-name" type="text" name="name" placeholder="Your name" required autocomplete="name">
+                <label for="inst-email" class="sr-only">Work email</label>
+                <input id="inst-email" type="email" name="email" placeholder="Work email" required autocomplete="email">
+                <label for="inst-company" class="sr-only">Company · Role</label>
+                <input id="inst-company" type="text" name="company" placeholder="Company · Role" autocomplete="organization">
+                <label for="inst-format" class="sr-only">Preferred format</label>
+                <select id="inst-format" name="format" required>
+                    <option value="">Preferred format…</option>
+                    <option value="in-person">In-person (Chicago pilot — free)</option>
+                    <option value="online-live">Online live</option>
+                    <option value="recording">Notify me when recordings are available</option>
+                </select>
+                <label for="inst-module" class="sr-only">Module of interest</label>
+                <select id="inst-module" name="module">
+                    <option value="">Which module interests you most?</option>
+                    <option value="S1">S1 — AI That Wins You More Business</option>
+                    <option value="S2">S2 — AI That Handles Your Customers</option>
+                    <option value="S3">S3 — AI That Does Your Paperwork</option>
+                    <option value="S4">S4 — AI You Can Actually Trust</option>
+                    <option value="S5">S5 — Scaling Up</option>
+                    <option value="any">Interested in all of them</option>
+                </select>
+                <label for="inst-goal" class="sr-only">Your goal</label>
+                <textarea id="inst-goal" name="goal" placeholder="Optional: what's the one work your team would hand off first if AI could draft and they approved?" rows="3"></textarea>
+                <button type="submit" class="btn btn-primary">Send me details</button>
+                <div id="form-status" role="status" aria-live="polite" style="display:none; margin-top: 1rem; padding: 0.875rem; border-radius: 8px; font-size: 0.95rem; text-align: center;"></div>
+                <p class="form-privacy">
+                    We'll email you session dates and confirmations. No spam, ever. By submitting you agree to our
+                    <a href="/privacy">privacy notice</a>.
+                </p>
+            </form>
+        </section>
+
+        <!-- Free resources -->
+        <section>
+            <h2>Free leave-behinds</h2>
+            <p class="section-sub">
+                The worksheets, prompt libraries, and templates we hand out across the SMB curriculum. Useful with
+                whatever AI you already use — even if you never attend a session.
+            </p>
+            <div class="resources-grid">
+                <a href="/institute/resources/S1-01-10-Prompts-That-Win-Business.pdf" class="resource-link">
+                    <div class="label">Module S1 · PDF</div>
+                    <div class="title">10 Prompts That Win Business</div>
+                    <div class="desc">Ready-to-use prompt templates for proposals, outreach, and prospect research. Works with Claude, ChatGPT, or Gemini.</div>
+                </a>
+                <a href="/institute/resources/S1-02-Proposal-ROI-Worksheet.pdf" class="resource-link">
+                    <div class="label">Module S1 · PDF</div>
+                    <div class="title">Proposal ROI Worksheet</div>
+                    <div class="desc">What your proposal process actually costs. 10-minute worksheet, honest subscription-cost check included.</div>
+                </a>
+                <a href="/institute/resources/S2-01-Customer-Response-Library-Builder.pdf" class="resource-link">
+                    <div class="label">Module S2 · PDF</div>
+                    <div class="title">Customer Response Library Builder</div>
+                    <div class="desc">Catalog your top 20 customer questions and their approved answers. Makes any AI tool 3x better immediately.</div>
+                </a>
+                <a href="/institute/resources/S2-02-Response-Time-ROI-Calculator.pdf" class="resource-link">
+                    <div class="label">Module S2 · PDF</div>
+                    <div class="title">Response Time ROI Calculator</div>
+                    <div class="desc">What every hour of response delay is costing you in lost conversions. Do the math in 10 minutes.</div>
+                </a>
+                <a href="/institute/resources/S3-01-Paperwork-Automation-Starter-Kit.pdf" class="resource-link">
+                    <div class="label">Module S3 · PDF</div>
+                    <div class="title">Paperwork Automation Starter Kit</div>
+                    <div class="desc">5 highest-value paperwork flows for an SMB, ranked by hours saved. Pick one this week. Build it.</div>
+                </a>
+                <a href="/institute/resources/S3-02-Admin-Hours-Calculator.pdf" class="resource-link">
+                    <div class="label">Module S3 · PDF</div>
+                    <div class="title">Admin Hours Calculator</div>
+                    <div class="desc">What is your team's admin paperwork actually costing you? Six-step worksheet that ends with a defensible number.</div>
+                </a>
+                <a href="/institute/resources/S4-01-AI-Trust-Checklist.pdf" class="resource-link">
+                    <div class="label">Module S4 · PDF</div>
+                    <div class="title">AI Trust Checklist</div>
+                    <div class="desc">10 yes/no questions before you let AI act on its own. Includes three real disasters (Air Canada, Mata v. Avianca, Zillow) and the controls that would have prevented each.</div>
+                </a>
+                <a href="/institute/resources/S4-02-Trust-Settings-By-Function.pdf" class="resource-link">
+                    <div class="label">Module S4 · PDF</div>
+                    <div class="title">Trust Settings by Business Function</div>
+                    <div class="desc">One-page reference for what trust setting AI should be on, by department and task type. Print it. Tape it next to your monitor.</div>
+                </a>
+                <a href="/institute/resources/S5-01-90-Day-Expansion-Plan.pdf" class="resource-link">
+                    <div class="label">Module S5 · PDF</div>
+                    <div class="title">90-Day AI Expansion Plan</div>
+                    <div class="desc">Month-by-month plan to go from one flow to three departments deeply automated. Concrete milestones, ROI checkpoints, graduation criteria.</div>
+                </a>
+                <a href="/institute/resources/S5-02-Next-10-Workflows.pdf" class="resource-link">
+                    <div class="label">Module S5 · PDF</div>
+                    <div class="title">Your Next 10 Workflows</div>
+                    <div class="desc">Catalog of 10 high-ROI workflows + industry-specific add-ons (services, retail, distribution, healthcare-adjacent). Pick from this list. Don't reinvent.</div>
+                </a>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section>
+            <h2>Questions we get a lot</h2>
+            <div class="faq-grid">
+
+                <div class="faq-item">
+                    <h3>Do I need to be technical to attend?</h3>
+                    <p>
+                        No. These modules are built for SMB owners, ops leads, office managers, and department heads.
+                        If you can use a browser and an email client, you can set up the flows. A HitLai expert is in
+                        the room (or on the call) to help.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Do I need to subscribe to HitLai to attend?</h3>
+                    <p>
+                        No. Every attendee gets sandbox access during and after the session. Whether you subscribe is
+                        based on whether the ROI math works for <em>your</em> business — and we'll help you calculate that
+                        honestly, even if the answer is "not yet."
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>How is this different from Trailhead, HubSpot Academy, or Coursera?</h3>
+                    <p>
+                        Those teach one vendor's product (lock-in) or pure theory (no implementation). We teach with
+                        any AI (Claude, ChatGPT, Gemini, local Ollama) and you walk out with one real flow running in
+                        your business — AI, your team, and your existing systems coordinated. Knowledge that ships,
+                        not knowledge that decays.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>What about my data — is anything leaving my network?</h3>
+                    <p>
+                        Your choice. Run on our managed cloud or inside your own network — including air-gapped, with
+                        local AI via Ollama or vLLM. Your data is not training anyone's model. For regulated industries
+                        we run vertical tracks (ABA 512 for legal, OCC/FDIC for banking, HIPAA for healthcare) — see
+                        the <a href="/industries">industries page</a>.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Is this available outside Chicago?</h3>
+                    <p>
+                        In-person sessions are Chicago-only for the Phase 1 pilot. Online live and recorded modules are
+                        available everywhere. If you want us to run an in-person session in your city, tell us in the
+                        signup form — we route by demand.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Will there be a certification?</h3>
+                    <p>
+                        Phase 1 offers completion badges (digital, LinkedIn-displayable) at no extra cost. Formal
+                        AICtrlNet Certified Practitioner / Specialist / Architect exams launch later in 2026. See
+                        <a href="https://aictrlnet.com/certified">aictrlnet.com/certified</a> when live.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Can I bring a colleague?</h3>
+                    <p>
+                        Yes, and it helps you. In-person attendees who bring a colleague get an additional month free on
+                        their HitLai subscription. Two people from the same business tend to implement — one person tends
+                        to plan.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>What if my company needs an enterprise program?</h3>
+                    <p>
+                        AICtrlNet Institute runs parallel programs for enterprise architects, CTOs, and compliance
+                        leaders. See <a href="https://aictrlnet.com/institute">aictrlnet.com/institute</a>
+                        or contact <a href="mailto:enterprise@bodaty.com">enterprise@bodaty.com</a>.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="/">Home</a>
+            <a href="/features">Features</a>
+            <a href="/pricing">Pricing</a>
+            <a href="/industries">Industries</a>
+            <a href="/enterprise">Enterprise</a>
+            <a href="/institute">Institute</a>
+            <a href="https://aictrlnet.com">AICtrlNet</a>
+        </div>
+        <p>HitLai is a product of <a href="https://bodaty.com">Bodaty LLC</a></p>
+        <p style="margin-top: 0.5rem;">&copy; 2026 Bodaty LLC. All rights reserved.</p>
+        <p style="font-size: 0.75rem; color: #888; margin-top: 0.25rem;">AICtrlNet&trade;, HitLai&trade;, and &ldquo;Governed AI Orchestration&rdquo;&trade; are trademarks of Bodaty LLC.</p>
+    </footer>
+
+    <script>
+    (function () {
+        var LEAD_API = 'https://marketing-leads-xy6vr5msca-uc.a.run.app';
+        var form = document.getElementById('lead-form');
+        if (!form) return;
+        var btn = form.querySelector('button[type="submit"]');
+        var btnText = btn.textContent;
+        var status = document.getElementById('form-status');
+
+        function showStatus(msg, kind) {
+            status.style.display = 'block';
+            status.textContent = msg;
+            if (kind === 'success') {
+                status.style.color = '#6ee7b7';
+                status.style.background = 'rgba(110,231,183,0.06)';
+                status.style.border = '1px solid rgba(110,231,183,0.18)';
+            } else {
+                status.style.color = '#fca5a5';
+                status.style.background = 'rgba(252,165,165,0.06)';
+                status.style.border = '1px solid rgba(252,165,165,0.18)';
+            }
+        }
+
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            if (form._gotcha && form._gotcha.value) return;
+            var data = Object.fromEntries(new FormData(form));
+            data.source_page = window.location.href;
+            data.source_site = window.location.hostname;
+            delete data._gotcha;
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
+            try {
+                var res = await fetch(LEAD_API + '/institute', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                var result = await res.json();
+                if (result.success) {
+                    form.style.display = 'none';
+                    showStatus(String(result.message || 'Thanks — we’ll be in touch with session details.'), 'success');
+                } else {
+                    btn.disabled = false;
+                    btn.textContent = btnText;
+                    showStatus(String(result.error || 'Something went wrong. Please try again.'), 'error');
+                }
+            } catch (err) {
+                btn.disabled = false;
+                btn.textContent = btnText;
+                showStatus('Network error. Please try again.', 'error');
+            }
+        });
+    })();
+    </script>
+</body>
+</html>
