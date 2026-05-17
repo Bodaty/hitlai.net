@@ -3,724 +3,370 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enterprise - HitLai</title>
-    <meta name="description" content="HitLai Enterprise - Per-department autonomy policies, SSO, multi-tenancy, on-premise deployment. Every control level for every department.">
+    <title>HitLai Enterprise — Trust journey by department.</title>
+    <meta name="description" content="Set the trust phase per department. Marketing at Phase 5, Legal at Phase 2 — each part of your business at its own pace. SSO, multi-tenancy, sovereign deployment.">
+
+    <link rel="canonical" href="https://hitlai.net/enterprise/">
+    <meta name="theme-color" content="#1a1419">
+    <meta name="color-scheme" content="dark">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="HitLai">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="HitLai Enterprise — Trust journey by department.">
+    <meta property="og:description" content="Per-department phase policies, SSO, multi-tenancy, sovereign deployment.">
+    <meta property="og:url" content="https://hitlai.net/enterprise/">
+    <meta property="og:image" content="https://hitlai.net/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="HitLai Enterprise — Trust journey by department.">
+    <meta name="twitter:description" content="Each part of your business at its own pace.">
+    <meta name="twitter:image" content="https://hitlai.net/og-image.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            min-height: 100vh;
-            color: #e0e0e0;
-        }
-
-        /* Navigation */
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .nav-logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: white;
-            text-decoration: none;
-        }
-
-        .nav-logo span {
-            color: #f9a8d4;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: #9ca3af;
-            text-decoration: none;
-            font-size: 0.95rem;
-        }
-
-        .nav-links a:hover {
-            color: #f9a8d4;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Hero */
-        .hero {
-            text-align: center;
-            padding: 3rem 0 4rem;
-        }
-
-        .badge {
-            display: inline-block;
-            background: rgba(99, 102, 241, 0.2);
-            border: 1px solid rgba(99, 102, 241, 0.4);
-            color: #a5b4fc;
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-bottom: 1.5rem;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #ffffff 0%, #f9a8d4 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-subtitle {
-            font-size: 1.15rem;
-            color: #9ca3af;
-            max-width: 650px;
-            margin: 0 auto 2rem;
-            line-height: 1.6;
-        }
-
-        .hero-cta {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.875rem 1.75rem;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.3);
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.05);
-            color: #e0e0e0;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        /* Section styling */
-        .section {
-            padding: 3rem 0;
-        }
-
-        .section-title {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: white;
-            text-align: center;
-            margin-bottom: 1rem;
-        }
-
-        .section-desc {
-            text-align: center;
-            color: #9ca3af;
-            max-width: 600px;
-            margin: 0 auto 2.5rem;
-            font-size: 1.05rem;
-        }
-
-        /* Department Autonomy Visual */
-        .autonomy-matrix {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            padding: 2.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .matrix-title {
-            text-align: center;
-            font-size: 1.1rem;
-            color: #a5b4fc;
-            margin-bottom: 2rem;
-            font-weight: 600;
-        }
-
-        .department-grid {
-            display: grid;
-            gap: 1.25rem;
-        }
-
-        .department-row {
-            display: grid;
-            grid-template-columns: 140px 1fr auto;
-            align-items: center;
-            gap: 1.5rem;
-            padding: 1rem 1.5rem;
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 12px;
-        }
-
-        .dept-name {
-            font-weight: 600;
-            color: white;
-        }
-
-        .phase-bar {
-            height: 12px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 6px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .phase-fill {
-            height: 100%;
-            border-radius: 6px;
-            transition: width 0.3s ease;
-        }
-
-        .phase-marketing { width: 83.3%; background: linear-gradient(90deg, #10b981, #34d399); }
-        .phase-sales { width: 66.6%; background: linear-gradient(90deg, #3b82f6, #60a5fa); }
-        .phase-legal { width: 33.3%; background: linear-gradient(90deg, #f59e0b, #fbbf24); }
-        .phase-support { width: 100%; background: linear-gradient(90deg, #ec4899, #f472b6); }
-        .phase-finance { width: 50%; background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
-
-        .phase-label {
-            font-size: 0.85rem;
-            color: #9ca3af;
-            text-align: right;
-            min-width: 80px;
-        }
-
-        .phase-desc {
-            font-size: 0.7rem;
-            color: #6b7280;
-        }
-
-        .matrix-legend {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .legend-item {
-            font-size: 0.8rem;
-            color: #9ca3af;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .legend-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-        }
-
-        /* Features Grid */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .feature-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 1.75rem;
-        }
-
-        .feature-icon {
-            width: 48px;
-            height: 48px;
-            background: rgba(99, 102, 241, 0.1);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .feature-name {
-            font-weight: 600;
-            color: white;
-            margin-bottom: 0.5rem;
-        }
-
-        .feature-desc {
-            font-size: 0.9rem;
-            color: #9ca3af;
-            line-height: 1.5;
-        }
-
-        /* Compliance Section */
-        .compliance-section {
-            background: rgba(16, 185, 129, 0.05);
-            border: 1px solid rgba(16, 185, 129, 0.15);
-            border-radius: 16px;
-            padding: 2.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .compliance-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: white;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        .compliance-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 1rem;
-        }
-
-        .compliance-item {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 10px;
-        }
-
-        .compliance-check {
-            color: #10b981;
-            flex-shrink: 0;
-        }
-
-        .compliance-text {
-            font-size: 0.9rem;
-            color: #d1d5db;
-        }
-
-        /* Deployment Options */
-        .deployment-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-            margin-bottom: 3rem;
-        }
-
-        .deployment-option {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 12px;
-            padding: 1.5rem;
-            text-align: center;
-        }
-
-        .deployment-icon {
-            font-size: 2rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .deployment-name {
-            font-weight: 600;
-            color: white;
-            font-size: 0.95rem;
-        }
-
-        /* Contact Form */
-        .contact-section {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            padding: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .contact-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: white;
-            text-align: center;
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-subtitle {
-            text-align: center;
-            color: #9ca3af;
-            margin-bottom: 2rem;
-        }
-
-        .contact-form {
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .form-row {
-            margin-bottom: 1rem;
-        }
-
-        .form-row input,
-        .form-row select,
-        .form-row textarea {
-            width: 100%;
-            padding: 0.875rem 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            background: rgba(0, 0, 0, 0.3);
-            color: white;
-            font-size: 1rem;
-            font-family: inherit;
-        }
-
-        .form-row input:focus,
-        .form-row select:focus,
-        .form-row textarea:focus {
-            outline: none;
-            border-color: #6366f1;
-        }
-
-        .form-row input::placeholder,
-        .form-row textarea::placeholder {
-            color: #6b7280;
-        }
-
-        .form-row select {
-            cursor: pointer;
-        }
-
-        .form-row select option {
-            background: #1a1a2e;
-        }
-
-        .form-row textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .form-row-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        button[type="submit"] {
-            width: 100%;
-            padding: 1rem;
-            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            font-family: inherit;
-        }
-
-        button[type="submit"]:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.3);
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 2rem;
-            color: #6b7280;
-            font-size: 0.85rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-        }
-
-        footer a {
-            color: #9ca3af;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            color: #f9a8d4;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .department-row {
-                grid-template-columns: 1fr;
-                gap: 0.75rem;
-            }
-
-            .phase-label {
-                text-align: left;
-            }
-
-            .deployment-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .form-row-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+        :root {
+            --bg:#1a1419;--bg-2:#261820;--bg-3:#2f1f29;
+            --line:rgba(251,113,133,0.10);--line-soft:rgba(255,255,255,0.06);
+            --ink:#fef6f1;--ink-soft:#e6d6cd;--ink-dim:#b8a39d;--ink-faint:#7a6862;
+            --accent:#fb7185;--accent-2:#f59e8c;--accent-glow:rgba(251,113,133,0.28);
+            --good:#6ee7b7;--bad:#fca5a5;
+            --conservative:#f59e0b;--balanced:#3b82f6;--autonomous:#10b981;
+            --font-display:'Fraunces',Georgia,serif;
+            --font-body:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+            --ease:cubic-bezier(0.22,1,0.36,1);
+        }
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}}
+        body{font-family:var(--font-body);background:var(--bg);color:var(--ink-soft);-webkit-font-smoothing:antialiased;line-height:1.6;min-height:100vh;position:relative;overflow-x:hidden}
+        body::before{content:'';position:fixed;inset:-10%;background:radial-gradient(ellipse 820px 580px at 12% 88%,rgba(251,113,133,0.14) 0%,transparent 58%),radial-gradient(ellipse 660px 500px at 92% 5%,rgba(245,158,140,0.10) 0%,transparent 62%);z-index:-2;pointer-events:none;animation:mesh-drift 24s var(--ease) infinite alternate}
+        @keyframes mesh-drift{0%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(2%,-1.5%,0) scale(1.05)}100%{transform:translate3d(-1.5%,1.5%,0) scale(1.02)}}
+        .skip-link{position:absolute;top:-40px;left:16px;background:var(--accent);color:var(--bg);padding:8px 16px;border-radius:4px;font-weight:600;text-decoration:none;z-index:100}
+        .skip-link:focus-visible{top:16px}
+        :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+        nav.topnav{display:flex;justify-content:space-between;align-items:center;padding:22px 32px;max-width:1200px;margin:0 auto}
+        .logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+        .logo-mark-wrap{width:36px;height:36px;border-radius:50%;background:var(--bg-2);border:1px solid rgba(251,113,133,0.18);overflow:hidden;display:grid;place-items:center;box-shadow:0 4px 16px rgba(251,113,133,0.10);filter:hue-rotate(15deg) saturate(0.95)}
+        .logo-mark-wrap img{width:100%;height:100%;display:block;object-fit:cover}
+        .logo-text{font-family:var(--font-display);font-weight:700;font-size:22px;color:var(--ink);letter-spacing:-0.5px}
+        .logo-text span{color:var(--accent);font-style:italic}
+        .nav-links{display:flex;gap:28px;align-items:center}
+        .nav-links a{color:var(--ink-dim);text-decoration:none;font-size:14.5px;font-weight:500;transition:color 0.2s var(--ease)}
+        .nav-links a:hover{color:var(--accent)}
+        .nav-cta{background:var(--accent);color:var(--bg)!important;padding:9px 18px;border-radius:6px;font-weight:600!important}
+        .nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 24px var(--accent-glow)}
+        @media (max-width:768px){.nav-links a:not(.nav-cta){display:none}}
+
+        .container{max-width:1080px;margin:0 auto;padding:0 32px}
+
+        .hero{text-align:center;padding:36px 0 56px}
+        .badge-pill{display:inline-block;font-family:var(--font-body);font-weight:500;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);border:1px solid rgba(251,113,133,0.3);padding:6px 16px;border-radius:999px;margin-bottom:22px}
+        h1{font-family:var(--font-display);font-weight:500;font-variation-settings:'opsz' 96;font-size:clamp(2.3rem,5.2vw,3.4rem);line-height:1.06;letter-spacing:-1.4px;color:var(--ink);margin-bottom:22px;max-width:820px;margin-left:auto;margin-right:auto}
+        h1 em{font-style:italic;color:var(--accent)}
+        .hero-sub{font-size:1.1rem;line-height:1.65;color:var(--ink-soft);max-width:720px;margin:0 auto 32px}
+        .hero-cta{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+
+        .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 24px;border-radius:8px;font-family:var(--font-body);font-size:14.5px;font-weight:600;text-decoration:none;transition:all 200ms var(--ease);border:1px solid transparent;cursor:pointer}
+        .btn-primary{background:var(--accent);color:var(--bg)}
+        .btn-primary:hover{transform:translateY(-1px);box-shadow:0 10px 32px var(--accent-glow)}
+        .btn-secondary{background:transparent;color:var(--ink);border-color:var(--line-soft)}
+        .btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
+
+        section.block{padding:48px 0}
+        .section-label{font-family:var(--font-body);font-weight:500;font-size:12px;letter-spacing:2.2px;text-transform:uppercase;color:var(--accent);margin-bottom:12px;text-align:center}
+        .section-title{font-family:var(--font-display);font-weight:500;font-variation-settings:'opsz' 96;font-size:clamp(1.7rem,3.2vw,2.3rem);color:var(--ink);letter-spacing:-0.7px;line-height:1.18;margin-bottom:12px;text-align:center}
+        .section-title em{font-style:italic;color:var(--accent)}
+        .section-desc{font-size:1rem;color:var(--ink-soft);text-align:center;max-width:640px;margin:0 auto 36px}
+
+        .autonomy-matrix{background:rgba(38,24,32,0.55);border:1px solid var(--line-soft);border-radius:18px;padding:32px}
+        .matrix-title{font-family:var(--font-display);font-weight:500;font-variation-settings:'opsz' 96;font-size:1.25rem;color:var(--ink);text-align:center;margin-bottom:24px;letter-spacing:-0.3px}
+        .matrix-title em{font-style:italic;color:var(--accent)}
+        .department-grid{display:flex;flex-direction:column;gap:14px;margin-bottom:24px}
+        .department-row{display:grid;grid-template-columns:140px 1fr 230px;gap:18px;align-items:center;padding:14px 18px;background:rgba(26,20,25,0.5);border:1px solid var(--line-soft);border-radius:10px}
+        @media (max-width:700px){.department-row{grid-template-columns:1fr;gap:8px;padding:14px}}
+        .dept-name{font-family:var(--font-display);font-weight:500;font-variation-settings:'opsz' 96;font-size:1rem;color:var(--ink);letter-spacing:-0.2px}
+        .phase-bar{height:6px;background:rgba(255,255,255,0.05);border-radius:3px;overflow:hidden}
+        .phase-fill{height:100%;border-radius:3px}
+        .phase-fill.phase-marketing{width:83.3%;background:linear-gradient(90deg,var(--autonomous),#34d399)}
+        .phase-fill.phase-sales{width:66.6%;background:linear-gradient(90deg,var(--balanced),#60a5fa)}
+        .phase-fill.phase-legal{width:33.3%;background:linear-gradient(90deg,var(--conservative),#fbbf24)}
+        .phase-fill.phase-support{width:100%;background:linear-gradient(90deg,var(--autonomous),#34d399)}
+        .phase-fill.phase-finance{width:50%;background:linear-gradient(90deg,var(--balanced),#60a5fa)}
+        .phase-label{font-family:var(--font-body);font-weight:500;font-size:13px;color:var(--ink);line-height:1.4}
+        .phase-desc{display:block;font-weight:400;font-size:12px;color:var(--ink-dim);margin-top:2px}
+        .matrix-legend{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;padding-top:18px;border-top:1px solid var(--line-soft);font-family:var(--font-body);font-size:12.5px;color:var(--ink-dim)}
+        .legend-item{display:flex;align-items:center;gap:8px}
+        .legend-dot{width:10px;height:10px;border-radius:50%}
+
+        .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+        .feature-card{background:rgba(38,24,32,0.55);border:1px solid var(--line-soft);border-radius:14px;padding:24px;transition:all 250ms var(--ease)}
+        .feature-card:hover{border-color:var(--accent);transform:translateY(-3px)}
+        .feature-icon{font-size:30px;margin-bottom:12px;display:block}
+        .feature-name{font-family:var(--font-display);font-weight:500;font-variation-settings:'opsz' 96;font-size:1.15rem;color:var(--ink);letter-spacing:-0.3px;margin-bottom:8px}
+        .feature-desc{font-size:14px;color:var(--ink-soft);line-height:1.55}
+
+        .compliance-section{background:linear-gradient(135deg,rgba(110,231,183,0.06) 0%,rgba(251,113,133,0.06) 100%);border:1px solid var(--line-soft);border-radius:16px;padding:32px}
+        .compliance-title{font-family:var(--font-display);font-weight:500;font-variation-settings:'opsz' 96;font-size:1.4rem;color:var(--ink);text-align:center;margin-bottom:22px;letter-spacing:-0.4px}
+        .compliance-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+        .compliance-item{display:flex;align-items:center;gap:10px;background:rgba(38,24,32,0.4);border:1px solid var(--line-soft);border-radius:8px;padding:12px 16px;font-size:14px;color:var(--ink-soft)}
+        .compliance-check{color:var(--good);font-weight:700}
+
+        .deployment-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:8px}
+        @media (max-width:720px){.deployment-grid{grid-template-columns:repeat(2,1fr)}}
+        .deployment-option{background:rgba(38,24,32,0.5);border:1px solid var(--line-soft);border-radius:12px;padding:24px 18px;text-align:center;transition:all 250ms var(--ease)}
+        .deployment-option:hover{border-color:var(--accent)}
+        .deployment-icon{font-size:30px;margin-bottom:10px;display:block}
+        .deployment-name{font-family:var(--font-display);font-weight:500;font-variation-settings:'opsz' 96;font-size:1rem;color:var(--ink);letter-spacing:-0.2px}
+
+        .contact-section{background:rgba(38,24,32,0.55);border:1px solid var(--line-soft);border-radius:18px;padding:48px 36px;max-width:680px;margin:0 auto}
+        .contact-title{font-family:var(--font-display);font-weight:500;font-variation-settings:'opsz' 96;font-size:1.6rem;color:var(--ink);text-align:center;letter-spacing:-0.5px;margin-bottom:10px}
+        .contact-subtitle{text-align:center;color:var(--ink-soft);font-size:14.5px;margin-bottom:28px}
+        .contact-form .form-row{margin-bottom:14px}
+        .contact-form .form-row label{display:block;font-family:var(--font-body);font-weight:500;font-size:12.5px;letter-spacing:0.4px;color:var(--ink);margin-bottom:6px}
+        .contact-form .form-row-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+        .contact-form .form-row-grid .form-row{margin-bottom:0}
+        .contact-form input,.contact-form select,.contact-form textarea{width:100%;padding:12px 16px;border:1px solid var(--line-soft);border-radius:8px;background:rgba(26,20,25,0.7);color:var(--ink);font-family:var(--font-body);font-size:14.5px}
+        .contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{outline:none;border-color:var(--accent)}
+        .contact-form input::placeholder,.contact-form textarea::placeholder{color:var(--ink-faint)}
+        .contact-form textarea{resize:vertical;min-height:96px}
+        .contact-form button{width:100%;margin-top:8px;padding:14px 24px;background:var(--accent);color:var(--bg);border:none;border-radius:8px;font-family:var(--font-body);font-size:15px;font-weight:600;cursor:pointer;transition:all 200ms var(--ease)}
+        .contact-form button:hover{transform:translateY(-1px);box-shadow:0 10px 32px var(--accent-glow)}
+        .contact-form button:disabled{opacity:0.6;cursor:wait}
+        .form-msg{margin-top:14px;font-size:14.5px;text-align:center;padding:14px;border-radius:8px;display:none}
+        .form-msg.success{display:block;color:var(--good);background:rgba(110,231,183,0.06);border:1px solid rgba(110,231,183,0.18)}
+        .form-msg.error{display:block;color:var(--bad);background:rgba(252,165,165,0.06);border:1px solid rgba(252,165,165,0.18)}
+
+        .closer{padding:24px 0 8px;text-align:center}
+        .closer-quote{font-family:var(--font-display);font-style:italic;font-variation-settings:'opsz' 96;font-weight:400;font-size:clamp(1.3rem,2.4vw,1.7rem);line-height:1.4;color:var(--ink);max-width:760px;margin:0 auto}
+        .closer-quote em{color:var(--accent)}
+
+        footer{border-top:1px solid var(--line-soft);padding:36px 0 48px;text-align:center;font-size:13.5px;color:var(--ink-dim);margin-top:48px}
+        .footer-links{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 26px;margin-bottom:18px}
+        footer a{color:var(--ink-soft);text-decoration:none}
+        footer a:hover{color:var(--accent)}
+        .footer-meta{font-size:11.5px;color:var(--ink-faint);margin-top:8px;letter-spacing:0.2px}
+
+        .reveal{opacity:0;transform:translateY(20px);transition:opacity 700ms var(--ease),transform 700ms var(--ease)}
+        .reveal.is-visible{opacity:1;transform:translateY(0)}
+        .reveal.stagger>*{opacity:0;transform:translateY(16px);transition:opacity 700ms var(--ease),transform 700ms var(--ease)}
+        .reveal.stagger.is-visible>*{opacity:1;transform:translateY(0)}
+        .reveal.stagger.is-visible>*:nth-child(1){transition-delay:0ms}
+        .reveal.stagger.is-visible>*:nth-child(2){transition-delay:60ms}
+        .reveal.stagger.is-visible>*:nth-child(3){transition-delay:120ms}
+        .reveal.stagger.is-visible>*:nth-child(4){transition-delay:180ms}
+        .reveal.stagger.is-visible>*:nth-child(5){transition-delay:240ms}
+        .reveal.stagger.is-visible>*:nth-child(6){transition-delay:300ms}
+        @media (prefers-reduced-motion:reduce){.reveal,.reveal.stagger>*{opacity:1!important;transform:none!important;transition:none!important}}
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav">
-        <a href="/" class="nav-logo">Hit<span>Lai</span></a>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <nav class="topnav" aria-label="Primary">
+        <a href="/" class="logo" aria-label="HitLai — home">
+            <span class="logo-mark-wrap"><img src="/logo-mark.png" alt="" width="36" height="36" loading="eager" decoding="async"></span>
+            <span class="logo-text">Hit<span>Lai</span></span>
+        </a>
         <div class="nav-links">
             <a href="/features">Features</a>
             <a href="/pricing">Pricing</a>
-            <a href="/resources">Resources</a>
             <a href="/industries">Industries</a>
-            <a href="/enterprise">Enterprise</a>
-            <a href="/demo">Demo</a>
+            <a href="/autonomy">Trust journey</a>
+            <a href="/trial" class="nav-cta">Start Free Trial</a>
         </div>
     </nav>
 
-    <div class="container">
-        <!-- Hero -->
-        <section class="hero">
-            <div class="badge">Enterprise</div>
-            <h1>One AI Dial.<br>Every Department. One Platform.</h1>
-            <p class="hero-subtitle">
-                Sales at Phase 5. Legal at Phase 2. Support fully automated.
-                The AI Dial gives you per-department autonomy policies — governed AI orchestration at enterprise scale.
-            </p>
+    <main id="main" class="container">
+
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="badge-pill">Enterprise</div>
+            <h1 id="hero-title">Trust journey, <em>by department.</em></h1>
+            <p class="hero-sub">Sales at Phase 4. Legal at Phase 2. Support at full autopilot. Each part of your business at its own pace &mdash; sovereign, model-independent, audited end to end.</p>
             <div class="hero-cta">
                 <a href="#contact" class="btn btn-primary">Request Demo</a>
                 <a href="/pricing" class="btn btn-secondary">See Pricing</a>
             </div>
         </section>
 
-        <!-- Department Autonomy Matrix -->
-        <section class="section">
+        <section class="block" aria-labelledby="matrix-title">
+            <div class="section-label">Trust journey by department</div>
+            <h2 id="matrix-title" class="section-title">Set the phase <em>per part of your business.</em></h2>
+            <p class="section-desc">Different work moves at different speeds. Configure the right phase per department; revisit as trust grows.</p>
             <div class="autonomy-matrix">
-                <div class="matrix-title">The AI Dial — Example Enterprise Configuration</div>
+                <div class="matrix-title">Example enterprise configuration <em>&mdash; trust journey by department</em></div>
                 <div class="department-grid">
                     <div class="department-row">
                         <div class="dept-name">Marketing</div>
-                        <div class="phase-bar">
-                            <div class="phase-fill phase-marketing"></div>
-                        </div>
-                        <div class="phase-label">Phase 5<br><span class="phase-desc">AI runs campaigns, human approves budget</span></div>
+                        <div class="phase-bar"><div class="phase-fill phase-marketing"></div></div>
+                        <div class="phase-label">Phase 5 &mdash; AI anticipates<span class="phase-desc">AI runs campaigns, human approves budget</span></div>
                     </div>
                     <div class="department-row">
                         <div class="dept-name">Sales</div>
-                        <div class="phase-bar">
-                            <div class="phase-fill phase-sales"></div>
-                        </div>
-                        <div class="phase-label">Phase 4<br><span class="phase-desc">AI handles quotes &lt;$50K, escalates above</span></div>
+                        <div class="phase-bar"><div class="phase-fill phase-sales"></div></div>
+                        <div class="phase-label">Phase 4 &mdash; AI handles routine<span class="phase-desc">AI handles quotes &lt; $50K, escalates above</span></div>
                     </div>
                     <div class="department-row">
                         <div class="dept-name">Legal</div>
-                        <div class="phase-bar">
-                            <div class="phase-fill phase-legal"></div>
-                        </div>
-                        <div class="phase-label">Phase 2<br><span class="phase-desc">AI drafts, attorneys approve everything</span></div>
+                        <div class="phase-bar"><div class="phase-fill phase-legal"></div></div>
+                        <div class="phase-label">Phase 2 &mdash; AI suggests<span class="phase-desc">AI drafts; attorneys approve everything</span></div>
                     </div>
                     <div class="department-row">
                         <div class="dept-name">Support</div>
-                        <div class="phase-bar">
-                            <div class="phase-fill phase-support"></div>
-                        </div>
-                        <div class="phase-label">Phase 6<br><span class="phase-desc">Full automation for Tier 1</span></div>
+                        <div class="phase-bar"><div class="phase-fill phase-support"></div></div>
+                        <div class="phase-label">Phase 6 &mdash; Autopilot<span class="phase-desc">Full automation for Tier 1; humans for escalations</span></div>
                     </div>
                     <div class="department-row">
                         <div class="dept-name">Finance</div>
-                        <div class="phase-bar">
-                            <div class="phase-fill phase-finance"></div>
-                        </div>
-                        <div class="phase-label">Phase 3<br><span class="phase-desc">Supervised for all payments</span></div>
+                        <div class="phase-bar"><div class="phase-fill phase-finance"></div></div>
+                        <div class="phase-label">Phase 3 &mdash; AI acts, you approve<span class="phase-desc">Supervised for all payments</span></div>
                     </div>
                 </div>
                 <div class="matrix-legend">
-                    <div class="legend-item"><div class="legend-dot" style="background: #f59e0b;"></div> Conservative (Phase 1-2)</div>
-                    <div class="legend-item"><div class="legend-dot" style="background: #3b82f6;"></div> Balanced (Phase 3-4)</div>
-                    <div class="legend-item"><div class="legend-dot" style="background: #10b981;"></div> Autonomous (Phase 5-6)</div>
+                    <span class="legend-item"><span class="legend-dot" style="background:var(--conservative)"></span> Conservative (Phase 1&ndash;2)</span>
+                    <span class="legend-item"><span class="legend-dot" style="background:var(--balanced)"></span> Balanced (Phase 3&ndash;4)</span>
+                    <span class="legend-item"><span class="legend-dot" style="background:var(--autonomous)"></span> Autonomous (Phase 5&ndash;6)</span>
                 </div>
             </div>
         </section>
 
-        <!-- Enterprise Features -->
-        <section class="section">
-            <h2 class="section-title">Enterprise Features</h2>
-            <p class="section-desc">
-                Everything you need to deploy AI automation at scale across your organization.
-            </p>
-
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🏢</div>
-                    <h3 class="feature-name">Per-Department Policies</h3>
-                    <p class="feature-desc">Set different autonomy levels for each department. Marketing at Phase 5, Legal at Phase 2—your rules.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3 class="feature-name">Autonomy Dashboards</h3>
-                    <p class="feature-desc">Real-time visibility into AI autonomy across your organization. Track, measure, adjust.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔐</div>
+        <section class="block" aria-labelledby="feat-title">
+            <div class="section-label">Enterprise features</div>
+            <h2 id="feat-title" class="section-title">Everything you need to <em>deploy at scale.</em></h2>
+            <div class="features-grid reveal stagger">
+                <article class="feature-card">
+                    <span class="feature-icon" aria-hidden="true">🏢</span>
+                    <h3 class="feature-name">Per-department phase policies</h3>
+                    <p class="feature-desc">Set different trust phases for each department. Marketing at Phase 5, Legal at Phase 2 &mdash; your rules.</p>
+                </article>
+                <article class="feature-card">
+                    <span class="feature-icon" aria-hidden="true">📊</span>
+                    <h3 class="feature-name">Trust-journey dashboards</h3>
+                    <p class="feature-desc">Real-time visibility into AI phase across your organization. Track, measure, adjust.</p>
+                </article>
+                <article class="feature-card">
+                    <span class="feature-icon" aria-hidden="true">🔐</span>
                     <h3 class="feature-name">SSO / SAML</h3>
                     <p class="feature-desc">Integrate with your identity provider. Okta, Azure AD, OneLogin, and more.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🏗️</div>
-                    <h3 class="feature-name">Multi-Tenancy</h3>
+                </article>
+                <article class="feature-card">
+                    <span class="feature-icon" aria-hidden="true">🏗️</span>
+                    <h3 class="feature-name">Multi-tenancy</h3>
                     <p class="feature-desc">Isolate teams, departments, or clients. Full data separation with shared infrastructure.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🌍</div>
-                    <h3 class="feature-name">Federation</h3>
-                    <p class="feature-desc">Deploy across regions with data residency compliance. Federated governance at scale.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">👤</div>
+                </article>
+                <article class="feature-card">
+                    <span class="feature-icon" aria-hidden="true">🌍</span>
+                    <h3 class="feature-name">Federation + sovereign deployment</h3>
+                    <p class="feature-desc">Deploy across regions with data-residency compliance. On your infrastructure (air-gapped, local AI) or our managed cloud.</p>
+                </article>
+                <article class="feature-card">
+                    <span class="feature-icon" aria-hidden="true">👤</span>
                     <h3 class="feature-name">Dedicated CSM</h3>
                     <p class="feature-desc">Your success is our priority. Dedicated Customer Success Manager for your account.</p>
-                </div>
+                </article>
             </div>
         </section>
 
-        <!-- Compliance -->
-        <section class="section">
+        <section class="block" aria-labelledby="comp-title">
             <div class="compliance-section">
-                <h3 class="compliance-title">Compliance at Any Autonomy Level</h3>
+                <h3 id="comp-title" class="compliance-title">Compliance at any phase.</h3>
                 <div class="compliance-grid">
-                    <div class="compliance-item">
-                        <span class="compliance-check">✓</span>
-                        <span class="compliance-text">SOC2 Type II certified</span>
-                    </div>
-                    <div class="compliance-item">
-                        <span class="compliance-check">✓</span>
-                        <span class="compliance-text">HIPAA compliant (Phase 2-6)</span>
-                    </div>
-                    <div class="compliance-item">
-                        <span class="compliance-check">✓</span>
-                        <span class="compliance-text">GDPR ready</span>
-                    </div>
-                    <div class="compliance-item">
-                        <span class="compliance-check">✓</span>
-                        <span class="compliance-text">Full audit trails</span>
-                    </div>
-                    <div class="compliance-item">
-                        <span class="compliance-check">✓</span>
-                        <span class="compliance-text">Autonomy level logged</span>
-                    </div>
-                    <div class="compliance-item">
-                        <span class="compliance-check">✓</span>
-                        <span class="compliance-text">Compliance reports by dept</span>
-                    </div>
+                    <div class="compliance-item"><span class="compliance-check">✓</span><span>SOC2 Type II certified</span></div>
+                    <div class="compliance-item"><span class="compliance-check">✓</span><span>HIPAA-ready</span></div>
+                    <div class="compliance-item"><span class="compliance-check">✓</span><span>GDPR compliant</span></div>
+                    <div class="compliance-item"><span class="compliance-check">✓</span><span>Full audit trails</span></div>
+                    <div class="compliance-item"><span class="compliance-check">✓</span><span>Trust phase logged per action</span></div>
+                    <div class="compliance-item"><span class="compliance-check">✓</span><span>Compliance reports by department</span></div>
                 </div>
             </div>
         </section>
 
-        <!-- Deployment Options -->
-        <section class="section">
-            <h2 class="section-title">Deployment Options</h2>
+        <section class="block" aria-labelledby="deploy-title">
+            <div class="section-label">Deployment options</div>
+            <h2 id="deploy-title" class="section-title">Deploy anywhere. <em>Your choice.</em></h2>
             <div class="deployment-grid">
-                <div class="deployment-option">
-                    <div class="deployment-icon">☁️</div>
-                    <div class="deployment-name">Cloud (Managed)</div>
-                </div>
-                <div class="deployment-option">
-                    <div class="deployment-icon">🔒</div>
-                    <div class="deployment-name">Private Cloud</div>
-                </div>
-                <div class="deployment-option">
-                    <div class="deployment-icon">🏠</div>
-                    <div class="deployment-name">On-Premise</div>
-                </div>
-                <div class="deployment-option">
-                    <div class="deployment-icon">🔄</div>
-                    <div class="deployment-name">Hybrid</div>
-                </div>
+                <div class="deployment-option"><span class="deployment-icon" aria-hidden="true">☁️</span><span class="deployment-name">Cloud (managed)</span></div>
+                <div class="deployment-option"><span class="deployment-icon" aria-hidden="true">🔒</span><span class="deployment-name">Private cloud</span></div>
+                <div class="deployment-option"><span class="deployment-icon" aria-hidden="true">🏠</span><span class="deployment-name">On-premise + air-gapped</span></div>
+                <div class="deployment-option"><span class="deployment-icon" aria-hidden="true">🔄</span><span class="deployment-name">Hybrid</span></div>
             </div>
         </section>
 
-        <!-- Contact Form -->
-        <section class="section" id="contact">
+        <section class="block" id="contact" aria-labelledby="contact-title">
             <div class="contact-section">
-                <h2 class="contact-title">Talk to Our Enterprise Team</h2>
-                <p class="contact-subtitle">Tell us about your organization and we'll show you how HitLai can help.</p>
-
-                <form id="lead-form" class="contact-form">
-                    <div style="position:absolute;left:-9999px"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
-                    <div class="form-row form-row-grid">
-                        <input type="text" name="name" placeholder="Your name" required>
-                        <input type="email" name="email" placeholder="Work email" required>
+                <h2 id="contact-title" class="contact-title">Talk to our enterprise team.</h2>
+                <p class="contact-subtitle">Tell us about your organization and we&rsquo;ll show you how HitLai can help.</p>
+                <form id="lead-form" class="contact-form" novalidate>
+                    <div style="position:absolute;left:-9999px"><label>Leave blank<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
+                    <div class="form-row-grid">
+                        <div class="form-row">
+                            <label for="e-name">Your name</label>
+                            <input id="e-name" type="text" name="name" placeholder="Your name" required autocomplete="name">
+                        </div>
+                        <div class="form-row">
+                            <label for="e-email">Work email</label>
+                            <input id="e-email" type="email" name="email" placeholder="you@company.com" required autocomplete="email">
+                        </div>
                     </div>
-                    <div class="form-row form-row-grid">
-                        <input type="text" name="company" placeholder="Company" required>
-                        <input type="text" name="title" placeholder="Job title">
+                    <div class="form-row-grid">
+                        <div class="form-row">
+                            <label for="e-company">Company</label>
+                            <input id="e-company" type="text" name="company" placeholder="Company" required autocomplete="organization">
+                        </div>
+                        <div class="form-row">
+                            <label for="e-title">Job title</label>
+                            <input id="e-title" type="text" name="title" placeholder="Job title" autocomplete="organization-title">
+                        </div>
                     </div>
                     <div class="form-row">
-                        <select name="company_size">
-                            <option value="">Company size</option>
-                            <option value="51-200">51-200 employees</option>
-                            <option value="201-500">201-500 employees</option>
-                            <option value="501-1000">501-1000 employees</option>
+                        <label for="e-size">Company size</label>
+                        <select id="e-size" name="company_size">
+                            <option value="">Choose one</option>
+                            <option value="51-200">51&ndash;200 employees</option>
+                            <option value="201-500">201&ndash;500 employees</option>
+                            <option value="501-1000">501&ndash;1000 employees</option>
                             <option value="1000+">1000+ employees</option>
                         </select>
                     </div>
                     <div class="form-row">
-                        <select name="departments">
-                            <option value="">Number of departments to automate</option>
-                            <option value="1-2">1-2 departments</option>
-                            <option value="3-5">3-5 departments</option>
-                            <option value="5-10">5-10 departments</option>
+                        <label for="e-depts">Number of departments to coordinate</label>
+                        <select id="e-depts" name="departments">
+                            <option value="">Choose one</option>
+                            <option value="1-2">1&ndash;2 departments</option>
+                            <option value="3-5">3&ndash;5 departments</option>
+                            <option value="5-10">5&ndash;10 departments</option>
                             <option value="10+">10+ departments</option>
                         </select>
                     </div>
                     <div class="form-row">
-                        <textarea name="message" placeholder="Tell us about your automation goals and any specific requirements (optional)"></textarea>
+                        <label for="e-msg">Tell us about your goals (optional)</label>
+                        <textarea id="e-msg" name="message" placeholder="Goals and any specific requirements..."></textarea>
                     </div>
                     <button type="submit">Request Enterprise Demo</button>
                 </form>
+                <div id="form-status" class="form-msg" role="status" aria-live="polite"></div>
             </div>
         </section>
-    </div>
 
-    <!-- Footer -->
+        <section class="closer">
+            <p class="closer-quote">They sell AI tools. We make all of them work together &mdash; <em>with your team.</em></p>
+        </section>
+    </main>
+
     <footer>
-        <div class="footer-links">
+        <nav class="footer-links" aria-label="Footer">
             <a href="/">Home</a>
             <a href="/features">Features</a>
             <a href="/pricing">Pricing</a>
@@ -728,48 +374,56 @@
             <a href="/industries">Industries</a>
             <a href="/demo">Demo</a>
             <a href="https://aictrlnet.com">AICtrlNet</a>
-        </div>
+        </nav>
         <p>HitLai is a product of <a href="https://bodaty.com">Bodaty LLC</a></p>
-        <p style="margin-top: 0.5rem;">&copy; 2026 Bodaty LLC. All rights reserved.</p>
-        <p style="font-size: 0.75rem; color: #888; margin-top: 0.25rem;">AICtrlNet&trade;, HitLai&trade;, and &ldquo;Governed AI Orchestration&rdquo;&trade; are trademarks of Bodaty LLC.</p>
+        <p class="footer-meta">&copy; 2026 Bodaty LLC. All rights reserved. AICtrlNet&trade;, HitLai&trade;, and &ldquo;Governed AI Orchestration&rdquo;&trade; are trademarks of Bodaty LLC.</p>
     </footer>
 
     <script>
-    // UPDATE: Replace with actual Cloud Function URL after deployment
-    var LEAD_API = 'https://marketing-leads-xy6vr5msca-uc.a.run.app';
-    var form = document.getElementById('lead-form');
-    var btn = form.querySelector('button[type="submit"]');
-    var btnText = btn.textContent;
+    (function () {
+        var LEAD_API = 'https://marketing-leads-xy6vr5msca-uc.a.run.app';
+        var form = document.getElementById('lead-form');
+        if (!form) return;
+        var btn = form.querySelector('button[type="submit"]');
+        var btnText = btn.textContent;
+        var status = document.getElementById('form-status');
 
-    form.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        if (form._gotcha && form._gotcha.value) return;
-        var data = Object.fromEntries(new FormData(form));
-        data.source_page = window.location.href;
-        data.source_site = window.location.hostname;
-        delete data._gotcha;
-        btn.disabled = true;
-        btn.textContent = 'Sending...';
-        try {
-            var res = await fetch(LEAD_API + '/enterprise', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data)
-            });
-            var result = await res.json();
-            if (result.success) {
-                form.innerHTML = '<div style="text-align:center;padding:2rem;color:#6ee7b7;font-size:1.1rem;">' + result.message + '</div>';
-            } else {
+        function showStatus(msg, kind) {
+            status.textContent = msg;
+            status.className = 'form-msg ' + kind;
+        }
+
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            if (form._gotcha && form._gotcha.value) return;
+            var data = Object.fromEntries(new FormData(form));
+            data.source_page = window.location.href;
+            data.source_site = window.location.hostname;
+            delete data._gotcha;
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
+            try {
+                var res = await fetch(LEAD_API + '/enterprise', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                var result = await res.json();
+                if (result.success) {
+                    form.style.display = 'none';
+                    showStatus(String(result.message || 'Thanks — we’ll be in touch.'), 'success');
+                } else {
+                    btn.disabled = false;
+                    btn.textContent = btnText;
+                    showStatus(String(result.error || 'Something went wrong. Please try again.'), 'error');
+                }
+            } catch (err) {
                 btn.disabled = false;
                 btn.textContent = btnText;
-                alert(result.error || 'Something went wrong. Please try again.');
+                showStatus('Network error. Please try again.', 'error');
             }
-        } catch (err) {
-            btn.disabled = false;
-            btn.textContent = btnText;
-            alert('Network error. Please try again.');
-        }
-    });
+        });
+    })();
     </script>
 </body>
 </html>
