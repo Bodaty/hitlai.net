@@ -3,455 +3,419 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pricing - HitLai</title>
-    <meta name="description" content="HitLai pricing - Business tiers from $599/mo with expert guidance included. Enterprise plans with SSO, multi-tenancy, and dedicated support.">
+    <title>HitLai Pricing — Two plans. Expert hours included.</title>
+    <meta name="description" content="HitLai pricing: Business from $599/mo, Enterprise custom. We set it up with you — expert hours included. Compare against a multi-vendor stack with our cost calculator.">
+
+    <link rel="canonical" href="https://hitlai.net/pricing/">
+    <meta name="theme-color" content="#1a1419">
+    <meta name="color-scheme" content="dark">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="HitLai">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="HitLai Pricing — Two plans. Expert hours included.">
+    <meta property="og:description" content="Business from $599/mo with expert hours included. Enterprise custom. Deploy anywhere — your infrastructure or our managed cloud.">
+    <meta property="og:url" content="https://hitlai.net/pricing/">
+    <meta property="og:image" content="https://hitlai.net/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="HitLai — pricing.">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="HitLai Pricing — Two plans. Expert hours included.">
+    <meta name="twitter:description" content="Business from $599/mo. We set it up with you.">
+    <meta name="twitter:image" content="https://hitlai.net/og-image.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        { "@type": "Organization", "@id": "https://bodaty.com/#org", "name": "Bodaty LLC", "url": "https://bodaty.com/", "logo": "https://bodaty.com/icon-512.png" },
+        {
+          "@type": "Product",
+          "name": "HitLai",
+          "url": "https://hitlai.net/",
+          "brand": { "@id": "https://bodaty.com/#org" },
+          "offers": [
+            { "@type": "Offer", "name": "Business Starter", "price": "599", "priceCurrency": "USD" },
+            { "@type": "Offer", "name": "Business Growth", "price": "1499", "priceCurrency": "USD" },
+            { "@type": "Offer", "name": "Business Scale", "price": "2499", "priceCurrency": "USD" }
+          ]
+        },
+        { "@type": "WebPage", "name": "HitLai Pricing", "url": "https://hitlai.net/pricing/" }
+      ]
+    }
+    </script>
+
     <style>
+        :root {
+            --bg: #1a1419; --bg-2: #261820; --bg-3: #2f1f29;
+            --line: rgba(251, 113, 133, 0.10);
+            --line-soft: rgba(255, 255, 255, 0.06);
+            --ink: #fef6f1; --ink-soft: #e6d6cd; --ink-dim: #b8a39d; --ink-faint: #7a6862;
+            --accent: #fb7185; --accent-2: #f59e8c;
+            --accent-glow: rgba(251, 113, 133, 0.28);
+            --font-display: 'Fraunces', Georgia, serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --ease: cubic-bezier(0.22, 1, 0.36, 1);
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
+        html { scroll-behavior: smooth; }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+        }
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            min-height: 100vh;
-            color: #e0e0e0;
+            font-family: var(--font-body); background: var(--bg); color: var(--ink-soft);
+            -webkit-font-smoothing: antialiased; line-height: 1.6; min-height: 100vh;
+            position: relative; overflow-x: hidden;
         }
-
-        /* Navigation */
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+        body::before {
+            content: ''; position: fixed; inset: -10%;
+            background:
+                radial-gradient(ellipse 820px 580px at 12% 88%, rgba(251, 113, 133, 0.14) 0%, transparent 58%),
+                radial-gradient(ellipse 660px 500px at 92% 5%, rgba(245, 158, 140, 0.10) 0%, transparent 62%);
+            z-index: -2; pointer-events: none;
+            animation: mesh-drift 24s var(--ease) infinite alternate;
         }
-
-        .nav-logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: white;
-            text-decoration: none;
+        @keyframes mesh-drift {
+            0% { transform: translate3d(0,0,0) scale(1); }
+            50% { transform: translate3d(2%,-1.5%,0) scale(1.05); }
+            100% { transform: translate3d(-1.5%,1.5%,0) scale(1.02); }
         }
-
-        .nav-logo span {
-            color: #f9a8d4;
+        .skip-link {
+            position: absolute; top: -40px; left: 16px;
+            background: var(--accent); color: var(--bg);
+            padding: 8px 16px; border-radius: 4px;
+            font-weight: 600; text-decoration: none; z-index: 100;
         }
+        .skip-link:focus-visible { top: 16px; }
+        :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
+        nav.topnav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 22px 32px; max-width: 1200px; margin: 0 auto;
         }
-
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo-mark-wrap {
+            width: 36px; height: 36px; border-radius: 50%;
+            background: var(--bg-2); border: 1px solid rgba(251, 113, 133, 0.18);
+            overflow: hidden; display: grid; place-items: center;
+            box-shadow: 0 4px 16px rgba(251, 113, 133, 0.10);
+            filter: hue-rotate(15deg) saturate(0.95);
+        }
+        .logo-mark-wrap img { width: 100%; height: 100%; display: block; object-fit: cover; }
+        .logo-text {
+            font-family: var(--font-display); font-weight: 700; font-size: 22px;
+            color: var(--ink); letter-spacing: -0.5px;
+        }
+        .logo-text span { color: var(--accent); font-style: italic; }
+        .nav-links { display: flex; gap: 28px; align-items: center; }
         .nav-links a {
-            color: #9ca3af;
-            text-decoration: none;
-            font-size: 0.95rem;
+            color: var(--ink-dim); text-decoration: none; font-size: 14.5px;
+            font-weight: 500; transition: color 0.2s var(--ease);
         }
-
-        .nav-links a:hover {
-            color: #f9a8d4;
+        .nav-links a:hover { color: var(--accent); }
+        .nav-cta {
+            background: var(--accent); color: var(--bg) !important;
+            padding: 9px 18px; border-radius: 6px; font-weight: 600 !important;
+            transition: all 0.2s var(--ease);
         }
+        .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 24px var(--accent-glow); }
+        @media (max-width: 768px) { .nav-links a:not(.nav-cta) { display: none; } }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        .container { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
+
+        .hero { text-align: center; padding: 36px 0 56px; }
+        .kicker {
+            font-family: var(--font-body); font-weight: 500; font-size: 13px;
+            letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent);
+            margin-bottom: 22px;
+            opacity: 0; animation: enter 0.7s var(--ease) 0.1s forwards;
         }
-
-        /* Hero */
-        .hero {
-            text-align: center;
-            padding: 3rem 0 4rem;
-        }
-
+        .kicker::before { content: '— '; }
         h1 {
-            font-size: 2.75rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #ffffff 0%, #f9a8d4 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-family: var(--font-display); font-weight: 500;
+            font-variation-settings: 'opsz' 96;
+            font-size: clamp(2.4rem, 5.4vw, 3.6rem); line-height: 1.06;
+            letter-spacing: -1.5px; color: var(--ink); margin-bottom: 22px;
+            max-width: 820px; margin-left: auto; margin-right: auto;
+            opacity: 0; animation: enter 0.7s var(--ease) 0.2s forwards;
+        }
+        h1 em { font-style: italic; color: var(--accent); }
+        .hero-sub {
+            font-size: 1.12rem; line-height: 1.65; color: var(--ink-soft);
+            max-width: 720px; margin: 0 auto;
+            opacity: 0; animation: enter 0.7s var(--ease) 0.3s forwards;
         }
 
-        .hero-subtitle {
-            font-size: 1.15rem;
-            color: #9ca3af;
-            max-width: 550px;
-            margin: 0 auto;
-        }
-
-        /* Pricing Grid */
         .pricing-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-bottom: 4rem;
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px;
+            margin: 16px 0 48px;
         }
-
+        @media (max-width: 700px) { .pricing-grid { grid-template-columns: 1fr; } }
         .pricing-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            padding: 2.5rem;
+            background: rgba(38, 24, 32, 0.55);
+            border: 1px solid var(--line-soft); border-radius: 16px;
+            padding: 36px 32px; position: relative;
         }
-
         .pricing-card.featured {
-            border-color: rgba(236, 72, 153, 0.4);
-            position: relative;
+            border-color: rgba(251, 113, 133, 0.35);
+            background: linear-gradient(180deg, rgba(251, 113, 133, 0.10) 0%, rgba(38, 24, 32, 0.6) 100%);
         }
-
         .pricing-card.featured::before {
-            content: "Most Popular";
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
-            color: white;
-            font-size: 0.75rem;
-            font-weight: 600;
-            padding: 0.35rem 1rem;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            content: 'Most Popular';
+            position: absolute; top: -12px; left: 32px;
+            background: var(--accent); color: var(--bg);
+            padding: 5px 14px; border-radius: 999px;
+            font-family: var(--font-body); font-weight: 600;
+            font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase;
         }
-
-        .plan-header {
-            text-align: center;
-            margin-bottom: 2rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
         .plan-name {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 0.5rem;
+            font-family: var(--font-display); font-weight: 600;
+            font-variation-settings: 'opsz' 96;
+            font-size: 26px; color: var(--ink);
+            letter-spacing: -0.5px; margin-bottom: 4px;
         }
-
         .plan-price {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #f9a8d4;
-            margin-bottom: 0.25rem;
+            font-family: var(--font-display); font-weight: 500; font-style: italic;
+            font-variation-settings: 'opsz' 96;
+            font-size: 26px; color: var(--accent); margin-bottom: 4px;
         }
-
-        .plan-period {
-            font-size: 0.9rem;
-            color: #6b7280;
-        }
-
-        .plan-desc {
-            font-size: 0.95rem;
-            color: #9ca3af;
-            margin-top: 0.75rem;
-        }
-
-        .plan-features {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-
+        .plan-period { font-size: 13px; color: var(--ink-dim); margin-bottom: 14px; letter-spacing: 0.4px; }
+        .plan-desc { font-size: 14.5px; color: var(--ink-soft); margin-bottom: 22px; line-height: 1.5; }
+        .plan-features { list-style: none; margin-bottom: 28px; }
         .plan-features li {
-            padding: 0.6rem 0;
-            font-size: 0.95rem;
-            color: #d1d5db;
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
+            font-size: 14px; color: var(--ink-soft);
+            padding: 6px 0 6px 22px; position: relative; line-height: 1.5;
         }
-
         .plan-features li::before {
-            content: "✓";
-            color: #10b981;
-            font-weight: 600;
-            flex-shrink: 0;
+            content: '✓'; position: absolute; left: 0; color: var(--accent); font-weight: 700;
         }
-
-        .plan-cta {
-            text-align: center;
-        }
+        .plan-features strong { color: var(--ink); }
+        .plan-cta { display: flex; flex-direction: column; gap: 10px; }
 
         .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.875rem 2rem;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            width: 100%;
+            display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+            padding: 13px 24px; border-radius: 8px;
+            font-family: var(--font-body); font-size: 14.5px; font-weight: 600;
+            text-decoration: none; transition: all 200ms var(--ease);
+            border: 1px solid transparent; cursor: pointer; text-align: center;
         }
+        .btn-primary { background: var(--accent); color: var(--bg); }
+        .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 32px var(--accent-glow); }
+        .btn-secondary { background: transparent; color: var(--ink); border-color: var(--line-soft); }
+        .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
 
-        .btn-primary {
-            background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 40px rgba(236, 72, 153, 0.3);
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.05);
-            color: #e0e0e0;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        /* Business Tier Breakdown */
         .tier-breakdown {
-            margin-bottom: 4rem;
+            padding: 48px 0;
+            border-top: 1px solid var(--line-soft);
+            border-bottom: 1px solid var(--line-soft);
+            margin: 16px 0;
         }
-
         .tier-breakdown h2 {
-            text-align: center;
-            font-size: 1.5rem;
-            color: white;
-            margin-bottom: 0.5rem;
+            font-family: var(--font-display); font-weight: 500;
+            font-variation-settings: 'opsz' 96;
+            font-size: 1.8rem; color: var(--ink); letter-spacing: -0.6px;
+            text-align: center; margin-bottom: 6px;
         }
-
-        .tier-breakdown-desc {
-            text-align: center;
-            color: #9ca3af;
-            margin-bottom: 2rem;
-        }
-
+        .tier-breakdown-desc { text-align: center; color: var(--ink-dim); margin-bottom: 32px; font-size: 14.5px; }
         .tier-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 12px;
+            width: 100%; border-collapse: collapse;
+            background: var(--bg-2);
+            border: 1px solid var(--line-soft); border-radius: 12px;
             overflow: hidden;
         }
-
         .tier-table th {
-            text-align: left;
-            padding: 1rem 1.5rem;
-            background: rgba(255, 255, 255, 0.05);
-            font-weight: 600;
-            color: #a5b4fc;
-            font-size: 0.9rem;
+            text-align: left; padding: 14px 20px;
+            background: rgba(0, 0, 0, 0.25);
+            font-family: var(--font-body); font-size: 12px; font-weight: 600;
+            color: var(--ink-dim); letter-spacing: 1.5px; text-transform: uppercase;
+            border-bottom: 1px solid var(--line-soft);
         }
-
         .tier-table td {
-            padding: 1rem 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            color: #d1d5db;
-            font-size: 0.95rem;
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--line-soft);
+            font-size: 14.5px; color: var(--ink-soft);
         }
+        .tier-table tr:last-child td { border-bottom: none; }
+        .tier-name { color: var(--ink); font-weight: 600; }
+        .tier-price { color: var(--accent); font-family: var(--font-display); font-weight: 500; font-style: italic; }
+        .tier-hours { color: var(--ink); }
 
-        .tier-table tr:hover td {
-            background: rgba(255, 255, 255, 0.02);
-        }
-
-        .tier-name {
-            font-weight: 600;
-            color: white;
-        }
-
-        .tier-price {
-            color: #f9a8d4;
-            font-weight: 600;
-        }
-
-        .tier-hours {
-            color: #10b981;
-        }
-
-        /* FAQ Section */
-        .faq-section {
-            margin-bottom: 4rem;
-        }
-
-        .faq-section h2 {
+        .calc-cta {
+            background: linear-gradient(135deg, rgba(251, 113, 133, 0.12) 0%, rgba(245, 158, 140, 0.08) 100%);
+            border: 1px solid rgba(251, 113, 133, 0.22);
+            border-radius: 18px; padding: 40px 32px; margin: 32px 0;
             text-align: center;
-            font-size: 1.75rem;
-            color: white;
-            margin-bottom: 2rem;
+        }
+        .calc-cta h2 {
+            font-family: var(--font-display); font-weight: 500;
+            font-variation-settings: 'opsz' 96;
+            font-size: 1.5rem; color: var(--ink);
+            letter-spacing: -0.4px; margin-bottom: 10px;
+        }
+        .calc-cta p {
+            color: var(--ink-soft); font-size: 14.5px; line-height: 1.6;
+            max-width: 640px; margin: 0 auto 22px;
         }
 
+        .faq-section {
+            padding: 56px 0;
+        }
+        .faq-section h2 {
+            font-family: var(--font-display); font-weight: 500;
+            font-variation-settings: 'opsz' 96;
+            font-size: 1.8rem; color: var(--ink); letter-spacing: -0.6px;
+            text-align: center; margin-bottom: 32px;
+        }
         .faq-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
         }
-
+        @media (max-width: 700px) { .faq-grid { grid-template-columns: 1fr; } }
         .faq-item {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 12px;
-            padding: 1.5rem;
+            background: rgba(38, 24, 32, 0.5);
+            border: 1px solid var(--line-soft);
+            border-radius: 12px; padding: 22px;
         }
-
         .faq-question {
-            font-weight: 600;
-            color: white;
-            margin-bottom: 0.75rem;
-            font-size: 1rem;
+            font-family: var(--font-display); font-weight: 500;
+            font-variation-settings: 'opsz' 96;
+            font-size: 1rem; color: var(--ink); margin-bottom: 8px; letter-spacing: -0.2px;
         }
+        .faq-answer { color: var(--ink-soft); font-size: 14px; line-height: 1.6; }
+        .faq-answer a { color: var(--accent); text-decoration: none; }
+        .faq-answer a:hover { text-decoration: underline; }
 
-        .faq-answer {
-            color: #9ca3af;
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-
-        .faq-answer a {
-            color: #a5b4fc;
-            text-decoration: none;
-        }
-
-        .faq-answer a:hover {
-            text-decoration: underline;
-        }
-
-        /* Community Note */
         .community-note {
             text-align: center;
-            padding: 2rem;
-            background: rgba(99, 102, 241, 0.05);
-            border: 1px solid rgba(99, 102, 241, 0.15);
-            border-radius: 12px;
-            margin-bottom: 3rem;
+            padding: 24px;
+            background: rgba(38, 24, 32, 0.6);
+            border: 1px solid var(--line-soft);
+            border-radius: 12px; margin: 32px 0 48px;
+            font-size: 14.5px; color: var(--ink-dim);
+        }
+        .community-note strong { color: var(--ink); }
+        .community-note a { color: var(--accent); text-decoration: none; font-weight: 500; }
+        .community-note a:hover { text-decoration: underline; }
+
+        .closer { padding: 32px 0 8px; text-align: center; }
+        .closer-quote {
+            font-family: var(--font-display); font-style: italic;
+            font-variation-settings: 'opsz' 96; font-weight: 400;
+            font-size: clamp(1.3rem, 2.4vw, 1.7rem); line-height: 1.4;
+            color: var(--ink); max-width: 760px; margin: 0 auto;
+        }
+        .closer-quote em { color: var(--accent); }
+        .trust-line {
+            margin-top: 16px; font-size: 14px; color: var(--ink-dim);
+            max-width: 720px; margin-left: auto; margin-right: auto;
+            font-family: var(--font-display); font-style: italic;
+            font-variation-settings: 'opsz' 96;
         }
 
-        .community-note p {
-            color: #9ca3af;
-            font-size: 0.95rem;
+        .powered-by {
+            text-align: center; padding: 22px;
+            background: rgba(26, 20, 25, 0.5);
+            border: 1px solid var(--line-soft); border-radius: 12px;
+            margin: 32px 0 48px; font-size: 14px; color: var(--ink-dim);
         }
+        .powered-by a { color: var(--accent); text-decoration: none; font-weight: 500; }
+        .powered-by a:hover { text-decoration: underline; }
 
-        .community-note a {
-            color: #a5b4fc;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .community-note a:hover {
-            text-decoration: underline;
-        }
-
-        /* Footer */
         footer {
-            text-align: center;
-            padding: 2rem;
-            color: #6b7280;
-            font-size: 0.85rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid var(--line-soft);
+            padding: 36px 0 48px; text-align: center;
+            font-size: 13.5px; color: var(--ink-dim);
         }
-
         .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
+            display: flex; justify-content: center; flex-wrap: wrap;
+            gap: 10px 26px; margin-bottom: 18px;
         }
+        footer a { color: var(--ink-soft); text-decoration: none; }
+        footer a:hover { color: var(--accent); }
+        .footer-meta { font-size: 11.5px; color: var(--ink-faint); margin-top: 8px; letter-spacing: 0.2px; }
 
-        footer a {
-            color: #9ca3af;
-            text-decoration: none;
+        @keyframes enter {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
-        footer a:hover {
-            color: #f9a8d4;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .pricing-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .faq-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .tier-table {
-                font-size: 0.85rem;
-            }
-
-            .tier-table th,
-            .tier-table td {
-                padding: 0.75rem 1rem;
-            }
+        .reveal { opacity: 0; transform: translateY(20px); transition: opacity 700ms var(--ease), transform 700ms var(--ease); }
+        .reveal.is-visible { opacity: 1; transform: translateY(0); }
+        @media (prefers-reduced-motion: reduce) {
+            .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav">
-        <a href="/" class="nav-logo">Hit<span>Lai</span></a>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <nav class="topnav" aria-label="Primary">
+        <a href="/" class="logo" aria-label="HitLai — home">
+            <span class="logo-mark-wrap"><img src="/logo-mark.png" alt="" width="36" height="36" loading="eager" decoding="async"></span>
+            <span class="logo-text">Hit<span>Lai</span></span>
+        </a>
         <div class="nav-links">
             <a href="/features">Features</a>
             <a href="/pricing">Pricing</a>
             <a href="/industries">Industries</a>
             <a href="/enterprise">Enterprise</a>
             <a href="/demo">Demo</a>
+            <a href="/trial" class="nav-cta">Start Free Trial</a>
         </div>
     </nav>
 
-    <div class="container">
-        <!-- Hero -->
-        <section class="hero">
-            <h1>Simple, Transparent Pricing</h1>
-            <p class="hero-subtitle">
-                Two plans designed to grow with your business. Expert guidance included in every tier.
+    <main id="main" class="container">
+
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="kicker">Pricing</div>
+            <h1 id="hero-title">Two plans. <em>Expert hours included.</em></h1>
+            <p class="hero-sub">
+                Deploy anywhere. Model-independent. No integration ceiling. We set it up with you &mdash; not DIY, not consultants.
             </p>
         </section>
 
-        <!-- Pricing Grid -->
-        <div class="pricing-grid">
-            <!-- Business -->
+        <div class="pricing-grid reveal">
             <div class="pricing-card featured">
-                <div class="plan-header">
-                    <h2 class="plan-name">Business</h2>
-                    <div class="plan-price">$599 - $2,499</div>
-                    <div class="plan-period">per month</div>
-                    <p class="plan-desc">For growing teams with up to 50 users</p>
-                </div>
+                <h2 class="plan-name">Business</h2>
+                <div class="plan-price">$599 &ndash; $2,499</div>
+                <div class="plan-period">per month</div>
+                <p class="plan-desc">For growing teams with up to 50 users</p>
                 <ul class="plan-features">
                     <li>All platform features</li>
                     <li>20+ industry packs</li>
-                    <li>Advanced AI governance</li>
                     <li>183 workflow templates</li>
-                    <li>43 AI agents</li>
-                    <li>10,000+ tools</li>
+                    <li>43 role-configured agent templates</li>
+                    <li>29 native adapters + runtime generation + browser</li>
+                    <li>6 messaging channels (WhatsApp, Slack, Telegram, SMS, Discord, Email)</li>
                     <li>Email support</li>
-                    <li><strong>2-8 expert hours/month</strong> included</li>
+                    <li><strong>2&ndash;8 expert hours/month</strong> included</li>
                 </ul>
                 <div class="plan-cta">
                     <a href="/trial" class="btn btn-primary">Start 14-Day Free Trial</a>
                 </div>
             </div>
 
-            <!-- Enterprise -->
             <div class="pricing-card">
-                <div class="plan-header">
-                    <h2 class="plan-name">Enterprise</h2>
-                    <div class="plan-price">Custom</div>
-                    <div class="plan-period">contact sales</div>
-                    <p class="plan-desc">For large organizations with unlimited users</p>
-                </div>
+                <h2 class="plan-name">Enterprise</h2>
+                <div class="plan-price">Custom</div>
+                <div class="plan-period">contact sales</div>
+                <p class="plan-desc">For large organizations with unlimited users</p>
                 <ul class="plan-features">
                     <li>Everything in Business</li>
                     <li>Multi-tenancy</li>
                     <li>SSO / SAML integration</li>
-                    <li>On-premise deployment</li>
+                    <li>On-premise deployment (sovereign, air-gapped, local AI)</li>
                     <li>Federation across regions</li>
                     <li>Custom SLA</li>
                     <li>Dedicated Customer Success Manager</li>
@@ -463,19 +427,17 @@
             </div>
         </div>
 
-        <!-- Business Tier Breakdown -->
-        <section class="tier-breakdown">
-            <h2>Business Tier Breakdown</h2>
-            <p class="tier-breakdown-desc">Choose the tier that matches your team's needs</p>
-
-            <table class="tier-table">
+        <section class="tier-breakdown reveal" aria-labelledby="tier-title">
+            <h2 id="tier-title">Business tier breakdown</h2>
+            <p class="tier-breakdown-desc">Choose the tier that matches your team&rsquo;s needs.</p>
+            <table class="tier-table" aria-label="Business tier details">
                 <thead>
                     <tr>
                         <th>Tier</th>
                         <th>Price</th>
                         <th>Users</th>
-                        <th>Expert Hours</th>
-                        <th>Best For</th>
+                        <th>Expert hours</th>
+                        <th>Best for</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -504,106 +466,94 @@
             </table>
         </section>
 
-        <!-- Calculator CTA -->
-        <section style="text-align: center; padding: 2.5rem 1.5rem; margin: 2rem 0; background: rgba(249, 168, 212, 0.08); border: 1px solid rgba(249, 168, 212, 0.2); border-radius: 12px;">
-            <h2 style="font-size: 1.4rem; color: white; margin-bottom: 0.5rem;">Already using multiple AI tools?</h2>
-            <p style="color: #9ca3af; margin-bottom: 1.25rem; max-width: 600px; margin-left: auto; margin-right: auto;">See what your multi-vendor stack is actually costing you. Enter your real numbers for RPA, Copilot, governance tools, and automation platforms — compare to one unified platform.</p>
-            <a href="/calculator/" style="display: inline-block; padding: 0.8rem 2rem; background: linear-gradient(135deg, #f9a8d4, #c084fc); color: #1a1a2e; font-weight: 600; font-size: 1rem; border-radius: 8px; text-decoration: none; transition: transform 0.2s;">Try the Frankenstein Stack Calculator</a>
+        <section class="calc-cta reveal">
+            <h2>Already using multiple AI tools?</h2>
+            <p>See what your multi-vendor stack is actually costing you. Enter real numbers for RPA, Copilot, governance tools, automation platforms &mdash; compare to one unified platform.</p>
+            <a href="/calculator/" class="btn btn-primary">Try the Frankenstein Stack Calculator</a>
         </section>
 
-        <!-- FAQ Section -->
-        <section class="faq-section">
-            <h2>Frequently Asked Questions</h2>
-
+        <section class="faq-section reveal" aria-labelledby="faq-title">
+            <h2 id="faq-title">Frequently asked questions</h2>
             <div class="faq-grid">
                 <div class="faq-item">
                     <h3 class="faq-question">How does the free trial work?</h3>
-                    <p class="faq-answer">
-                        Start with a 14-day free trial of any Business tier. No credit card required.
-                        Full access to all features. Cancel anytime.
-                    </p>
+                    <p class="faq-answer">Start with a 14-day free trial of any Business tier. No credit card required. Full access to all features. Cancel anytime.</p>
                 </div>
-
                 <div class="faq-item">
                     <h3 class="faq-question">Can I switch plans?</h3>
-                    <p class="faq-answer">
-                        Yes! Upgrade or downgrade anytime. Changes take effect on your next billing cycle.
-                        We'll prorate if you upgrade mid-cycle.
-                    </p>
+                    <p class="faq-answer">Yes. Upgrade or downgrade anytime. Changes take effect on your next billing cycle. We&rsquo;ll prorate if you upgrade mid-cycle.</p>
                 </div>
-
                 <div class="faq-item">
-                    <h3 class="faq-question">What's included in the trial?</h3>
-                    <p class="faq-answer">
-                        Full access to all Business features including workflow templates, AI agents,
-                        integrations, and governance tools. Expert hours are included during trial.
-                    </p>
+                    <h3 class="faq-question">What&rsquo;s included in the trial?</h3>
+                    <p class="faq-answer">Full access to all Business features including workflow templates, agent templates, integrations, and the trust journey controls. Expert hours are included during trial.</p>
                 </div>
-
                 <div class="faq-item">
                     <h3 class="faq-question">Do you offer annual billing?</h3>
-                    <p class="faq-answer">
-                        Yes! Save 20% with annual billing. Contact us for annual pricing and
-                        custom payment terms.
-                    </p>
+                    <p class="faq-answer">Yes. Save 20% with annual billing. Contact us for annual pricing and custom payment terms.</p>
                 </div>
-
                 <div class="faq-item">
                     <h3 class="faq-question">What are expert hours?</h3>
-                    <p class="faq-answer">
-                        Expert guidance, built in. Configuration, optimization, strategy—whatever you need.
-                        Our experts help you get maximum value from HitLai.
-                    </p>
+                    <p class="faq-answer">Expert guidance, built in. Configuration, optimization, strategy &mdash; whatever you need. Our experts help you get maximum value from HitLai.</p>
                 </div>
-
                 <div class="faq-item">
-                    <h3 class="faq-question">What's DWY (Doing With You)?</h3>
-                    <p class="faq-answer">
-                        Not DIY self-serve. Not expensive consultants. Expert guidance included in every
-                        Business tier. We work with you to ensure success.
-                    </p>
+                    <h3 class="faq-question">What&rsquo;s DWY (Doing With You)?</h3>
+                    <p class="faq-answer">Not DIY self-serve. Not expensive consultants. Expert guidance included in every Business tier. We work with you to ensure success.</p>
                 </div>
-
                 <div class="faq-item">
                     <h3 class="faq-question">What about the Community Edition?</h3>
-                    <p class="faq-answer">
-                        Looking for free? The <a href="https://aictrlnet.com">AICtrlNet Community Edition</a>
-                        is MIT-licensed and completely free. Self-hosted, full core features.
-                    </p>
+                    <p class="faq-answer">Looking for free? The <a href="https://aictrlnet.com">AICtrlNet Community Edition</a> is MIT-licensed and completely free. Self-hosted, full core features.</p>
                 </div>
-
                 <div class="faq-item">
                     <h3 class="faq-question">How do I contact sales?</h3>
-                    <p class="faq-answer">
-                        Visit our <a href="/enterprise">Enterprise page</a> or email
-                        <a href="mailto:enterprise@bodaty.com">enterprise@bodaty.com</a>.
-                    </p>
+                    <p class="faq-answer">Visit our <a href="/enterprise">Enterprise page</a> or email <a href="mailto:enterprise@bodaty.com">enterprise@bodaty.com</a>.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Community Note -->
         <div class="community-note">
-            <p>
-                <strong>Looking for free?</strong> Try <a href="https://aictrlnet.com">AICtrlNet Community Edition</a> —
-                MIT-licensed, self-hosted, with full core features including governed orchestration workflows.
-            </p>
+            <strong>Looking for free?</strong> Try <a href="https://aictrlnet.com">AICtrlNet Community Edition</a> &mdash; MIT-licensed, self-hosted, with the full core platform.
         </div>
-    </div>
 
-    <!-- Footer -->
+        <section class="closer">
+            <p class="closer-quote">They sell AI tools. We make all of them work together &mdash; <em>with your team.</em></p>
+            <p class="trust-line">Currently in evaluation with regulated-industry leaders in banking, healthcare payment integrity, and legal-tech.</p>
+        </section>
+
+        <div class="powered-by">
+            Powered by <a href="https://aictrlnet.com">AICtrlNet</a> &mdash; the open-core layer that coordinates AI, your team, and the systems you already run.
+        </div>
+    </main>
+
     <footer>
-        <div class="footer-links">
+        <nav class="footer-links" aria-label="Footer">
             <a href="/">Home</a>
             <a href="/features">Features</a>
             <a href="/industries">Industries</a>
             <a href="/enterprise">Enterprise</a>
             <a href="/demo">Demo</a>
+            <a href="/calculator">Calculator</a>
             <a href="https://aictrlnet.com">AICtrlNet</a>
-        </div>
+        </nav>
         <p>HitLai is a product of <a href="https://bodaty.com">Bodaty LLC</a></p>
-        <p style="margin-top: 0.5rem;">&copy; 2026 Bodaty LLC. All rights reserved.</p>
-        <p style="font-size: 0.75rem; color: #888; margin-top: 0.25rem;">AICtrlNet&trade;, HitLai&trade;, and &ldquo;Governed AI Orchestration&rdquo;&trade; are trademarks of Bodaty LLC.</p>
+        <p class="footer-meta">&copy; 2026 Bodaty LLC. All rights reserved. AICtrlNet&trade;, HitLai&trade;, and &ldquo;Governed AI Orchestration&rdquo;&trade; are trademarks of Bodaty LLC.</p>
     </footer>
+
+    <script>
+    (function () {
+        if (!('IntersectionObserver' in window)) {
+            document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-visible'); });
+            return;
+        }
+        var obs = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+        document.querySelectorAll('.reveal').forEach(function (el) { obs.observe(el); });
+    })();
+    </script>
 </body>
 </html>
