@@ -3,364 +3,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resources - HitLai</title>
-    <meta name="description" content="Free enterprise white papers on AI governance, orchestration, and adoption strategy.">
+    <title>HitLai Resources — Practical playbooks for running your business alongside AI.</title>
+    <meta name="description" content="White papers from the field: the trust journey, evaluating AI agents, what data quality taught us about AI, and the cost of a multi-vendor stack.">
+
+    <link rel="canonical" href="https://hitlai.net/resources/">
+    <meta name="theme-color" content="#1a1419">
+    <meta name="color-scheme" content="dark">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="HitLai">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="HitLai Resources — Practical playbooks for AI alongside your team.">
+    <meta property="og:description" content="Four white papers: the trust journey, evaluating AI agents, data quality lessons, multi-vendor stack costs.">
+    <meta property="og:url" content="https://hitlai.net/resources/">
+    <meta property="og:image" content="https://hitlai.net/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="HitLai Resources">
+    <meta name="twitter:description" content="Practical playbooks for AI alongside your team.">
+    <meta name="twitter:image" content="https://hitlai.net/og-image.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            min-height: 100vh;
-            color: #e0e0e0;
+        :root {
+            --bg:#1a1419;--bg-2:#261820;--bg-3:#2f1f29;
+            --line:rgba(251,113,133,0.10);--line-soft:rgba(255,255,255,0.06);
+            --ink:#fef6f1;--ink-soft:#e6d6cd;--ink-dim:#b8a39d;--ink-faint:#7a6862;
+            --accent:#fb7185;--accent-2:#f59e8c;--accent-glow:rgba(251,113,133,0.28);
+            --good:#6ee7b7;--bad:#fca5a5;
+            --font-display:'Fraunces',Georgia,serif;
+            --font-body:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+            --ease:cubic-bezier(0.22,1,0.36,1);
         }
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}}
+        body{font-family:var(--font-body);background:var(--bg);color:var(--ink-soft);-webkit-font-smoothing:antialiased;line-height:1.6;min-height:100vh;position:relative;overflow-x:hidden}
+        body::before{content:'';position:fixed;inset:-10%;background:radial-gradient(ellipse 820px 580px at 12% 88%,rgba(251,113,133,0.14) 0%,transparent 58%),radial-gradient(ellipse 660px 500px at 92% 5%,rgba(245,158,140,0.10) 0%,transparent 62%);z-index:-2;pointer-events:none;animation:mesh-drift 24s var(--ease) infinite alternate}
+        @keyframes mesh-drift{0%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(2%,-1.5%,0) scale(1.05)}100%{transform:translate3d(-1.5%,1.5%,0) scale(1.02)}}
+        .skip-link{position:absolute;top:-40px;left:16px;background:var(--accent);color:var(--bg);padding:8px 16px;border-radius:4px;font-weight:600;text-decoration:none;z-index:100}
+        .skip-link:focus-visible{top:16px}
+        :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+        .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+        nav.topnav{display:flex;justify-content:space-between;align-items:center;padding:22px 32px;max-width:1200px;margin:0 auto}
+        .logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+        .logo-mark-wrap{width:36px;height:36px;border-radius:50%;background:var(--bg-2);border:1px solid rgba(251,113,133,0.18);overflow:hidden;display:grid;place-items:center;box-shadow:0 4px 16px rgba(251,113,133,0.10);filter:hue-rotate(15deg) saturate(0.95)}
+        .logo-mark-wrap img{width:100%;height:100%;display:block;object-fit:cover}
+        .logo-text{font-family:var(--font-display);font-weight:700;font-size:22px;color:var(--ink);letter-spacing:-0.5px}
+        .logo-text span{color:var(--accent);font-style:italic}
+        .nav-links{display:flex;gap:28px;align-items:center}
+        .nav-links a{color:var(--ink-dim);text-decoration:none;font-size:14.5px;font-weight:500;transition:color 0.2s var(--ease)}
+        .nav-links a:hover{color:var(--accent)}
+        .nav-cta{background:var(--accent);color:var(--bg)!important;padding:9px 18px;border-radius:6px;font-weight:600!important}
+        .nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 24px var(--accent-glow)}
+        @media (max-width:768px){.nav-links a:not(.nav-cta){display:none}}
 
-        .nav-logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: white;
-            text-decoration: none;
-        }
+        .container{max-width:1080px;margin:0 auto;padding:0 32px}
 
-        .nav-logo span { color: #f9a8d4; }
+        .hero{text-align:center;padding:36px 0 56px}
+        .badge-pill{display:inline-block;font-family:var(--font-body);font-weight:500;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);border:1px solid rgba(251,113,133,0.3);padding:6px 16px;border-radius:999px;margin-bottom:22px}
+        h1{font-family:var(--font-display);font-weight:500;font-variation-settings:'opsz' 96;font-size:clamp(2.3rem,5.2vw,3.4rem);line-height:1.06;letter-spacing:-1.4px;color:var(--ink);margin-bottom:22px;max-width:820px;margin-left:auto;margin-right:auto}
+        h1 em{font-style:italic;color:var(--accent)}
+        .hero-sub{font-size:1.1rem;line-height:1.65;color:var(--ink-soft);max-width:720px;margin:0 auto}
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
+        .papers-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-bottom:48px}
+        @media (max-width:720px){.papers-grid{grid-template-columns:1fr}}
+        .paper-card{background:rgba(38,24,32,0.55);border:1px solid var(--line-soft);border-radius:14px;padding:28px;transition:all 250ms var(--ease)}
+        .paper-card:hover{border-color:var(--accent);transform:translateY(-3px)}
+        .paper-label{display:inline-block;font-family:var(--font-body);font-weight:600;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);background:rgba(251,113,133,0.10);border:1px solid rgba(251,113,133,0.22);padding:4px 12px;border-radius:4px;margin-bottom:16px}
+        .paper-card h3{font-family:var(--font-display);font-weight:500;font-variation-settings:'opsz' 96;font-size:1.35rem;color:var(--ink);letter-spacing:-0.4px;line-height:1.2;margin-bottom:6px}
+        .paper-card .subtitle{font-family:var(--font-display);font-style:italic;font-variation-settings:'opsz' 96;font-size:0.95rem;color:var(--accent);margin-bottom:14px}
+        .paper-card .desc{font-size:14.5px;color:var(--ink-soft);line-height:1.55;margin-bottom:20px}
+        .download-btn{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:8px;background:var(--accent);color:var(--bg);border:none;font-family:var(--font-body);font-weight:600;font-size:14px;cursor:pointer;transition:all 200ms var(--ease)}
+        .download-btn:hover{transform:translateY(-1px);box-shadow:0 8px 24px var(--accent-glow)}
 
-        .nav-links a {
-            color: #9ca3af;
-            text-decoration: none;
-            font-size: 0.95rem;
-        }
+        .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:24px;z-index:1000}
+        .modal-overlay.active{display:flex}
+        .modal-content{background:var(--bg-2);border:1px solid var(--line-soft);border-radius:16px;padding:36px;max-width:440px;width:100%;position:relative;box-shadow:0 24px 80px rgba(0,0,0,0.5)}
+        .modal-close{position:absolute;top:18px;right:18px;background:none;border:none;color:var(--ink-dim);font-size:28px;cursor:pointer;line-height:1;padding:0;transition:color 200ms var(--ease)}
+        .modal-close:hover{color:var(--ink)}
+        .modal-content h3{font-family:var(--font-display);font-weight:500;font-variation-settings:'opsz' 96;font-size:1.4rem;color:var(--ink);letter-spacing:-0.4px;margin-bottom:8px;padding-right:28px}
+        .modal-desc{color:var(--ink-soft);font-size:14.5px;margin-bottom:22px;line-height:1.5}
+        .modal-content form .form-row{margin-bottom:12px}
+        .modal-content form label{display:block;font-family:var(--font-body);font-weight:500;font-size:12.5px;color:var(--ink);margin-bottom:6px;letter-spacing:0.3px}
+        .modal-content input[type=text],.modal-content input[type=email]{width:100%;padding:12px 14px;border:1px solid var(--line-soft);border-radius:8px;background:rgba(26,20,25,0.7);color:var(--ink);font-family:var(--font-body);font-size:14.5px}
+        .modal-content input::placeholder{color:var(--ink-faint)}
+        .modal-content input:focus{outline:none;border-color:var(--accent)}
+        .modal-content button[type=submit]{width:100%;margin-top:8px;padding:13px;background:var(--accent);color:var(--bg);border:none;border-radius:8px;font-family:var(--font-body);font-weight:600;font-size:14.5px;cursor:pointer;transition:all 200ms var(--ease)}
+        .modal-content button[type=submit]:hover{transform:translateY(-1px);box-shadow:0 8px 24px var(--accent-glow)}
+        .modal-content button[type=submit]:disabled{opacity:0.6;cursor:wait}
+        .modal-msg{margin-top:14px;font-size:14px;text-align:center;padding:12px;border-radius:8px;display:none}
+        .modal-msg.success{display:block;color:var(--good);background:rgba(110,231,183,0.06);border:1px solid rgba(110,231,183,0.18)}
+        .modal-msg.error{display:block;color:var(--bad);background:rgba(252,165,165,0.06);border:1px solid rgba(252,165,165,0.18)}
+        .hp{position:absolute;left:-9999px}
 
-        .nav-links a:hover { color: #f9a8d4; }
+        .closer{padding:32px 0 8px;text-align:center}
+        .closer-quote{font-family:var(--font-display);font-style:italic;font-variation-settings:'opsz' 96;font-weight:400;font-size:clamp(1.3rem,2.4vw,1.7rem);line-height:1.4;color:var(--ink);max-width:760px;margin:0 auto}
+        .closer-quote em{color:var(--accent)}
 
-        .nav-cta {
-            background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
-            color: white !important;
-            padding: 0.625rem 1.25rem;
-            border-radius: 8px;
-            font-weight: 600;
-        }
+        .powered-by{text-align:center;padding:22px;background:rgba(26,20,25,0.5);border:1px solid var(--line-soft);border-radius:12px;margin:32px 0 48px;font-size:14px;color:var(--ink-dim)}
+        .powered-by a{color:var(--accent);text-decoration:none;font-weight:500}
+        .powered-by a:hover{text-decoration:underline}
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
+        footer{border-top:1px solid var(--line-soft);padding:36px 0 48px;text-align:center;font-size:13.5px;color:var(--ink-dim)}
+        .footer-links{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 26px;margin-bottom:18px}
+        footer a{color:var(--ink-soft);text-decoration:none}
+        footer a:hover{color:var(--accent)}
+        .footer-meta{font-size:11.5px;color:var(--ink-faint);margin-top:8px;letter-spacing:0.2px}
 
-        .hero {
-            text-align: center;
-            padding: 3rem 0 2.5rem;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #ffffff 0%, #f9a8d4 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            font-size: 1.15rem;
-            color: #9ca3af;
-            max-width: 550px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        .papers-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin-bottom: 4rem;
-        }
-
-        .paper-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .paper-card .label {
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #ec4899;
-            margin-bottom: 0.75rem;
-        }
-
-        .paper-card h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 0.5rem;
-            line-height: 1.3;
-        }
-
-        .paper-card .subtitle {
-            font-size: 0.85rem;
-            color: #a5b4fc;
-            margin-bottom: 0.75rem;
-            font-weight: 500;
-        }
-
-        .paper-card p.desc {
-            font-size: 0.9rem;
-            color: #9ca3af;
-            line-height: 1.5;
-            margin-bottom: 1.5rem;
-            flex: 1;
-        }
-
-        .download-btn {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            font-family: inherit;
-            text-align: center;
-        }
-
-        .download-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 40px rgba(236, 72, 153, 0.3);
-        }
-
-        /* Modal */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-        }
-
-        .modal-overlay.active { display: flex; }
-
-        .modal-content {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 2.5rem;
-            width: 100%;
-            max-width: 420px;
-            position: relative;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 1rem;
-            right: 1.25rem;
-            background: none;
-            border: none;
-            color: #6b7280;
-            font-size: 1.5rem;
-            cursor: pointer;
-            line-height: 1;
-        }
-
-        .modal-close:hover { color: white; }
-
-        .modal-content h3 {
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: white;
-            margin-bottom: 0.5rem;
-            padding-right: 2rem;
-        }
-
-        .modal-content .modal-desc {
-            font-size: 0.9rem;
-            color: #9ca3af;
-            margin-bottom: 1.5rem;
-        }
-
-        .form-row {
-            margin-bottom: 0.75rem;
-        }
-
-        .form-row input {
-            width: 100%;
-            padding: 0.875rem 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            background: rgba(0, 0, 0, 0.3);
-            color: white;
-            font-size: 1rem;
-            font-family: inherit;
-        }
-
-        .form-row input:focus {
-            outline: none;
-            border-color: #ec4899;
-        }
-
-        .form-row input::placeholder { color: #6b7280; }
-
-        .modal-content button[type="submit"] {
-            width: 100%;
-            padding: 1rem;
-            background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            font-family: inherit;
-            margin-top: 0.5rem;
-        }
-
-        .modal-content button[type="submit"]:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 40px rgba(236, 72, 153, 0.3);
-        }
-
-        .modal-content button[type="submit"]:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .hp { position: absolute; left: -9999px; }
-
-        footer {
-            text-align: center;
-            padding: 3rem 2rem;
-            color: #6b7280;
-            font-size: 0.85rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        footer a {
-            color: #9ca3af;
-            text-decoration: none;
-        }
-
-        footer a:hover { color: #f9a8d4; }
-
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .papers-grid { grid-template-columns: 1fr; }
-        }
+        .reveal{opacity:0;transform:translateY(20px);transition:opacity 700ms var(--ease),transform 700ms var(--ease)}
+        .reveal.is-visible{opacity:1;transform:translateY(0)}
+        .reveal.stagger>*{opacity:0;transform:translateY(16px);transition:opacity 700ms var(--ease),transform 700ms var(--ease)}
+        .reveal.stagger.is-visible>*{opacity:1;transform:translateY(0)}
+        .reveal.stagger.is-visible>*:nth-child(1){transition-delay:0ms}
+        .reveal.stagger.is-visible>*:nth-child(2){transition-delay:80ms}
+        .reveal.stagger.is-visible>*:nth-child(3){transition-delay:160ms}
+        .reveal.stagger.is-visible>*:nth-child(4){transition-delay:240ms}
+        @media (prefers-reduced-motion:reduce){.reveal,.reveal.stagger>*{opacity:1!important;transform:none!important;transition:none!important}}
     </style>
 </head>
 <body>
-    <nav class="nav">
-        <a href="/" class="nav-logo">Hit<span>Lai</span></a>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <nav class="topnav" aria-label="Primary">
+        <a href="/" class="logo" aria-label="HitLai — home">
+            <span class="logo-mark-wrap"><img src="/logo-mark.png" alt="" width="36" height="36" loading="eager" decoding="async"></span>
+            <span class="logo-text">Hit<span>Lai</span></span>
+        </a>
         <div class="nav-links">
             <a href="/features">Features</a>
             <a href="/pricing">Pricing</a>
-            <a href="/resources">Resources</a>
+            <a href="/industries">Industries</a>
             <a href="/enterprise">Enterprise</a>
             <a href="/demo">Demo</a>
             <a href="/trial" class="nav-cta">Start Free Trial</a>
         </div>
     </nav>
 
-    <div class="container">
-        <section class="hero">
-            <h1>Resources</h1>
-            <p>Enterprise white papers on AI governance, orchestration, and adoption strategy. Free to download.</p>
+    <main id="main" class="container">
+
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="badge-pill">Resources</div>
+            <h1 id="hero-title">Practical playbooks for <em>running your business alongside&nbsp;AI.</em></h1>
+            <p class="hero-sub">Field-tested white papers from regulated-industry deployments. Free to download.</p>
         </section>
 
-        <div class="papers-grid">
-            <div class="paper-card">
-                <div class="label">White Paper</div>
+        <div class="papers-grid reveal stagger">
+            <article class="paper-card">
+                <span class="paper-label">White paper</span>
                 <h3>AI Without the Leap of Faith</h3>
-                <div class="subtitle">How Graduated Autonomy Lets Enterprises Adopt AI at Their Own Pace</div>
-                <p class="desc">Enterprise AI adoption is stalling due to a false binary: full autonomy or full manual. The AI Dial framework offers graduated steps with no leap of faith required.</p>
-                <button class="download-btn" data-slug="ai-without-leap-of-faith" data-title="AI Without the Leap of Faith">Download Free</button>
-            </div>
+                <div class="subtitle">How a phased trust journey lets you adopt AI at your own pace.</div>
+                <p class="desc">Enterprise AI adoption is stalling on a false binary: full autonomy or full manual. A phased trust journey gives you graduated steps &mdash; no leap of faith required.</p>
+                <button class="download-btn" data-slug="ai-without-leap-of-faith" data-title="AI Without the Leap of Faith">Download free</button>
+            </article>
 
-            <div class="paper-card">
-                <div class="label">White Paper</div>
+            <article class="paper-card">
+                <span class="paper-label">White paper</span>
                 <h3>Cutting Through the AI Agent Hype</h3>
-                <div class="subtitle">What Enterprise Leaders Actually Need to Know</div>
-                <p class="desc">The agent ecosystem optimizes for capability, not governed capability. An evaluation framework for enterprise leaders navigating the agent landscape.</p>
-                <button class="download-btn" data-slug="cutting-through-ai-agent-hype" data-title="Cutting Through the AI Agent Hype">Download Free</button>
-            </div>
+                <div class="subtitle">What enterprise leaders actually need to know.</div>
+                <p class="desc">The agent ecosystem optimizes for capability, not for capability that fits how your business actually runs. An evaluation framework for buyers navigating the agent landscape.</p>
+                <button class="download-btn" data-slug="cutting-through-ai-agent-hype" data-title="Cutting Through the AI Agent Hype">Download free</button>
+            </article>
 
-            <div class="paper-card">
-                <div class="label">White Paper</div>
+            <article class="paper-card">
+                <span class="paper-label">White paper</span>
                 <h3>The $3 Trillion Mistake</h3>
-                <div class="subtitle">What Data Quality Taught Us About AI Governance</div>
-                <p class="desc">Poor data quality cost $3T/year for two decades. Enterprises are repeating this pattern with AI governance -- deploying first, governing second.</p>
-                <button class="download-btn" data-slug="3-trillion-mistake" data-title="The $3 Trillion Mistake">Download Free</button>
-            </div>
+                <div class="subtitle">What data quality taught us about how to roll out AI.</div>
+                <p class="desc">Poor data quality cost organizations $3T/year for two decades. Enterprises are repeating the pattern with AI &mdash; deploying first, building controls second. Here&rsquo;s the alternative.</p>
+                <button class="download-btn" data-slug="3-trillion-mistake" data-title="The $3 Trillion Mistake">Download free</button>
+            </article>
 
-            <div class="paper-card">
-                <div class="label">White Paper</div>
+            <article class="paper-card">
+                <span class="paper-label">White paper</span>
                 <h3>The Hidden Cost of Playing It Safe</h3>
-                <div class="subtitle">Why Your 5-Vendor AI Stack Costs More Than You Think</div>
-                <p class="desc">Most enterprises assemble a Frankenstein stack -- five vendors with five governance stories and zero unified view. The case for consolidation.</p>
-                <button class="download-btn" data-slug="hidden-cost-playing-it-safe" data-title="The Hidden Cost of Playing It Safe">Download Free</button>
-            </div>
+                <div class="subtitle">Why a 5-vendor AI stack costs more than you think.</div>
+                <p class="desc">Most enterprises assemble a Frankenstein stack &mdash; five vendors, five governance stories, zero unified view. The case for consolidation, with the numbers.</p>
+                <button class="download-btn" data-slug="hidden-cost-playing-it-safe" data-title="The Hidden Cost of Playing It Safe">Download free</button>
+            </article>
         </div>
-    </div>
 
-    <!-- Download Modal -->
-    <div id="download-modal" class="modal-overlay">
+        <section class="closer">
+            <p class="closer-quote">They sell AI tools. We make all of them work together &mdash; <em>with your team.</em></p>
+        </section>
+
+        <div class="powered-by">
+            Powered by <a href="https://aictrlnet.com">AICtrlNet</a> &mdash; the open-core layer that coordinates AI, your team, and the systems you already run.
+        </div>
+    </main>
+
+    <div id="download-modal" class="modal-overlay" role="dialog" aria-labelledby="modal-title" aria-modal="true">
         <div class="modal-content">
-            <button class="modal-close" id="modal-close">&times;</button>
-            <h3 id="modal-title">Download White Paper</h3>
-            <p class="modal-desc">Enter your email and we'll send the download link right away.</p>
-            <form id="download-form">
+            <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+            <h3 id="modal-title">Download white paper</h3>
+            <p class="modal-desc">Enter your email and we&rsquo;ll send the download link right away.</p>
+            <form id="download-form" novalidate>
                 <input type="hidden" name="whitepaper_slug" id="wp-slug">
-                <div class="hp"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
+                <div class="hp"><label>Leave blank<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
                 <div class="form-row">
-                    <input type="text" name="first_name" placeholder="First name" required>
+                    <label for="wp-first">First name</label>
+                    <input id="wp-first" type="text" name="first_name" placeholder="First name" required autocomplete="given-name">
                 </div>
                 <div class="form-row">
-                    <input type="email" name="email" placeholder="Work email" required>
+                    <label for="wp-email">Work email</label>
+                    <input id="wp-email" type="email" name="email" placeholder="you@company.com" required autocomplete="email">
                 </div>
-                <button type="submit" id="dl-submit">Get Download Link</button>
+                <button type="submit" id="dl-submit">Get download link</button>
+                <div id="modal-status" class="modal-msg" role="status" aria-live="polite"></div>
             </form>
         </div>
     </div>
 
     <footer>
-        <div class="footer-links">
+        <nav class="footer-links" aria-label="Footer">
             <a href="/features">Features</a>
             <a href="/pricing">Pricing</a>
             <a href="/resources">Resources</a>
@@ -368,74 +234,94 @@
             <a href="/enterprise">Enterprise</a>
             <a href="/demo">Demo</a>
             <a href="https://aictrlnet.com">AICtrlNet</a>
-        </div>
+        </nav>
         <p>HitLai is a product of <a href="https://bodaty.com">Bodaty LLC</a></p>
-        <p style="margin-top: 0.5rem;">&copy; 2026 Bodaty LLC. All rights reserved.</p>
-        <p style="font-size: 0.75rem; color: #888; margin-top: 0.25rem;">AICtrlNet&trade;, HitLai&trade;, and &ldquo;Governed AI Orchestration&rdquo;&trade; are trademarks of Bodaty LLC.</p>
+        <p class="footer-meta">&copy; 2026 Bodaty LLC. All rights reserved. AICtrlNet&trade;, HitLai&trade;, and &ldquo;Governed AI Orchestration&rdquo;&trade; are trademarks of Bodaty LLC.</p>
     </footer>
 
     <script>
-    // UPDATE: Replace with actual Cloud Function URL after deployment
-    var LEAD_API = 'https://marketing-leads-xy6vr5msca-uc.a.run.app';
+    (function () {
+        var LEAD_API = 'https://marketing-leads-xy6vr5msca-uc.a.run.app';
+        var modal = document.getElementById('download-modal');
+        var slugInput = document.getElementById('wp-slug');
+        var modalTitle = document.getElementById('modal-title');
+        var form = document.getElementById('download-form');
+        var submitBtn = document.getElementById('dl-submit');
+        var status = document.getElementById('modal-status');
 
-    var modal = document.getElementById('download-modal');
-    var slugInput = document.getElementById('wp-slug');
-    var modalTitle = document.getElementById('modal-title');
-    var form = document.getElementById('download-form');
-    var submitBtn = document.getElementById('dl-submit');
-
-    document.querySelectorAll('.download-btn').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-            slugInput.value = this.dataset.slug;
-            modalTitle.textContent = 'Download: ' + this.dataset.title;
-            modal.classList.add('active');
-            form.reset();
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Get Download Link';
-        });
-    });
-
-    document.getElementById('modal-close').addEventListener('click', function() {
-        modal.classList.remove('active');
-    });
-
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal) modal.classList.remove('active');
-    });
-
-    form.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        if (form._gotcha && form._gotcha.value) return;
-
-        var data = Object.fromEntries(new FormData(form));
-        data.source_page = window.location.href;
-        data.source_site = window.location.hostname;
-        delete data._gotcha;
-
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Sending...';
-
-        try {
-            var res = await fetch(LEAD_API + '/whitepaper', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data)
-            });
-            var result = await res.json();
-            if (result.success) {
-                form.innerHTML = '<div style="text-align:center;padding:1.5rem 0;color:#6ee7b7;font-size:1.05rem;line-height:1.6;">' +
-                    result.message + '</div>';
-            } else {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Get Download Link';
-                alert(result.error || 'Something went wrong. Please try again.');
-            }
-        } catch (err) {
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Get Download Link';
-            alert('Network error. Please try again.');
+        function showStatus(msg, kind) {
+            status.textContent = msg;
+            status.className = 'modal-msg ' + kind;
         }
-    });
+
+        function closeModal() {
+            modal.classList.remove('active');
+        }
+
+        document.querySelectorAll('.download-btn').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                slugInput.value = this.dataset.slug;
+                modalTitle.textContent = 'Download: ' + this.dataset.title;
+                modal.classList.add('active');
+                form.reset();
+                form.style.display = 'block';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Get download link';
+                status.className = 'modal-msg';
+                status.textContent = '';
+            });
+        });
+
+        document.getElementById('modal-close').addEventListener('click', closeModal);
+        modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && modal.classList.contains('active')) closeModal(); });
+
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            if (form._gotcha && form._gotcha.value) return;
+            var data = Object.fromEntries(new FormData(form));
+            data.source_page = window.location.href;
+            data.source_site = window.location.hostname;
+            delete data._gotcha;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            try {
+                var res = await fetch(LEAD_API + '/whitepaper', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                var result = await res.json();
+                if (result.success) {
+                    form.style.display = 'none';
+                    showStatus(String(result.message || 'Check your email — the download link is on its way.'), 'success');
+                } else {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Get download link';
+                    showStatus(String(result.error || 'Something went wrong. Please try again.'), 'error');
+                }
+            } catch (err) {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Get download link';
+                showStatus('Network error. Please try again.', 'error');
+            }
+        });
+
+        // Scroll reveal
+        if ('IntersectionObserver' in window) {
+            var obs = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+            document.querySelectorAll('.reveal').forEach(function (el) { obs.observe(el); });
+        } else {
+            document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-visible'); });
+        }
+    })();
     </script>
 </body>
 </html>
