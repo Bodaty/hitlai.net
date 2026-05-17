@@ -3,599 +3,314 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Channels - HitLai</title>
-    <meta name="description" content="Start workflows from WhatsApp, Telegram, SMS, Slack, Discord, or Email. Upload files. Automate browsers. All feeding into the same AI workflow engine.">
-    <meta property="og:title" content="HitLai Channels - Work from Anywhere">
-    <meta property="og:description" content="6 messaging channels, file processing, browser automation. Meet users where they already work.">
+    <title>HitLai Channels — Six messaging channels. One workflow engine.</title>
+    <meta name="description" content="Start workflows from anywhere your team already works. WhatsApp, Telegram, SMS, Slack, Discord, Email, plus file upload and browser automation.">
+
+    <link rel="canonical" href="https://hitlai.net/channels/">
+    <meta name="theme-color" content="#1a1419">
+    <meta name="color-scheme" content="dark">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="HitLai">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="HitLai Channels — Six messaging channels. One workflow engine.">
+    <meta property="og:description" content="WhatsApp, Telegram, SMS, Slack, Discord, Email + file upload + browser automation.">
+    <meta property="og:url" content="https://hitlai.net/channels/">
+    <meta property="og:image" content="https://hitlai.net/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="HitLai Channels — Six messaging channels. One workflow engine.">
+    <meta name="twitter:description" content="Meet your team where they already work.">
+    <meta name="twitter:image" content="https://hitlai.net/og-image.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --bg:#1a1419;--bg-2:#261820;--bg-3:#2f1f29;
+            --line:rgba(251,113,133,0.10);--line-soft:rgba(255,255,255,0.06);
+            --ink:#fef6f1;--ink-soft:#e6d6cd;--ink-dim:#b8a39d;--ink-faint:#7a6862;
+            --accent:#fb7185;--accent-2:#f59e8c;--accent-glow:rgba(251,113,133,0.28);
+            --font-display:'Fraunces',Georgia,serif;
+            --font-body:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+            --ease:cubic-bezier(0.22,1,0.36,1);
         }
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}}
+        body{font-family:var(--font-body);background:var(--bg);color:var(--ink-soft);-webkit-font-smoothing:antialiased;line-height:1.6;min-height:100vh;position:relative;overflow-x:hidden}
+        body::before{content:'';position:fixed;inset:-10%;background:radial-gradient(ellipse 820px 580px at 12% 88%,rgba(251,113,133,0.14) 0%,transparent 58%),radial-gradient(ellipse 660px 500px at 92% 5%,rgba(245,158,140,0.10) 0%,transparent 62%);z-index:-2;pointer-events:none;animation:mesh-drift 24s var(--ease) infinite alternate}
+        @keyframes mesh-drift{0%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(2%,-1.5%,0) scale(1.05)}100%{transform:translate3d(-1.5%,1.5%,0) scale(1.02)}}
+        .skip-link{position:absolute;top:-40px;left:16px;background:var(--accent);color:var(--bg);padding:8px 16px;border-radius:4px;font-weight:600;text-decoration:none;z-index:100}
+        .skip-link:focus-visible{top:16px}
+        :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            min-height: 100vh;
-            color: #e0e0e0;
-        }
+        nav.topnav{display:flex;justify-content:space-between;align-items:center;padding:22px 32px;max-width:1200px;margin:0 auto}
+        .logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+        .logo-mark-wrap{width:36px;height:36px;border-radius:50%;background:var(--bg-2);border:1px solid rgba(251,113,133,0.18);overflow:hidden;display:grid;place-items:center;box-shadow:0 4px 16px rgba(251,113,133,0.10);filter:hue-rotate(15deg) saturate(0.95)}
+        .logo-mark-wrap img{width:100%;height:100%;display:block;object-fit:cover}
+        .logo-text{font-family:var(--font-display);font-weight:700;font-size:22px;color:var(--ink);letter-spacing:-0.5px}
+        .logo-text span{color:var(--accent);font-style:italic}
+        .nav-links{display:flex;gap:28px;align-items:center}
+        .nav-links a{color:var(--ink-dim);text-decoration:none;font-size:14.5px;font-weight:500;transition:color 0.2s var(--ease)}
+        .nav-links a:hover{color:var(--accent)}
+        .nav-cta{background:var(--accent);color:var(--bg)!important;padding:9px 18px;border-radius:6px;font-weight:600!important}
+        .nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 24px var(--accent-glow)}
+        @media (max-width:768px){.nav-links a:not(.nav-cta){display:none}}
 
-        /* Navigation */
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+        .container{max-width:1080px;margin:0 auto;padding:0 32px}
 
-        .nav-logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: white;
-            text-decoration: none;
-        }
+        .hero{text-align:center;padding:36px 0 64px}
+        .badge-pill{display:inline-block;font-family:var(--font-body);font-weight:500;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);border:1px solid rgba(251,113,133,0.3);padding:6px 16px;border-radius:999px;margin-bottom:22px}
+        h1{font-family:var(--font-display);font-weight:500;font-variation-settings:'opsz' 96;font-size:clamp(2.4rem,5.4vw,3.6rem);line-height:1.06;letter-spacing:-1.5px;color:var(--ink);margin-bottom:22px;max-width:820px;margin-left:auto;margin-right:auto}
+        h1 em{font-style:italic;color:var(--accent)}
+        .hero-sub{font-size:1.12rem;line-height:1.65;color:var(--ink-soft);max-width:720px;margin:0 auto}
+        .hero-sub .highlight{color:var(--accent);font-weight:500}
 
-        .nav-logo span {
-            color: #f9a8d4;
-        }
+        section.block{padding:48px 0}
+        .section-label{font-family:var(--font-body);font-weight:500;font-size:12px;letter-spacing:2.2px;text-transform:uppercase;color:var(--accent);margin-bottom:12px;text-align:center}
+        .section-title{font-family:var(--font-display);font-weight:500;font-variation-settings:'opsz' 96;font-size:clamp(1.7rem,3.2vw,2.3rem);color:var(--ink);letter-spacing:-0.7px;line-height:1.18;margin-bottom:12px;text-align:center}
+        .section-title em{font-style:italic;color:var(--accent)}
+        .section-desc{font-size:1rem;color:var(--ink-soft);text-align:center;max-width:600px;margin:0 auto 36px}
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
+        .channel-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+        .channel-card{background:rgba(38,24,32,0.55);border:1px solid var(--line-soft);border-radius:14px;padding:24px;transition:all 250ms var(--ease)}
+        .channel-card:hover{border-color:var(--accent);transform:translateY(-3px)}
+        .channel-icon{font-size:30px;margin-bottom:10px;display:block}
+        .channel-name{font-family:var(--font-display);font-weight:500;font-variation-settings:'opsz' 96;font-size:1.15rem;color:var(--ink);letter-spacing:-0.3px;margin-bottom:8px}
+        .channel-desc{font-size:13.5px;color:var(--ink-soft);line-height:1.55;margin-bottom:12px}
+        .channel-use-case{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11.5px;color:var(--accent);background:rgba(251,113,133,0.06);border-left:2px solid var(--accent);padding:8px 12px;border-radius:4px;font-style:italic}
 
-        .nav-links a {
-            color: #9ca3af;
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: color 0.2s;
-        }
+        .capability-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+        @media (max-width:720px){.capability-grid{grid-template-columns:1fr}}
+        .capability-card{background:rgba(38,24,32,0.5);border:1px solid var(--line-soft);border-radius:14px;padding:28px}
+        .capability-badge{display:inline-block;font-family:var(--font-body);font-weight:600;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);background:rgba(251,113,133,0.10);border:1px solid rgba(251,113,133,0.22);padding:4px 12px;border-radius:4px;margin-bottom:14px}
+        .capability-title{font-family:var(--font-display);font-weight:500;font-variation-settings:'opsz' 96;font-size:1.3rem;color:var(--ink);letter-spacing:-0.4px;margin-bottom:10px}
+        .capability-desc{font-size:14.5px;color:var(--ink-soft);line-height:1.55;margin-bottom:14px}
+        .capability-list{list-style:none}
+        .capability-list li{font-size:13.5px;color:var(--ink-soft);padding:4px 0 4px 18px;position:relative;line-height:1.5}
+        .capability-list li::before{content:'→';position:absolute;left:0;color:var(--accent);font-weight:600}
 
-        .nav-links a:hover {
-            color: #f9a8d4;
-        }
+        .flow-visual{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;margin:24px 0}
+        .flow-item{background:rgba(38,24,32,0.6);border:1px solid var(--line-soft);border-radius:12px;padding:18px 22px;text-align:center;min-width:130px}
+        .flow-item-icon{font-size:28px;margin-bottom:6px}
+        .flow-item-label{font-family:var(--font-body);font-weight:500;font-size:12.5px;color:var(--ink);letter-spacing:0.3px}
+        .flow-arrow{font-size:22px;color:var(--accent)}
+        @media (max-width:640px){.flow-visual{flex-direction:column}.flow-arrow{transform:rotate(90deg)}}
+        .flow-note{color:var(--ink-dim);font-size:14px;max-width:520px;margin:18px auto 0;text-align:center;font-style:italic;font-family:var(--font-display);font-variation-settings:'opsz' 96}
 
-        .nav-cta {
-            background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
-            color: white !important;
-            padding: 0.625rem 1.25rem;
-            border-radius: 8px;
-            font-weight: 600;
-        }
+        .cta-banner{background:linear-gradient(135deg,rgba(251,113,133,0.14) 0%,rgba(245,158,140,0.10) 100%);border:1px solid rgba(251,113,133,0.20);border-radius:24px;padding:48px 32px;text-align:center;margin:32px 0 48px}
+        .cta-banner h2{font-family:var(--font-display);font-weight:500;font-variation-settings:'opsz' 96;font-size:clamp(1.4rem,2.6vw,1.9rem);color:var(--ink);letter-spacing:-0.5px;margin-bottom:12px}
+        .cta-banner p{font-size:14.5px;color:var(--ink-soft);margin-bottom:22px}
+        .btn-group{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
 
-        /* Container */
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
+        .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 24px;border-radius:8px;font-family:var(--font-body);font-size:14.5px;font-weight:600;text-decoration:none;transition:all 200ms var(--ease);border:1px solid transparent;cursor:pointer}
+        .btn-primary{background:var(--accent);color:var(--bg)}
+        .btn-primary:hover{transform:translateY(-1px);box-shadow:0 10px 32px var(--accent-glow)}
+        .btn-secondary{background:transparent;color:var(--ink);border-color:var(--line-soft)}
+        .btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
 
-        /* Hero */
-        .hero {
-            text-align: center;
-            padding: 4rem 0 3rem;
-        }
+        .closer{padding:24px 0 8px;text-align:center}
+        .closer-quote{font-family:var(--font-display);font-style:italic;font-variation-settings:'opsz' 96;font-weight:400;font-size:clamp(1.3rem,2.4vw,1.7rem);line-height:1.4;color:var(--ink);max-width:760px;margin:0 auto}
+        .closer-quote em{color:var(--accent)}
 
-        .hero-badge {
-            display: inline-block;
-            background: rgba(236, 72, 153, 0.15);
-            color: #f9a8d4;
-            font-size: 0.75rem;
-            font-weight: 600;
-            padding: 0.35rem 0.75rem;
-            border-radius: 20px;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+        .powered-by{text-align:center;padding:22px;background:rgba(26,20,25,0.5);border:1px solid var(--line-soft);border-radius:12px;margin:32px 0 48px;font-size:14px;color:var(--ink-dim)}
+        .powered-by a{color:var(--accent);text-decoration:none;font-weight:500}
+        .powered-by a:hover{text-decoration:underline}
 
-        h1 {
-            font-size: clamp(2.25rem, 5vw, 3rem);
-            font-weight: 700;
-            line-height: 1.15;
-            margin-bottom: 1.25rem;
-            background: linear-gradient(135deg, #ffffff 0%, #f9a8d4 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+        footer{border-top:1px solid var(--line-soft);padding:36px 0 48px;text-align:center;font-size:13.5px;color:var(--ink-dim)}
+        .footer-links{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 26px;margin-bottom:18px}
+        footer a{color:var(--ink-soft);text-decoration:none}
+        footer a:hover{color:var(--accent)}
+        .footer-meta{font-size:11.5px;color:var(--ink-faint);margin-top:8px;letter-spacing:0.2px}
 
-        .hero-subtitle {
-            font-size: 1.15rem;
-            color: #9ca3af;
-            line-height: 1.6;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .highlight {
-            color: #f9a8d4;
-        }
-
-        /* Section styling */
-        .section {
-            padding: 3rem 0;
-        }
-
-        .section-label {
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: #ec4899;
-            margin-bottom: 0.75rem;
-            text-align: center;
-        }
-
-        .section-title {
-            font-size: 1.75rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: #ffffff;
-            text-align: center;
-        }
-
-        .section-desc {
-            font-size: 1.05rem;
-            color: #9ca3af;
-            line-height: 1.6;
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto 2rem;
-        }
-
-        /* Channel Grid */
-        .channel-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.25rem;
-        }
-
-        .channel-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 1.75rem;
-            transition: all 0.2s ease;
-        }
-
-        .channel-card:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(236, 72, 153, 0.3);
-            transform: translateY(-2px);
-        }
-
-        .channel-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .channel-name {
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: #ffffff;
-            margin-bottom: 0.5rem;
-        }
-
-        .channel-desc {
-            font-size: 0.9rem;
-            color: #9ca3af;
-            line-height: 1.5;
-            margin-bottom: 1rem;
-        }
-
-        .channel-use-case {
-            font-size: 0.85rem;
-            color: #f9a8d4;
-            font-style: italic;
-        }
-
-        /* Capability Cards */
-        .capability-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .capability-card {
-            background: rgba(236, 72, 153, 0.05);
-            border: 1px solid rgba(236, 72, 153, 0.2);
-            border-radius: 16px;
-            padding: 2rem;
-        }
-
-        .capability-badge {
-            display: inline-block;
-            background: rgba(236, 72, 153, 0.2);
-            color: #f9a8d4;
-            font-size: 0.7rem;
-            font-weight: 600;
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-        }
-
-        .capability-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #ffffff;
-            margin-bottom: 0.75rem;
-        }
-
-        .capability-desc {
-            font-size: 0.95rem;
-            color: #9ca3af;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-
-        .capability-list {
-            list-style: none;
-        }
-
-        .capability-list li {
-            font-size: 0.9rem;
-            color: #d1d5db;
-            padding: 0.35rem 0;
-            padding-left: 1.25rem;
-            position: relative;
-        }
-
-        .capability-list li::before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: #f9a8d4;
-        }
-
-        /* How It Works */
-        .how-it-works {
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 16px;
-            padding: 2.5rem;
-            text-align: center;
-        }
-
-        .flow-visual {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-
-        .flow-item {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 1rem 1.5rem;
-            text-align: center;
-        }
-
-        .flow-item-icon {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .flow-item-label {
-            font-size: 0.85rem;
-            color: #d1d5db;
-        }
-
-        .flow-arrow {
-            color: #ec4899;
-            font-size: 1.5rem;
-        }
-
-        /* CTA Banner */
-        .cta-banner {
-            background: linear-gradient(135deg, rgba(236, 72, 153, 0.15) 0%, rgba(99, 102, 241, 0.15) 100%);
-            border: 1px solid rgba(236, 72, 153, 0.2);
-            border-radius: 20px;
-            padding: 3rem 2rem;
-            text-align: center;
-            margin: 3rem 0;
-        }
-
-        .cta-banner h2 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 1rem;
-        }
-
-        .cta-banner p {
-            font-size: 1.05rem;
-            color: #9ca3af;
-            margin-bottom: 2rem;
-        }
-
-        .btn-group {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.875rem 1.75rem;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 40px rgba(236, 72, 153, 0.3);
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.05);
-            color: #e0e0e0;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 3rem 2rem;
-            color: #6b7280;
-            font-size: 0.85rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        footer a {
-            color: #9ca3af;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            color: #f9a8d4;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .channel-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .capability-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .flow-visual {
-                flex-direction: column;
-            }
-
-            .flow-arrow {
-                transform: rotate(90deg);
-            }
-        }
-
-        @media (max-width: 600px) {
-            .btn-group {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .btn {
-                width: 100%;
-                justify-content: center;
-                max-width: 280px;
-            }
-        }
+        .reveal{opacity:0;transform:translateY(20px);transition:opacity 700ms var(--ease),transform 700ms var(--ease)}
+        .reveal.is-visible{opacity:1;transform:translateY(0)}
+        .reveal.stagger>*{opacity:0;transform:translateY(16px);transition:opacity 700ms var(--ease),transform 700ms var(--ease)}
+        .reveal.stagger.is-visible>*{opacity:1;transform:translateY(0)}
+        .reveal.stagger.is-visible>*:nth-child(1){transition-delay:0ms}
+        .reveal.stagger.is-visible>*:nth-child(2){transition-delay:60ms}
+        .reveal.stagger.is-visible>*:nth-child(3){transition-delay:120ms}
+        .reveal.stagger.is-visible>*:nth-child(4){transition-delay:180ms}
+        .reveal.stagger.is-visible>*:nth-child(5){transition-delay:240ms}
+        .reveal.stagger.is-visible>*:nth-child(6){transition-delay:300ms}
+        @media (prefers-reduced-motion:reduce){.reveal,.reveal.stagger>*{opacity:1!important;transform:none!important;transition:none!important}}
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav">
-        <a href="/" class="nav-logo">Hit<span>Lai</span></a>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <nav class="topnav" aria-label="Primary">
+        <a href="/" class="logo" aria-label="HitLai — home">
+            <span class="logo-mark-wrap"><img src="/logo-mark.png" alt="" width="36" height="36" loading="eager" decoding="async"></span>
+            <span class="logo-text">Hit<span>Lai</span></span>
+        </a>
         <div class="nav-links">
             <a href="/features">Features</a>
             <a href="/pricing">Pricing</a>
-            <a href="/channels">Channels</a>
             <a href="/industries">Industries</a>
             <a href="/enterprise">Enterprise</a>
+            <a href="/demo">Demo</a>
             <a href="/trial" class="nav-cta">Start Free Trial</a>
         </div>
     </nav>
 
-    <div class="container">
-        <!-- Hero -->
-        <section class="hero">
-            <div class="hero-badge">Entry Points</div>
-            <h1>Start Workflows from<br>Where You Already Work</h1>
-            <p class="hero-subtitle">
-                <span class="highlight">Six messaging channels</span>, file upload, and browser automation — all feeding into the same AI workflow engine. No new apps to learn.
+    <main id="main" class="container">
+
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="badge-pill">Entry points</div>
+            <h1 id="hero-title">Start workflows from <em>where you already work.</em></h1>
+            <p class="hero-sub">
+                <span class="highlight">Six messaging channels</span>, file upload, and browser automation &mdash; all feeding into the same workflow engine. One conversation, any combination.
             </p>
         </section>
 
-        <!-- 6 Messaging Channels -->
-        <section class="section">
-            <div class="section-label">Messaging Channels</div>
-            <div class="section-title">Meet Users Where They Are</div>
-            <div class="section-desc">
-                Your team lives in messaging apps. Now your workflows do too.
-            </div>
-
-            <div class="channel-grid">
-                <div class="channel-card">
-                    <div class="channel-icon">💬</div>
-                    <div class="channel-name">WhatsApp</div>
-                    <div class="channel-desc">The app business owners live in. Link in 30 seconds, trigger workflows from chat.</div>
-                    <div class="channel-use-case">"Check inventory for SKU-123"</div>
-                </div>
-
-                <div class="channel-card">
-                    <div class="channel-icon">✈️</div>
-                    <div class="channel-name">Telegram</div>
-                    <div class="channel-desc">Fast, secure, real-time. Perfect for urgent notifications and quick commands.</div>
-                    <div class="channel-use-case">"Alert: Order #456 needs approval"</div>
-                </div>
-
-                <div class="channel-card">
-                    <div class="channel-icon">📱</div>
-                    <div class="channel-name">SMS</div>
-                    <div class="channel-desc">Universal reach. Works with every phone, no app required.</div>
-                    <div class="channel-use-case">"Reply YES to confirm appointment"</div>
-                </div>
-
-                <div class="channel-card">
-                    <div class="channel-icon">💼</div>
-                    <div class="channel-name">Slack</div>
-                    <div class="channel-desc">Where teams coordinate. One-click approvals, workflow status in threads.</div>
+        <section class="block" aria-labelledby="msg-title">
+            <div class="section-label">Messaging channels</div>
+            <h2 id="msg-title" class="section-title">Meet your team <em>where they are.</em></h2>
+            <p class="section-desc">Your team lives in messaging apps. Now your workflows do too.</p>
+            <div class="channel-grid reveal stagger">
+                <article class="channel-card">
+                    <span class="channel-icon" aria-hidden="true">💬</span>
+                    <h3 class="channel-name">WhatsApp</h3>
+                    <p class="channel-desc">The app business owners live in. Link in 30 seconds, trigger workflows from chat.</p>
+                    <div class="channel-use-case">&ldquo;Check inventory for SKU-123&rdquo;</div>
+                </article>
+                <article class="channel-card">
+                    <span class="channel-icon" aria-hidden="true">✈️</span>
+                    <h3 class="channel-name">Telegram</h3>
+                    <p class="channel-desc">Fast, secure, real-time. Perfect for urgent notifications and quick commands.</p>
+                    <div class="channel-use-case">&ldquo;Alert: Order #456 needs approval&rdquo;</div>
+                </article>
+                <article class="channel-card">
+                    <span class="channel-icon" aria-hidden="true">📱</span>
+                    <h3 class="channel-name">SMS</h3>
+                    <p class="channel-desc">Universal reach. Works with every phone, no app required.</p>
+                    <div class="channel-use-case">&ldquo;Reply YES to confirm appointment&rdquo;</div>
+                </article>
+                <article class="channel-card">
+                    <span class="channel-icon" aria-hidden="true">💼</span>
+                    <h3 class="channel-name">Slack</h3>
+                    <p class="channel-desc">Where teams coordinate. One-click approvals, workflow status in threads.</p>
                     <div class="channel-use-case">/approve invoice-789</div>
-                </div>
-
-                <div class="channel-card">
-                    <div class="channel-icon">🎮</div>
-                    <div class="channel-name">Discord</div>
-                    <div class="channel-desc">For dev teams and communities. Bot commands that trigger real workflows.</div>
+                </article>
+                <article class="channel-card">
+                    <span class="channel-icon" aria-hidden="true">🎮</span>
+                    <h3 class="channel-name">Discord</h3>
+                    <p class="channel-desc">For dev teams and communities. Bot commands that trigger real workflows.</p>
                     <div class="channel-use-case">!deploy staging-environment</div>
-                </div>
-
-                <div class="channel-card">
-                    <div class="channel-icon">📧</div>
-                    <div class="channel-name">Email</div>
-                    <div class="channel-desc">Some workflows start in an inbox. Parse inbound, trigger automatically.</div>
+                </article>
+                <article class="channel-card">
+                    <span class="channel-icon" aria-hidden="true">📧</span>
+                    <h3 class="channel-name">Email</h3>
+                    <p class="channel-desc">Some workflows start in an inbox. Parse inbound, trigger automatically.</p>
                     <div class="channel-use-case">support@ → ticket workflow</div>
-                </div>
+                </article>
             </div>
         </section>
 
-        <!-- File + Browser -->
-        <section class="section">
-            <div class="section-label">Beyond Messaging</div>
-            <div class="section-title">Files & Browser Automation</div>
-
-            <div class="capability-grid">
-                <div class="capability-card">
-                    <div class="capability-badge">Files</div>
-                    <div class="capability-title">Upload → Extract → Automate</div>
-                    <div class="capability-desc">
-                        Upload a supplier invoice PDF. In 10 seconds: extracted line items, totals, dates. One more click: routed to approval.
-                    </div>
+        <section class="block" aria-labelledby="beyond-title">
+            <div class="section-label">Beyond messaging</div>
+            <h2 id="beyond-title" class="section-title">Files &amp; <em>browser automation.</em></h2>
+            <div class="capability-grid reveal stagger">
+                <article class="capability-card">
+                    <span class="capability-badge">Files</span>
+                    <h3 class="capability-title">Upload &rarr; Extract &rarr; Automate</h3>
+                    <p class="capability-desc">Upload a supplier invoice PDF. In 10 seconds: extracted line items, totals, dates. One more click: routed to approval.</p>
                     <ul class="capability-list">
                         <li>PDF, Excel, CSV, DOCX support</li>
                         <li>Automatic data extraction</li>
                         <li>Document generation output</li>
                         <li>File upload as workflow trigger</li>
                     </ul>
-                </div>
-
-                <div class="capability-card">
-                    <div class="capability-badge">Browser</div>
-                    <div class="capability-title">No API? No Problem.</div>
-                    <div class="capability-desc">
-                        That legacy system with no API? Navigate, click, fill, extract, screenshot. Any web app becomes an integration.
-                    </div>
+                </article>
+                <article class="capability-card">
+                    <span class="capability-badge">Browser</span>
+                    <h3 class="capability-title">No API? <em>No problem.</em></h3>
+                    <p class="capability-desc">That legacy system with no API? Navigate, click, fill, extract, screenshot. Any web app becomes an integration &mdash; the universal fallback.</p>
                     <ul class="capability-list">
                         <li>Drive any web application</li>
                         <li>Extract data from any page</li>
                         <li>Fill forms automatically</li>
-                        <li>The "infinite adapter"</li>
+                        <li>The infinite adapter</li>
                     </ul>
-                </div>
+                </article>
             </div>
         </section>
 
-        <!-- How It Works -->
-        <section class="section">
-            <div class="how-it-works">
-                <div class="section-label">How It Works</div>
-                <div class="section-title">All Roads Lead to the Workflow Engine</div>
-
-                <div class="flow-visual">
-                    <div class="flow-item">
-                        <div class="flow-item-icon">📱</div>
-                        <div class="flow-item-label">Any Channel</div>
-                    </div>
-                    <div class="flow-arrow">→</div>
-                    <div class="flow-item">
-                        <div class="flow-item-icon">⚙️</div>
-                        <div class="flow-item-label">Workflow Engine</div>
-                    </div>
-                    <div class="flow-arrow">→</div>
-                    <div class="flow-item">
-                        <div class="flow-item-icon">🤖</div>
-                        <div class="flow-item-label">43 AI Agents</div>
-                    </div>
-                    <div class="flow-arrow">→</div>
-                    <div class="flow-item">
-                        <div class="flow-item-icon">✅</div>
-                        <div class="flow-item-label">Results</div>
-                    </div>
-                </div>
-
-                <p style="color: #9ca3af; font-size: 0.95rem; max-width: 500px; margin: 0 auto;">
-                    Start on WhatsApp. Continue in Slack. Get notified via Telegram. One conversation, all your channels, same workflow state.
-                </p>
+        <section class="block" aria-labelledby="flow-title">
+            <div class="section-label">How it works</div>
+            <h2 id="flow-title" class="section-title">All roads lead to the <em>workflow engine.</em></h2>
+            <div class="flow-visual">
+                <div class="flow-item"><div class="flow-item-icon" aria-hidden="true">📱</div><div class="flow-item-label">Any channel</div></div>
+                <span class="flow-arrow" aria-hidden="true">→</span>
+                <div class="flow-item"><div class="flow-item-icon" aria-hidden="true">⚙️</div><div class="flow-item-label">Workflow engine</div></div>
+                <span class="flow-arrow" aria-hidden="true">→</span>
+                <div class="flow-item"><div class="flow-item-icon" aria-hidden="true">🤖</div><div class="flow-item-label">43 agent templates</div></div>
+                <span class="flow-arrow" aria-hidden="true">→</span>
+                <div class="flow-item"><div class="flow-item-icon" aria-hidden="true">✅</div><div class="flow-item-label">Results</div></div>
             </div>
+            <p class="flow-note">Start on WhatsApp. Continue in Slack. Get notified via Telegram. One conversation, all your channels, same workflow state.</p>
         </section>
 
-        <!-- CTA -->
         <section class="cta-banner">
-            <h2>Start Where You Already Work</h2>
+            <h2>Start where you already work.</h2>
             <p>Link your first channel in 30 seconds. 14-day free trial, no credit card required.</p>
             <div class="btn-group">
                 <a href="/trial" class="btn btn-primary">Start Free Trial</a>
                 <a href="/demo" class="btn btn-secondary">Watch Demo</a>
             </div>
         </section>
-    </div>
 
-    <!-- Footer -->
+        <section class="closer">
+            <p class="closer-quote">They sell AI tools. We make all of them work together &mdash; <em>with your team.</em></p>
+        </section>
+
+        <div class="powered-by">
+            Powered by <a href="https://aictrlnet.com">AICtrlNet</a> &mdash; the open-core layer that coordinates AI, your team, and the systems you already run.
+        </div>
+    </main>
+
     <footer>
-        <div class="footer-links">
+        <nav class="footer-links" aria-label="Footer">
             <a href="/features">Features</a>
             <a href="/pricing">Pricing</a>
-            <a href="/channels">Channels</a>
             <a href="/industries">Industries</a>
             <a href="/enterprise">Enterprise</a>
             <a href="/demo">Demo</a>
-            <a href="/autonomy">Control Spectrum</a>
+            <a href="/autonomy">Trust journey</a>
             <a href="https://aictrlnet.com">AICtrlNet</a>
-        </div>
+        </nav>
         <p>HitLai is a product of <a href="https://bodaty.com">Bodaty LLC</a></p>
-        <p style="margin-top: 0.5rem;">© 2026 Bodaty LLC. All rights reserved.</p>
-        <p style="font-size: 0.75rem; color: #888; margin-top: 0.25rem;">AICtrlNet&trade;, HitLai&trade;, and &ldquo;Governed AI Orchestration&rdquo;&trade; are trademarks of Bodaty LLC.</p>
+        <p class="footer-meta">&copy; 2026 Bodaty LLC. All rights reserved. AICtrlNet&trade;, HitLai&trade;, and &ldquo;Governed AI Orchestration&rdquo;&trade; are trademarks of Bodaty LLC.</p>
     </footer>
+
+    <script>
+    (function () {
+        if (!('IntersectionObserver' in window)) {
+            document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-visible'); });
+            return;
+        }
+        var obs = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+        document.querySelectorAll('.reveal').forEach(function (el) { obs.observe(el); });
+    })();
+    </script>
 </body>
 </html>
