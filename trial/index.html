@@ -52,7 +52,7 @@
         body{font-family:var(--font-body);background:var(--bg);color:var(--ink-soft);-webkit-font-smoothing:antialiased;line-height:1.6;min-height:100vh;position:relative;overflow-x:hidden}
         body::before{content:'';position:fixed;inset:-10%;background:radial-gradient(ellipse 820px 580px at 12% 88%,rgba(251,113,133,0.14) 0%,transparent 58%),radial-gradient(ellipse 660px 500px at 92% 5%,rgba(245,158,140,0.10) 0%,transparent 62%);z-index:-2;pointer-events:none;animation:mesh-drift 24s var(--ease) infinite alternate}
         @keyframes mesh-drift{0%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(2%,-1.5%,0) scale(1.05)}100%{transform:translate3d(-1.5%,1.5%,0) scale(1.02)}}
-        .skip-link{position:absolute;top:-40px;left:16px;background:var(--accent);color:var(--bg);padding:8px 16px;border-radius:4px;font-weight:600;text-decoration:none;z-index:100}
+        .skip-link{position:absolute;top: -64px;left:16px;background:var(--accent);color:var(--bg);padding:8px 16px;border-radius:4px;font-weight:600;text-decoration:none;z-index:100}
         .skip-link:focus-visible{top:16px}
         :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
 
@@ -112,9 +112,104 @@
         footer a{color:var(--ink-soft);text-decoration:none}
         footer a:hover{color:var(--accent)}
         .footer-meta{font-size:11.5px;color:var(--ink-faint);margin-top:8px;letter-spacing:0.2px}
+    
+        .grain {
+            position: fixed; inset: 0;
+            z-index: 80;
+            pointer-events: none;
+            opacity: 0.05;
+            mix-blend-mode: overlay;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
+
+        .fx-card { position: relative; }
+        .fx-spot {
+            position: absolute; inset: 0;
+            border-radius: inherit;
+            background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), rgba(251, 113, 133, 0.13), transparent 65%);
+            opacity: 0;
+            transition: opacity 350ms ease;
+            pointer-events: none;
+        }
+        .fx-card:hover .fx-spot { opacity: 1; }
+
+        .aurora {
+            position: fixed; inset: 0;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .aurora span {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            opacity: 0.55;
+            will-change: transform;
+        }
+        .aurora span:nth-child(1) {
+            width: 56vw; height: 56vw;
+            left: -14vw; top: 46vh;
+            background: radial-gradient(circle, rgba(251, 113, 133, 0.34) 0%, transparent 65%);
+            animation: aurora-a 34s ease-in-out infinite alternate;
+        }
+        .aurora span:nth-child(2) {
+            width: 46vw; height: 46vw;
+            right: -10vw; top: -14vh;
+            background: radial-gradient(circle, rgba(245, 158, 140, 0.28) 0%, transparent 65%);
+            animation: aurora-b 28s ease-in-out infinite alternate;
+        }
+        .aurora span:nth-child(3) {
+            width: 38vw; height: 38vw;
+            left: 32vw; top: 24vh;
+            background: radial-gradient(circle, rgba(155, 44, 65, 0.30) 0%, transparent 65%);
+            animation: aurora-c 40s ease-in-out infinite alternate;
+        }
+        @keyframes aurora-a {
+            0%   { transform: translate3d(0, 0, 0) scale(1); }
+            50%  { transform: translate3d(16vw, -14vh, 0) scale(1.18); }
+            100% { transform: translate3d(6vw, -26vh, 0) scale(0.94); }
+        }
+        @keyframes aurora-b {
+            0%   { transform: translate3d(0, 0, 0) scale(1); }
+            50%  { transform: translate3d(-14vw, 16vh, 0) scale(1.12); }
+            100% { transform: translate3d(-4vw, 30vh, 0) scale(1.04); }
+        }
+        @keyframes aurora-c {
+            0%   { transform: translate3d(0, 0, 0) scale(1); }
+            50%  { transform: translate3d(-12vw, 10vh, 0) scale(1.22); }
+            100% { transform: translate3d(12vw, -10vh, 0) scale(0.92); }
+        }
+        .scroll-beam {
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 2px;
+            background: linear-gradient(90deg, #9b2c41, #fb7185, #f59e8c);
+            box-shadow: 0 0 14px rgba(251, 113, 133, 0.28);
+            transform-origin: 0 50%;
+            transform: scaleX(0);
+            z-index: 90;
+            pointer-events: none;
+        }
+        .btn-primary, .nav-cta { position: relative; overflow: hidden; }
+        .btn-primary::after, .nav-cta::after {
+            content: '';
+            position: absolute; top: 0; bottom: 0;
+            left: -75%; width: 50%;
+            background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+            transform: skewX(-20deg);
+            transition: left 700ms ease;
+            pointer-events: none;
+        }
+        .btn-primary:hover::after, .nav-cta:hover::after { left: 140%; }
+        @media (prefers-reduced-motion: reduce) {
+            .aurora, .scroll-beam { display: none; }
+        }
     </style>
 </head>
 <body>
+    <!-- fx-layer -->
+    <div class="scroll-beam" aria-hidden="true"></div>
+    <div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div class="grain" aria-hidden="true"></div>
     <a class="skip-link" href="#main">Skip to content</a>
 
     <nav class="topnav" aria-label="Primary">
@@ -250,6 +345,43 @@
                 showStatus('Network error. Please try again.', 'error');
             }
         });
+    })();
+    </script>
+
+    <script>
+    // fx-layer effects
+    (function () {
+        var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var fine = window.matchMedia('(pointer: fine)').matches;
+
+        var beam = document.querySelector('.scroll-beam');
+        if (beam && !reduced) {
+            var beamQueued = false;
+            function setBeam() {
+                beamQueued = false;
+                var max = document.documentElement.scrollHeight - window.innerHeight;
+                beam.style.transform = 'scaleX(' + (max > 0 ? window.scrollY / max : 0) + ')';
+            }
+            window.addEventListener('scroll', function () {
+                if (!beamQueued) { beamQueued = true; requestAnimationFrame(setBeam); }
+            }, { passive: true });
+            setBeam();
+        }
+
+        if (fine) {
+            document.querySelectorAll('.tile, .pricing-card, .faq-item, .industry-card, .feature-card, .deployment-option, .department-row, .paper-card, .channel-card, .capability-card, .flow-item, .phase-card, .starting-point, .rec-card, .whats-included').forEach(function (card) {
+                card.classList.add('fx-card');
+                var spot = document.createElement('div');
+                spot.className = 'fx-spot';
+                spot.setAttribute('aria-hidden', 'true');
+                card.appendChild(spot);
+                card.addEventListener('mousemove', function (e) {
+                    var r = card.getBoundingClientRect();
+                    card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+                    card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+                });
+            });
+        }
     })();
     </script>
 </body>
