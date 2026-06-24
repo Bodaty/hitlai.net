@@ -262,6 +262,7 @@
             .aurora, .scroll-beam { display: none; }
         }
     </style>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
     <!-- fx-layer -->
@@ -405,26 +406,26 @@
             <div class="contact-section">
                 <h2 id="contact-title" class="contact-title">Talk to our enterprise team.</h2>
                 <p class="contact-subtitle">Tell us about your organization and we&rsquo;ll show you how HitLai can help.</p>
-                <form id="lead-form" class="contact-form" novalidate>
-                    <div style="position:absolute;left:-9999px"><label>Leave blank<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
+                <form id="lead-form" class="contact-form" data-lead-endpoint="/enterprise" data-success="Thank you &mdash; our enterprise team will be in touch." novalidate>
+                    <div style="position:absolute;left:-9999px" aria-hidden="true"><label>Leave blank<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
                     <div class="form-row-grid">
                         <div class="form-row">
                             <label for="e-name">Your name</label>
-                            <input id="e-name" type="text" name="name" placeholder="Your name" required autocomplete="name">
+                            <input id="e-name" type="text" name="name" placeholder="Your name" required autocomplete="name" maxlength="100">
                         </div>
                         <div class="form-row">
                             <label for="e-email">Work email</label>
-                            <input id="e-email" type="email" name="email" placeholder="you@company.com" required autocomplete="email">
+                            <input id="e-email" type="email" name="email" placeholder="you@company.com" required autocomplete="email" maxlength="254">
                         </div>
                     </div>
                     <div class="form-row-grid">
                         <div class="form-row">
                             <label for="e-company">Company</label>
-                            <input id="e-company" type="text" name="company" placeholder="Company" required autocomplete="organization">
+                            <input id="e-company" type="text" name="company" placeholder="Company" required autocomplete="organization" maxlength="100">
                         </div>
                         <div class="form-row">
                             <label for="e-title">Job title</label>
-                            <input id="e-title" type="text" name="title" placeholder="Job title" autocomplete="organization-title">
+                            <input id="e-title" type="text" name="title" placeholder="Job title" autocomplete="organization-title" maxlength="100">
                         </div>
                     </div>
                     <div class="form-row">
@@ -449,8 +450,12 @@
                     </div>
                     <div class="form-row">
                         <label for="e-msg">Tell us about your goals (optional)</label>
-                        <textarea id="e-msg" name="message" placeholder="Goals and any specific requirements..."></textarea>
+                        <textarea id="e-msg" name="message" placeholder="Goals and any specific requirements..." maxlength="2000"></textarea>
                     </div>
+                    <div class="cf-turnstile" data-sitekey="0x4AAAAAADp7NeAlbo52Jjm0" data-theme="auto" style="margin:14px 0"></div>
+                    <div class="form-consent" style="margin:10px 0">
+    <label style="font-weight:400;font-size:.85rem;display:flex;gap:8px;align-items:flex-start"><input type="checkbox" name="consent" data-consent required style="width:auto;margin-top:3px"> <span>I agree to the <a href="https://aictrlnet.com/legal/privacy/">privacy notice</a> and to being contacted about this request.</span></label>
+</div>
                     <button type="submit">Request Enterprise Demo</button>
                 </form>
                 <div id="form-status" class="form-msg" role="status" aria-live="polite"></div>
@@ -476,88 +481,8 @@
         <p class="footer-meta">&copy; 2026 Bodaty LLC. All rights reserved. AICtrlNet&trade;, HitLai&trade;, and &ldquo;Governed AI Orchestration&rdquo;&trade; are trademarks of Bodaty LLC.</p>
     </footer>
 
-    <script>
-    (function () {
-        var LEAD_API = 'https://marketing-leads-xy6vr5msca-uc.a.run.app';
-        var form = document.getElementById('lead-form');
-        if (!form) return;
-        var btn = form.querySelector('button[type="submit"]');
-        var btnText = btn.textContent;
-        var status = document.getElementById('form-status');
+    <script src="/js/lead-form.js" defer></script>
 
-        function showStatus(msg, kind) {
-            status.textContent = msg;
-            status.className = 'form-msg ' + kind;
-        }
-
-        form.addEventListener('submit', async function (e) {
-            e.preventDefault();
-            if (form._gotcha && form._gotcha.value) return;
-            var data = Object.fromEntries(new FormData(form));
-            data.source_page = window.location.href;
-            data.source_site = window.location.hostname;
-            delete data._gotcha;
-            btn.disabled = true;
-            btn.textContent = 'Sending...';
-            try {
-                var res = await fetch(LEAD_API + '/enterprise', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
-                });
-                var result = await res.json();
-                if (result.success) {
-                    form.style.display = 'none';
-                    showStatus(String(result.message || 'Thanks — we’ll be in touch.'), 'success');
-                } else {
-                    btn.disabled = false;
-                    btn.textContent = btnText;
-                    showStatus(String(result.error || 'Something went wrong. Please try again.'), 'error');
-                }
-            } catch (err) {
-                btn.disabled = false;
-                btn.textContent = btnText;
-                showStatus('Network error. Please try again.', 'error');
-            }
-        });
-    })();
-    </script>
-
-    <script>
-    // fx-layer effects
-    (function () {
-        var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        var fine = window.matchMedia('(pointer: fine)').matches;
-
-        var beam = document.querySelector('.scroll-beam');
-        if (beam && !reduced) {
-            var beamQueued = false;
-            function setBeam() {
-                beamQueued = false;
-                var max = document.documentElement.scrollHeight - window.innerHeight;
-                beam.style.transform = 'scaleX(' + (max > 0 ? window.scrollY / max : 0) + ')';
-            }
-            window.addEventListener('scroll', function () {
-                if (!beamQueued) { beamQueued = true; requestAnimationFrame(setBeam); }
-            }, { passive: true });
-            setBeam();
-        }
-
-        if (fine) {
-            document.querySelectorAll('.tile, .pricing-card, .faq-item, .industry-card, .feature-card, .deployment-option, .department-row, .paper-card, .channel-card, .capability-card, .flow-item, .phase-card, .starting-point, .rec-card, .whats-included').forEach(function (card) {
-                card.classList.add('fx-card');
-                var spot = document.createElement('div');
-                spot.className = 'fx-spot';
-                spot.setAttribute('aria-hidden', 'true');
-                card.appendChild(spot);
-                card.addEventListener('mousemove', function (e) {
-                    var r = card.getBoundingClientRect();
-                    card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
-                    card.style.setProperty('--my', (e.clientY - r.top) + 'px');
-                });
-            });
-        }
-    })();
-    </script>
+    <script src="/js/page/enterprise-index-1.js" defer></script>
 </body>
 </html>

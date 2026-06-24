@@ -104,9 +104,9 @@
         .modal-content button[type=submit]{width:100%;margin-top:8px;padding:13px;background:var(--accent);color:var(--bg);border:none;border-radius:8px;font-family:var(--font-body);font-weight:600;font-size:14.5px;cursor:pointer;transition:all 200ms var(--ease)}
         .modal-content button[type=submit]:hover{transform:translateY(-1px);box-shadow:0 8px 24px var(--accent-glow)}
         .modal-content button[type=submit]:disabled{opacity:0.6;cursor:wait}
-        .modal-msg{margin-top:14px;font-size:14px;text-align:center;padding:12px;border-radius:8px;display:none}
-        .modal-msg.success{display:block;color:var(--good);background:rgba(110,231,183,0.06);border:1px solid rgba(110,231,183,0.18)}
-        .modal-msg.error{display:block;color:var(--bad);background:rgba(252,165,165,0.06);border:1px solid rgba(252,165,165,0.18)}
+        .modal-msg,.form-msg{margin-top:14px;font-size:14px;text-align:center;padding:12px;border-radius:8px;display:none}
+        .modal-msg.success,.form-msg.success{display:block;color:var(--good);background:rgba(110,231,183,0.06);border:1px solid rgba(110,231,183,0.18)}
+        .modal-msg.error,.form-msg.error{display:block;color:var(--bad);background:rgba(252,165,165,0.06);border:1px solid rgba(252,165,165,0.18)}
         .hp{position:absolute;left:-9999px}
 
         .closer{padding:32px 0 8px;text-align:center}
@@ -224,6 +224,7 @@
             .aurora, .scroll-beam { display: none; }
         }
     </style>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
     <!-- fx-layer -->
@@ -312,19 +313,23 @@
             <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
             <h3 id="modal-title">Download white paper</h3>
             <p class="modal-desc">Enter your email and we&rsquo;ll send the download link right away.</p>
-            <form id="download-form" novalidate>
+            <form id="download-form" data-lead-endpoint="/whitepaper" data-success="Check your email &mdash; the download link is on its way." novalidate>
                 <input type="hidden" name="whitepaper_slug" id="wp-slug">
-                <div class="hp"><label>Leave blank<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
+                <div class="hp" aria-hidden="true"><label>Leave blank<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
                 <div class="form-row">
                     <label for="wp-first">First name</label>
-                    <input id="wp-first" type="text" name="first_name" placeholder="First name" required autocomplete="given-name">
+                    <input id="wp-first" type="text" name="first_name" placeholder="First name" required autocomplete="given-name" maxlength="100">
                 </div>
                 <div class="form-row">
                     <label for="wp-email">Work email</label>
-                    <input id="wp-email" type="email" name="email" placeholder="you@company.com" required autocomplete="email">
+                    <input id="wp-email" type="email" name="email" placeholder="you@company.com" required autocomplete="email" maxlength="254">
                 </div>
+                <div class="cf-turnstile" data-sitekey="0x4AAAAAADp7NeAlbo52Jjm0" data-theme="auto" style="margin:14px 0"></div>
+                <div class="form-consent" style="margin:10px 0">
+    <label style="font-weight:400;font-size:.85rem;display:flex;gap:8px;align-items:flex-start"><input type="checkbox" name="consent" data-consent required style="width:auto;margin-top:3px"> <span>I agree to the <a href="https://aictrlnet.com/legal/privacy/">privacy notice</a> and to being contacted about this request.</span></label>
+</div>
                 <button type="submit" id="dl-submit">Get download link</button>
-                <div id="modal-status" class="modal-msg" role="status" aria-live="polite"></div>
+                <div id="modal-status" class="modal-msg form-msg" role="status" aria-live="polite"></div>
             </form>
         </div>
     </div>
@@ -343,126 +348,9 @@
         <p class="footer-meta">&copy; 2026 Bodaty LLC. All rights reserved. AICtrlNet&trade;, HitLai&trade;, and &ldquo;Governed AI Orchestration&rdquo;&trade; are trademarks of Bodaty LLC.</p>
     </footer>
 
-    <script>
-    (function () {
-        var LEAD_API = 'https://marketing-leads-xy6vr5msca-uc.a.run.app';
-        var modal = document.getElementById('download-modal');
-        var slugInput = document.getElementById('wp-slug');
-        var modalTitle = document.getElementById('modal-title');
-        var form = document.getElementById('download-form');
-        var submitBtn = document.getElementById('dl-submit');
-        var status = document.getElementById('modal-status');
+    <script src="/js/lead-form.js" defer></script>
 
-        function showStatus(msg, kind) {
-            status.textContent = msg;
-            status.className = 'modal-msg ' + kind;
-        }
-
-        function closeModal() {
-            modal.classList.remove('active');
-        }
-
-        document.querySelectorAll('.download-btn').forEach(function (btn) {
-            btn.addEventListener('click', function () {
-                slugInput.value = this.dataset.slug;
-                modalTitle.textContent = 'Download: ' + this.dataset.title;
-                modal.classList.add('active');
-                form.reset();
-                form.style.display = 'block';
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Get download link';
-                status.className = 'modal-msg';
-                status.textContent = '';
-            });
-        });
-
-        document.getElementById('modal-close').addEventListener('click', closeModal);
-        modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
-        document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && modal.classList.contains('active')) closeModal(); });
-
-        form.addEventListener('submit', async function (e) {
-            e.preventDefault();
-            if (form._gotcha && form._gotcha.value) return;
-            var data = Object.fromEntries(new FormData(form));
-            data.source_page = window.location.href;
-            data.source_site = window.location.hostname;
-            delete data._gotcha;
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Sending...';
-            try {
-                var res = await fetch(LEAD_API + '/whitepaper', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
-                });
-                var result = await res.json();
-                if (result.success) {
-                    form.style.display = 'none';
-                    showStatus(String(result.message || 'Check your email — the download link is on its way.'), 'success');
-                } else {
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = 'Get download link';
-                    showStatus(String(result.error || 'Something went wrong. Please try again.'), 'error');
-                }
-            } catch (err) {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Get download link';
-                showStatus('Network error. Please try again.', 'error');
-            }
-        });
-
-        // Scroll reveal
-        if ('IntersectionObserver' in window) {
-            var obs = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        obs.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-            document.querySelectorAll('.reveal').forEach(function (el) { obs.observe(el); });
-        } else {
-            document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-visible'); });
-        }
-    })();
-    </script>
-
-    <script>
-    // fx-layer effects
-    (function () {
-        var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        var fine = window.matchMedia('(pointer: fine)').matches;
-
-        var beam = document.querySelector('.scroll-beam');
-        if (beam && !reduced) {
-            var beamQueued = false;
-            function setBeam() {
-                beamQueued = false;
-                var max = document.documentElement.scrollHeight - window.innerHeight;
-                beam.style.transform = 'scaleX(' + (max > 0 ? window.scrollY / max : 0) + ')';
-            }
-            window.addEventListener('scroll', function () {
-                if (!beamQueued) { beamQueued = true; requestAnimationFrame(setBeam); }
-            }, { passive: true });
-            setBeam();
-        }
-
-        if (fine) {
-            document.querySelectorAll('.tile, .pricing-card, .faq-item, .industry-card, .feature-card, .deployment-option, .department-row, .paper-card, .channel-card, .capability-card, .flow-item, .phase-card, .starting-point, .rec-card, .whats-included').forEach(function (card) {
-                card.classList.add('fx-card');
-                var spot = document.createElement('div');
-                spot.className = 'fx-spot';
-                spot.setAttribute('aria-hidden', 'true');
-                card.appendChild(spot);
-                card.addEventListener('mousemove', function (e) {
-                    var r = card.getBoundingClientRect();
-                    card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
-                    card.style.setProperty('--my', (e.clientY - r.top) + 'px');
-                });
-            });
-        }
-    })();
-    </script>
+    <script src="/js/page/resources-index-1.js" defer></script>
+    <script src="/js/page/resources-index-2.js" defer></script>
 </body>
 </html>

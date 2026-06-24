@@ -662,6 +662,7 @@
             .faq-grid { grid-template-columns: 1fr; }
         }
     </style>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 
@@ -1058,14 +1059,14 @@
                 If you want a 15-min call or session info before deciding, use this form. We'll also use it to keep
                 you posted on the September cohort and the online-live format.
             </p>
-            <form id="lead-form" class="signup-form" novalidate>
-                <div style="position:absolute;left:-9999px"><label>Leave blank<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
+            <form id="lead-form" class="signup-form" data-lead-endpoint="/institute" data-success="Thanks &mdash; we&rsquo;ll be in touch with session details." novalidate>
+                <div style="position:absolute;left:-9999px" aria-hidden="true"><label>Leave blank<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
                 <label for="inst-name" class="sr-only">Your name</label>
-                <input id="inst-name" type="text" name="name" placeholder="Your name" required autocomplete="name">
+                <input id="inst-name" type="text" name="name" placeholder="Your name" required autocomplete="name" maxlength="100">
                 <label for="inst-email" class="sr-only">Work email</label>
-                <input id="inst-email" type="email" name="email" placeholder="Work email" required autocomplete="email">
+                <input id="inst-email" type="email" name="email" placeholder="Work email" required autocomplete="email" maxlength="254">
                 <label for="inst-company" class="sr-only">Company · Role</label>
-                <input id="inst-company" type="text" name="company" placeholder="Company · Role" autocomplete="organization">
+                <input id="inst-company" type="text" name="company" placeholder="Company · Role" autocomplete="organization" maxlength="100">
                 <label for="inst-format" class="sr-only">Preferred format</label>
                 <select id="inst-format" name="format" required>
                     <option value="">Preferred format…</option>
@@ -1085,7 +1086,11 @@
                     <option value="any">Interested in all of them</option>
                 </select>
                 <label for="inst-goal" class="sr-only">Your goal</label>
-                <textarea id="inst-goal" name="goal" placeholder="Optional: what's the one work your team would hand off first if AI could draft and they approved?" rows="3"></textarea>
+                <textarea id="inst-goal" name="goal" placeholder="Optional: what's the one work your team would hand off first if AI could draft and they approved?" rows="3" maxlength="2000"></textarea>
+                <div class="cf-turnstile" data-sitekey="0x4AAAAAADp7NeAlbo52Jjm0" data-theme="auto" style="margin:14px 0"></div>
+                <div class="form-consent" style="margin:10px 0">
+    <label style="font-weight:400;font-size:.85rem;display:flex;gap:8px;align-items:flex-start"><input type="checkbox" name="consent" data-consent required style="width:auto;margin-top:3px"> <span>I agree to the <a href="https://aictrlnet.com/legal/privacy/">privacy notice</a> and to being contacted about this request.</span></label>
+</div>
                 <button type="submit" class="btn btn-primary">Send me details</button>
                 <div id="form-status" role="status" aria-live="polite" style="display:none; margin-top: 1rem; padding: 0.875rem; border-radius: 8px; font-size: 0.95rem; text-align: center;"></div>
                 <p class="form-privacy">
@@ -1268,60 +1273,6 @@
         <p style="font-size: 0.75rem; color: #888; margin-top: 0.25rem;">AICtrlNet&trade;, HitLai&trade;, and &ldquo;Governed AI Orchestration&rdquo;&trade; are trademarks of Bodaty LLC.</p>
     </footer>
 
-    <script>
-    (function () {
-        var LEAD_API = 'https://marketing-leads-xy6vr5msca-uc.a.run.app';
-        var form = document.getElementById('lead-form');
-        if (!form) return;
-        var btn = form.querySelector('button[type="submit"]');
-        var btnText = btn.textContent;
-        var status = document.getElementById('form-status');
-
-        function showStatus(msg, kind) {
-            status.style.display = 'block';
-            status.textContent = msg;
-            if (kind === 'success') {
-                status.style.color = '#6ee7b7';
-                status.style.background = 'rgba(110,231,183,0.06)';
-                status.style.border = '1px solid rgba(110,231,183,0.18)';
-            } else {
-                status.style.color = '#fca5a5';
-                status.style.background = 'rgba(252,165,165,0.06)';
-                status.style.border = '1px solid rgba(252,165,165,0.18)';
-            }
-        }
-
-        form.addEventListener('submit', async function (e) {
-            e.preventDefault();
-            if (form._gotcha && form._gotcha.value) return;
-            var data = Object.fromEntries(new FormData(form));
-            data.source_page = window.location.href;
-            data.source_site = window.location.hostname;
-            delete data._gotcha;
-            btn.disabled = true;
-            btn.textContent = 'Sending...';
-            try {
-                var res = await fetch(LEAD_API + '/institute', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
-                });
-                var result = await res.json();
-                if (result.success) {
-                    form.style.display = 'none';
-                    showStatus(String(result.message || 'Thanks — we’ll be in touch with session details.'), 'success');
-                } else {
-                    btn.disabled = false;
-                    btn.textContent = btnText;
-                    showStatus(String(result.error || 'Something went wrong. Please try again.'), 'error');
-                }
-            } catch (err) {
-                btn.disabled = false;
-                btn.textContent = btnText;
-                showStatus('Network error. Please try again.', 'error');
-            }
-        });
-    })();
-    </script>
+    <script src="/js/lead-form.js" defer></script>
 </body>
 </html>

@@ -204,6 +204,7 @@
             .aurora, .scroll-beam { display: none; }
         }
     </style>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
     <!-- fx-layer -->
@@ -251,27 +252,31 @@
             </div>
         </div>
 
-        <form id="lead-form" class="trial-form" novalidate>
-            <div style="position:absolute;left:-9999px"><label>Leave blank<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
+        <form id="lead-form" class="trial-form" data-lead-endpoint="/trial" data-success="You&rsquo;re in. Check your inbox." novalidate>
+            <div style="position:absolute;left:-9999px" aria-hidden="true"><label>Leave blank<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
             <h3 class="form-title">Create your account</h3>
             <div class="form-row-grid">
                 <div class="form-row">
                     <label for="t-first">First name</label>
-                    <input id="t-first" type="text" name="first_name" placeholder="First name" required autocomplete="given-name">
+                    <input id="t-first" type="text" name="first_name" placeholder="First name" required autocomplete="given-name" maxlength="100">
                 </div>
                 <div class="form-row">
                     <label for="t-last">Last name</label>
-                    <input id="t-last" type="text" name="last_name" placeholder="Last name" required autocomplete="family-name">
+                    <input id="t-last" type="text" name="last_name" placeholder="Last name" required autocomplete="family-name" maxlength="100">
                 </div>
             </div>
             <div class="form-row">
                 <label for="t-email">Work email</label>
-                <input id="t-email" type="email" name="email" placeholder="you@company.com" required autocomplete="email">
+                <input id="t-email" type="email" name="email" placeholder="you@company.com" required autocomplete="email" maxlength="254">
             </div>
             <div class="form-row">
                 <label for="t-company">Company</label>
-                <input id="t-company" type="text" name="company" placeholder="Company name" autocomplete="organization">
+                <input id="t-company" type="text" name="company" placeholder="Company name" autocomplete="organization" maxlength="100">
             </div>
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAADp7NeAlbo52Jjm0" data-theme="auto" style="margin:14px 0"></div>
+            <div class="form-consent" style="margin:10px 0">
+    <label style="font-weight:400;font-size:.85rem;display:flex;gap:8px;align-items:flex-start"><input type="checkbox" name="consent" data-consent required style="width:auto;margin-top:3px"> <span>I agree to the <a href="https://aictrlnet.com/legal/privacy/">privacy notice</a> and to being contacted about this request.</span></label>
+</div>
             <button type="submit">Start 14-Day Free Trial</button>
             <p class="no-cc">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
@@ -301,88 +306,8 @@
         <p class="footer-meta">&copy; 2026 Bodaty LLC. All rights reserved. AICtrlNet&trade;, HitLai&trade;, and &ldquo;Governed AI Orchestration&rdquo;&trade; are trademarks of Bodaty LLC.</p>
     </footer>
 
-    <script>
-    (function () {
-        var LEAD_API = 'https://marketing-leads-xy6vr5msca-uc.a.run.app';
-        var form = document.getElementById('lead-form');
-        if (!form) return;
-        var btn = form.querySelector('button[type="submit"]');
-        var btnText = btn.textContent;
-        var status = document.getElementById('form-status');
+    <script src="/js/lead-form.js" defer></script>
 
-        function showStatus(msg, kind) {
-            status.textContent = msg;
-            status.className = 'form-msg ' + kind;
-        }
-
-        form.addEventListener('submit', async function (e) {
-            e.preventDefault();
-            if (form._gotcha && form._gotcha.value) return;
-            var data = Object.fromEntries(new FormData(form));
-            data.source_page = window.location.href;
-            data.source_site = window.location.hostname;
-            delete data._gotcha;
-            btn.disabled = true;
-            btn.textContent = 'Sending...';
-            try {
-                var res = await fetch(LEAD_API + '/trial', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
-                });
-                var result = await res.json();
-                if (result.success) {
-                    form.style.display = 'none';
-                    showStatus(String(result.message || 'You’re in. Check your inbox.'), 'success');
-                } else {
-                    btn.disabled = false;
-                    btn.textContent = btnText;
-                    showStatus(String(result.error || 'Something went wrong. Please try again.'), 'error');
-                }
-            } catch (err) {
-                btn.disabled = false;
-                btn.textContent = btnText;
-                showStatus('Network error. Please try again.', 'error');
-            }
-        });
-    })();
-    </script>
-
-    <script>
-    // fx-layer effects
-    (function () {
-        var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        var fine = window.matchMedia('(pointer: fine)').matches;
-
-        var beam = document.querySelector('.scroll-beam');
-        if (beam && !reduced) {
-            var beamQueued = false;
-            function setBeam() {
-                beamQueued = false;
-                var max = document.documentElement.scrollHeight - window.innerHeight;
-                beam.style.transform = 'scaleX(' + (max > 0 ? window.scrollY / max : 0) + ')';
-            }
-            window.addEventListener('scroll', function () {
-                if (!beamQueued) { beamQueued = true; requestAnimationFrame(setBeam); }
-            }, { passive: true });
-            setBeam();
-        }
-
-        if (fine) {
-            document.querySelectorAll('.tile, .pricing-card, .faq-item, .industry-card, .feature-card, .deployment-option, .department-row, .paper-card, .channel-card, .capability-card, .flow-item, .phase-card, .starting-point, .rec-card, .whats-included').forEach(function (card) {
-                card.classList.add('fx-card');
-                var spot = document.createElement('div');
-                spot.className = 'fx-spot';
-                spot.setAttribute('aria-hidden', 'true');
-                card.appendChild(spot);
-                card.addEventListener('mousemove', function (e) {
-                    var r = card.getBoundingClientRect();
-                    card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
-                    card.style.setProperty('--my', (e.clientY - r.top) + 'px');
-                });
-            });
-        }
-    })();
-    </script>
+    <script src="/js/page/trial-index-1.js" defer></script>
 </body>
 </html>

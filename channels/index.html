@@ -391,59 +391,8 @@
         <p class="footer-meta">&copy; 2026 Bodaty LLC. All rights reserved. AICtrlNet&trade;, HitLai&trade;, and &ldquo;Governed AI Orchestration&rdquo;&trade; are trademarks of Bodaty LLC.</p>
     </footer>
 
-    <script>
-    (function () {
-        if (!('IntersectionObserver' in window)) {
-            document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-visible'); });
-            return;
-        }
-        var obs = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    obs.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-        document.querySelectorAll('.reveal').forEach(function (el) { obs.observe(el); });
-    })();
-    </script>
+    <script src="/js/page/channels-index-1.js" defer></script>
 
-    <script>
-    // fx-layer effects
-    (function () {
-        var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        var fine = window.matchMedia('(pointer: fine)').matches;
-
-        var beam = document.querySelector('.scroll-beam');
-        if (beam && !reduced) {
-            var beamQueued = false;
-            function setBeam() {
-                beamQueued = false;
-                var max = document.documentElement.scrollHeight - window.innerHeight;
-                beam.style.transform = 'scaleX(' + (max > 0 ? window.scrollY / max : 0) + ')';
-            }
-            window.addEventListener('scroll', function () {
-                if (!beamQueued) { beamQueued = true; requestAnimationFrame(setBeam); }
-            }, { passive: true });
-            setBeam();
-        }
-
-        if (fine) {
-            document.querySelectorAll('.tile, .pricing-card, .faq-item, .industry-card, .feature-card, .deployment-option, .department-row, .paper-card, .channel-card, .capability-card, .flow-item, .phase-card, .starting-point, .rec-card, .whats-included').forEach(function (card) {
-                card.classList.add('fx-card');
-                var spot = document.createElement('div');
-                spot.className = 'fx-spot';
-                spot.setAttribute('aria-hidden', 'true');
-                card.appendChild(spot);
-                card.addEventListener('mousemove', function (e) {
-                    var r = card.getBoundingClientRect();
-                    card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
-                    card.style.setProperty('--my', (e.clientY - r.top) + 'px');
-                });
-            });
-        }
-    })();
-    </script>
+    <script src="/js/page/channels-index-2.js" defer></script>
 </body>
 </html>
