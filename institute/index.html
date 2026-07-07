@@ -696,7 +696,7 @@
                 On our cloud or yours, any AI model — your choice. Works with what you've got. Builds what we don't, automatically.
             </p>
             <div class="hero-ctas">
-                <a href="#next-session" class="btn btn-primary">Join the next session</a>
+                <a href="https://buy.stripe.com/7sY9AU4VwcHA3rd5B71oI00?prefilled_promo_code=FIRST10" class="btn btn-primary">Reserve your seat →</a>
                 <a href="#modules" class="btn btn-secondary">See the modules</a>
             </div>
         </section>
@@ -737,7 +737,7 @@
 
             <!-- Primary CTAs -->
             <div style="display: flex; gap: 0.875rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem;">
-                <a href="https://buy.stripe.com/7sY9AU4VwcHA3rd5B71oI00" class="btn btn-primary" id="cohort-buy-btn">Reserve your seat →</a>
+                <a href="https://buy.stripe.com/7sY9AU4VwcHA3rd5B71oI00?prefilled_promo_code=FIRST10" class="btn btn-primary" id="cohort-buy-btn">Reserve your seat →</a>
                 <a href="#next-session" class="btn btn-secondary">Send me details first</a>
             </div>
 
@@ -1059,7 +1059,7 @@
                 If you want a 15-min call or session info before deciding, use this form. We'll also use it to keep
                 you posted on the September workshop and the online-live format.
             </p>
-            <form id="lead-form" class="signup-form" data-lead-endpoint="/institute" data-success="Thanks &mdash; we&rsquo;ll be in touch with session details." novalidate>
+            <form id="lead-form" class="signup-form" data-lead-endpoint="/institute" data-success="Thanks &mdash; we&rsquo;ll be in touch with session details." data-redirect-on-success="https://buy.stripe.com/7sY9AU4VwcHA3rd5B71oI00?prefilled_promo_code=FIRST10" data-redirect-when="format=in-person-founding" data-redirect-label="Reserve your seat &rarr;" novalidate>
                 <div style="position:absolute;left:-9999px" aria-hidden="true"><label>Leave blank<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
                 <label for="inst-name" class="sr-only">Your name</label>
                 <input id="inst-name" type="text" name="name" placeholder="Your name" required autocomplete="name" maxlength="100">
@@ -1070,7 +1070,7 @@
                 <label for="inst-format" class="sr-only">Preferred format</label>
                 <select id="inst-format" name="format" required>
                     <option value="">Preferred format…</option>
-                    <option value="in-person-founding">Founding Workshop — July 22, Chicago (need more info before I buy)</option>
+                    <option value="in-person-founding">Founding Workshop — July 22, Chicago (reserve my seat now)</option>
                     <option value="in-person-september">In-person — September Chicago workshop</option>
                     <option value="online-live">Online live</option>
                     <option value="recording">Notify me when recordings are available</option>
@@ -1273,6 +1273,7 @@
         <p style="font-size: 0.75rem; color: #888; margin-top: 0.25rem;">AICtrlNet&trade;, HitLai&trade;, and &ldquo;Governed AI Orchestration&rdquo;&trade; are trademarks of Bodaty LLC.</p>
     </footer>
 
+    <script src="/js/institute-checkout.js" defer></script>
     <script src="/js/lead-form.js" defer></script>
 </body>
 </html>

@@ -25,6 +25,25 @@
     var status = form.querySelector('.form-msg') || document.getElementById('form-status');
     var successMsg = form.getAttribute('data-success') || 'Thanks — we’ll be in touch shortly.';
 
+    // Optional opt-in: after a successful capture, forward to a checkout URL.
+    //   data-redirect-on-success="<url>"       where to send them after the lead saves
+    //   data-redirect-when="field=value"        only redirect for this selection (absent = always)
+    //   data-redirect-label="…"                 submit-button text while the condition is met
+    // Forms without these attributes behave exactly as before.
+    var redirectUrl = form.getAttribute('data-redirect-on-success');
+    var redirectWhen = form.getAttribute('data-redirect-when');
+    var redirectLabel = form.getAttribute('data-redirect-label');
+    function whenMatches() {
+      if (!redirectWhen) return true;
+      var i = redirectWhen.indexOf('=');
+      if (i < 0) return true;
+      var f = form.querySelector('[name="' + redirectWhen.slice(0, i) + '"]');
+      return !!f && String(f.value) === redirectWhen.slice(i + 1);
+    }
+    function currentLabel() {
+      return (redirectLabel && redirectWhen && whenMatches()) ? redirectLabel : btnText;
+    }
+
     function show(msg, kind) {
       if (!status) return;
       status.textContent = msg;
@@ -32,8 +51,16 @@
       status.style.display = '';   // clear any inline display:none so the message is visible
     }
     function rearm() {
-      if (btn) { btn.disabled = false; btn.textContent = btnText; }
+      if (btn) { btn.disabled = false; btn.textContent = currentLabel(); }
       if (window.turnstile) { try { window.turnstile.reset(); } catch (e) {} }
+    }
+    if (btn && redirectLabel && redirectWhen) {
+      var wi = redirectWhen.indexOf('=');
+      var wField = wi > -1 ? form.querySelector('[name="' + redirectWhen.slice(0, wi) + '"]') : null;
+      if (wField) {
+        wField.addEventListener('change', function () { btn.textContent = currentLabel(); });
+        btn.textContent = currentLabel();
+      }
     }
 
     form.addEventListener('submit', async function (e) {
@@ -71,6 +98,12 @@
         });
         var result = await res.json();
         if (result.success) {
+          // Lead is captured — optionally forward to checkout (e.g. founding-cohort reserve).
+          if (redirectUrl && whenMatches()) {
+            show('Saved — taking you to reserve your seat…', 'success');
+            window.location.assign(redirectUrl);
+            return;
+          }
           form.style.display = 'none';
           show(String(result.message || successMsg), 'success');
         } else {
