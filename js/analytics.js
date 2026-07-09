@@ -106,7 +106,12 @@
         promo = new URLSearchParams(href.slice(qIndex)).get('prefilled_promo_code') || '';
       }
     } catch (err) {}
-    window.mmTrack('buy_click', promo ? { promo_code: promo } : {});
+    var params = promo ? { promo_code: promo } : {};
+    var merged = Object.assign({}, attribution, params);
+    // gtag needs beacon transport to guarantee delivery before page unload on navigation
+    try { window.gtag('event', 'buy_click', Object.assign({ transport_type: 'beacon' }, merged)); } catch (e) {}
+    // fbq doesn't support beacon transport; keep payload clean of gtag-specific params
+    try { window.fbq('trackCustom', 'buy_click', merged); } catch (e) {}
   }, true);
 
   // ---- Auto-wire: lead_submit on form[data-lead-endpoint] success ----
