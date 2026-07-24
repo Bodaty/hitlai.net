@@ -1,0 +1,17 @@
+# HitLai
+
+> The AI that runs your business — alongside the people and systems you already have. Human-in-the-loop AI (HITL AI) for small and mid-size businesses. Built on AICtrlNet by Bodaty LLC. Ready in minutes; we set it up with you.
+
+## Core pages
+
+- [Features](https://hitlai.net/features/): what HitLai does day-to-day
+- [Pricing](https://hitlai.net/pricing/): two plans, expert hours included
+- [Industries](https://hitlai.net/industries/): industry-specific AI workflows
+- [Trial](https://hitlai.net/trial/): start free
+- [Demo](https://hitlai.net/demo/): see it running
+- [Institute](https://hitlai.net/institute/): hands-on AI workshops for business owners
+
+## Related
+
+- [AICtrlNet](https://aictrlnet.com/): the open-core platform HitLai runs on
+- [Bodaty](https://bodaty.com/): the company
