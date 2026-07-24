@@ -1,0 +1,33 @@
+name: seo
+on:
+  push:
+    branches: [main]
+jobs:
+  seo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Sitemap drift check
+        run: |
+          missing=0
+          for d in $(find . -maxdepth 2 -name index.html -not -path './index.html' | sed 's|^\./||;s|index.html||'); do
+            grep -q "hitlai.net/$d" sitemap.xml || { echo "MISSING from sitemap: /$d"; missing=1; }
+          done
+          exit $missing
+      - name: Wait for GH Pages deploy
+        run: |
+          want=$(md5sum sitemap.xml | cut -d' ' -f1)
+          for i in $(seq 1 30); do
+            got=$(curl -s https://hitlai.net/sitemap.xml | md5sum | cut -d' ' -f1)
+            [ "$got" = "$want" ] && exit 0
+            sleep 20
+          done
+          echo "deploy not observed in 10min — pinging with live sitemap anyway"
+      - name: IndexNow ping
+        env:
+          KEY: ${{ secrets.INDEXNOW_KEY }}
+        run: |
+          urls=$(curl -s https://hitlai.net/sitemap.xml | grep -o '<loc>[^<]*</loc>' | sed 's/<[^>]*>//g' | jq -R . | jq -cs .)
+          curl -s -w "\nHTTP %{http_code}\n" -X POST https://api.indexnow.org/indexnow \
+            -H 'Content-Type: application/json; charset=utf-8' \
+            -d "{\"host\":\"hitlai.net\",\"key\":\"$KEY\",\"keyLocation\":\"https://hitlai.net/$KEY.txt\",\"urlList\":$urls}"
