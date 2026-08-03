@@ -49,11 +49,12 @@
           "name": "HitLai",
           "url": "https://hitlai.net/",
           "description": "The AI that runs your business — alongside the people and systems you already have. Coordinated AI organization with industry-specific workflows, ready in minutes.",
-          "brand": { "@id": "https://bodaty.com/#org" },
+          "image": ["https://hitlai.net/og-image.png", "https://hitlai.net/icon-512.png"],
+          "brand": { "@type": "Organization", "@id": "https://bodaty.com/#org", "name": "Bodaty LLC" },
           "offers": [
-            { "@type": "Offer", "name": "Business Starter", "price": "599", "priceCurrency": "USD" },
-            { "@type": "Offer", "name": "Business Growth", "price": "1499", "priceCurrency": "USD" },
-            { "@type": "Offer", "name": "Business Scale", "price": "2499", "priceCurrency": "USD" }
+            { "@type": "Offer", "name": "Business Starter", "price": "599", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
+            { "@type": "Offer", "name": "Business Growth", "price": "1499", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
+            { "@type": "Offer", "name": "Business Scale", "price": "2499", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
           ]
         },
         { "@type": "WebPage", "name": "HitLai Pricing", "url": "https://hitlai.net/pricing/" }
