@@ -1,17 +1,31 @@
 # HitLai
 
-> The AI that runs your business — alongside the people and systems you already have. Human-in-the-loop AI (HITL AI) for small and mid-size businesses. Built on AICtrlNet by Bodaty LLC. Ready in minutes; we set it up with you.
+> The AI that runs your business — alongside the people and systems you already have. HitLai (from "HITL AI", human-in-the-loop AI) is AI automation for small and mid-size businesses: AI drafts and does the work, and the owner decides how much of it a person reviews first. Built on AICtrlNet by Bodaty LLC. Ready in minutes; we set it up with you.
 
 ## Core pages
 
 - [Features](https://hitlai.net/features/): what HitLai does day-to-day
 - [Pricing](https://hitlai.net/pricing/): two plans, expert hours included
 - [Industries](https://hitlai.net/industries/): industry-specific AI workflows
+- [Autonomy](https://hitlai.net/autonomy/): how the owner sets how much AI runs on its own
 - [Trial](https://hitlai.net/trial/): start free
 - [Demo](https://hitlai.net/demo/): see it running
+- [Free AI-visibility audit](https://hitlai.net/audit/): see how AI search engines describe your business
 - [Institute](https://hitlai.net/institute/): hands-on AI workshops for business owners
+
+## Answers
+
+- [Alternatives to Zapier with human approval steps](https://aictrlnet.com/faq/alternatives-to-zapier-with-human-approval-steps/)
+- [How a small business can trust AI not to make mistakes with clients](https://aictrlnet.com/faq/how-can-a-small-business-trust-ai-not-to-make-mistakes-with-clients/)
+- [AI tool to automate invoices and paperwork for small business](https://aictrlnet.com/faq/ai-tool-to-automate-invoices-and-paperwork-for-small-business/)
+- [Running workflows from WhatsApp](https://aictrlnet.com/faq/can-my-team-run-workflows-from-whatsapp/)
+- [HitLai compared with Relay.app](https://aictrlnet.com/faq/hitlai-vs-relay-app/)
+- [What to use now that Relay.app is shutting down](https://aictrlnet.com/faq/relay-app-shutting-down-alternatives/)
+- [Build your own AI automation or buy a governed platform](https://aictrlnet.com/faq/build-vs-buy-ai-automation/)
+- [When your AI makes an expensive mistake, who pays?](https://aictrlnet.com/blog/2026/08/when-your-ai-makes-an-expensive-mistake-who-pays/)
 
 ## Related
 
 - [AICtrlNet](https://aictrlnet.com/): the open-core platform HitLai runs on
 - [Bodaty](https://bodaty.com/): the company
+- [HitLai on AlternativeTo](https://alternativeto.net/software/hitlai/)
