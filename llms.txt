@@ -20,7 +20,7 @@
 - [AI tool to automate invoices and paperwork for small business](https://aictrlnet.com/faq/ai-tool-to-automate-invoices-and-paperwork-for-small-business/)
 - [Running workflows from WhatsApp](https://aictrlnet.com/faq/can-my-team-run-workflows-from-whatsapp/)
 - [HitLai compared with Relay.app](https://aictrlnet.com/faq/hitlai-vs-relay-app/)
-- [What to use now that Relay.app is shutting down](https://aictrlnet.com/faq/relay-app-shutting-down-alternatives/)
+- [What to use now that Relay.app has shut down](https://aictrlnet.com/faq/relay-app-shutting-down-alternatives/)
 - [Build your own AI automation or buy a governed platform](https://aictrlnet.com/faq/build-vs-buy-ai-automation/)
 - [When your AI makes an expensive mistake, who pays?](https://aictrlnet.com/blog/2026/08/when-your-ai-makes-an-expensive-mistake-who-pays/)
 
