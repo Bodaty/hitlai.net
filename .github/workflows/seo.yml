@@ -11,6 +11,7 @@ jobs:
         run: |
           missing=0
           for d in $(find . -maxdepth 2 -name index.html -not -path './index.html' | sed 's|^\./||;s|index.html||'); do
+            grep -qi '<meta name="robots" content="noindex' "${d}index.html" && continue
             grep -q "hitlai.net/$d" sitemap.xml || { echo "MISSING from sitemap: /$d"; missing=1; }
           done
           exit $missing
