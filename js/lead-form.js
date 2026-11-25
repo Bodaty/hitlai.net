@@ -10,12 +10,56 @@
  *     <div class="form-msg" role="status" aria-live="polite"></div>
  *   </form>
  *
+ * Every lead also carries the visitor's first-touch UTM tags and outside referrer (utm, referrer).
  * The backend (marketing-leads Cloud Run) verifies the Turnstile token server-side and rate-limits;
  * the checks here are UX, not security.
  */
 (function () {
   'use strict';
   var LEAD_API = 'https://marketing-leads-xy6vr5msca-uc.a.run.app';
+
+  // Load once, even when a page includes this file twice (the site-wide tag and a form page's own).
+  if (window.__leadFormLoaded) return;
+  window.__leadFormLoaded = true;
+
+  // First-touch attribution: the UTM tags and the outside referrer a visitor arrived with, kept for
+  // the browser session, so a lead sent from a later page still carries them. Only utm_* is read
+  // from the query string, and the referrer is cut to origin + path (PII minimization).
+  var TOUCH_KEY = 'lead_first_touch';
+  var UTM_KEYS = ['source', 'medium', 'campaign', 'content', 'term'];
+
+  function siteHost(host) { return String(host || '').replace(/^www\./, ''); }
+
+  function pageTouch() {
+    var params = new URLSearchParams(window.location.search);
+    var utm = {};
+    UTM_KEYS.forEach(function (k) {
+      var v = (params.get('utm_' + k) || '').trim();
+      if (v) utm[k] = v.slice(0, 200);
+    });
+    var referrer = '';
+    try {
+      var ref = new URL(document.referrer);
+      if (siteHost(ref.hostname) !== siteHost(window.location.hostname)) {
+        referrer = (ref.origin + ref.pathname).slice(0, 1000);
+      }
+    } catch (e) {}
+    return { utm: utm, referrer: referrer };
+  }
+
+  function firstTouch() {
+    var stored = null;
+    try { stored = JSON.parse(window.sessionStorage.getItem(TOUCH_KEY) || 'null'); } catch (e) {}
+    if (stored && typeof stored.utm === 'object' && stored.utm && typeof stored.referrer === 'string') {
+      return stored;
+    }
+    var touch = pageTouch();
+    if (Object.keys(touch.utm).length || touch.referrer) {
+      try { window.sessionStorage.setItem(TOUCH_KEY, JSON.stringify(touch)); } catch (e) {}
+    }
+    return touch;
+  }
+  firstTouch();   // record the landing page's touch even when it has no form
 
   function init(form) {
     var endpoint = form.getAttribute('data-lead-endpoint');
@@ -87,6 +131,9 @@
 
       data.source_page = window.location.pathname;   // strip query params (PII minimization)
       data.source_site = window.location.hostname;
+      var touch = firstTouch();
+      data.utm = touch.utm;
+      data.referrer = touch.referrer;
       delete data._gotcha;
 
       if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
